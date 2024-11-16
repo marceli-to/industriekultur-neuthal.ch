@@ -1,16 +1,143 @@
-  <nav 
-    x-cloak 
-    x-show="menu"
-    x-transition:enter="transition ease-out duration-240"
-    x-transition:enter-start="opacity-0"
-    x-transition:enter-end="opacity-100"
-    x-transition:leave="transition ease-in duration-240"
-    x-transition:leave-start="opacity-100"
-    x-transition:leave-end="opacity-0"
-    class="bg-white">
-    <ul>
-      {{ nav:main }}
-        {{ partial:menu/item }}
-      {{ /nav:main }}
-    </ul>
-  </nav>
+<nav class="max-w-3xl mx-auto mt-20 py-5 relative bg-red-100">
+  <ul class="flex gap-x-40 text-sm">
+    <li class="bg-orange-200">
+      <a href="" data-flyout-trigger="besuchen">Besuchen</a>
+    </li>
+    <li>
+      <a href="" data-flyout-trigger="unterstutzen">Unterstützen</a>
+    </li>
+    <li>
+      <a href="" data-flyout-trigger="uber-uns">Über uns</a>
+    </li>
+  </ul>
+  <div 
+    class="absolute left-0 top-25 pt-15 inline-flex text-sm h-auto w-auto opacity-0 pointer-events-none transition-all duration-200"
+    data-flyout-container>
+
+    <div class="
+      p-10 
+      bg-white
+      relative 
+      border-2 
+      border-black 
+      before:content-['']
+      before:absolute
+      before:left-20
+      before:-top-9
+      before:w-15
+      before:h-15
+      before:rotate-45
+      before:border-t-2
+      before:border-l-2
+      before:border-black
+      before:bg-white">
+      
+      <div class="hidden opacity-0" data-flyout-items="besuchen">
+        <ul>
+          <li>
+            <a href="">Kontakt</a>
+          </li>
+          <li>
+            <a href="">Öffnungszeiten im Sommer</a>
+          </li>
+          <li>
+            <a href="">Anfahrt</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="hidden opacity-0" data-flyout-items="unterstutzen">
+        <ul>
+          <li>
+            <a href="">Spenden</a>
+          </li>
+          <li>
+            <a href="">Spendenkonto</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="hidden opacity-0" data-flyout-items="uber-uns">
+        <ul>
+          <li>
+            <a href="">Mitglied werden</a>
+          </li>
+          <li>
+            <a href="">Mitarbeiter</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</nav>
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .is-active {
+    animation: fadeIn 0.3s .1s ease-in-out forwards;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    const menuTriggers = document.querySelectorAll('[data-flyout-trigger]');
+    const menuContainer = document.querySelector('[data-flyout-container]');
+    const menuItems = document.querySelectorAll('[data-flyout-items]');
+  
+    let isMenuOpen = false;  // Track if any menu is currently open
+  
+    menuTriggers.forEach(trigger => {
+      trigger.addEventListener('mouseenter', (e) => {
+        const menuId = e.target.dataset.flyoutTrigger;
+        const triggerRect = e.target.getBoundingClientRect();
+        const navRect = e.target.closest('nav').getBoundingClientRect();
+        const left = triggerRect.left - navRect.left;
+  
+        // Add transition only if menu is already open
+        if (isMenuOpen) {
+          menuContainer.classList.add('transition-all', 'duration-200');
+        } else {
+          menuContainer.classList.remove('transition-all', 'duration-200');
+        }
+  
+        // Position the container
+        menuContainer.style.left = `${left}px`;
+        menuContainer.classList.remove('opacity-0', 'pointer-events-none');
+
+        // Show correct menu items
+        menuItems.forEach(item => {
+          if (item.dataset.flyoutItems === menuId) {
+            item.classList.remove('hidden');
+            item.classList.add('is-active');
+          } else {
+            item.classList.add('hidden');
+            item.classList.remove('is-active');
+          }
+        });
+  
+        isMenuOpen = true;
+      });
+    });
+  
+    // Hide menu when mouse leaves nav
+    const nav = document.querySelector('nav');
+    nav.addEventListener('mouseleave', () => {
+      menuContainer.classList.remove('transition-all', 'duration-200');  // Remove transition when closing
+      menuContainer.classList.add('opacity-0', 'pointer-events-none');
+      isMenuOpen = false;
+    });
+  
+    // Hide menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!menuContainer.contains(e.target)) {
+        menuContainer.classList.remove('transition-all', 'duration-200');  // Remove transition when closing
+        menuContainer.classList.add('opacity-0', 'pointer-events-none');
+        isMenuOpen = false;
+      }
+    });
+  });
+</script>
