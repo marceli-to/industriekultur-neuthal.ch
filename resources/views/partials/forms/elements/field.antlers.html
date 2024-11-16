@@ -1,0 +1,19 @@
+{{ if type == 'textarea' }}
+  <div class="{{ class }} {{ if error }} has-error {{ /if }}">
+    <label for="{{ name }}">
+      {{ display }} {{ if validate | contains:required }}*{{ /if }}
+    </label>
+    {{ field }}
+  </div>
+{{ elseif type == 'toggle'}}
+  <div class="checkboxes mt-5 mb-15 {{ class }} {{ if error }} has-error {{ /if }}">
+    {{ field }}
+  </div>
+{{ else }}
+  <div class="mb-15 {{ class }} {{ if error }} has-error {{ /if }}">
+    <label for="{{ name }}">
+      {{ display }} {{ if validate | contains:required }}*{{ /if }}
+    </label>
+    {{ field }}
+  </div>
+{{ /if }}
