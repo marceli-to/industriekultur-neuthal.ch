@@ -1,4 +1,4 @@
-<nav class="max-w-3xl mx-auto mt-20 py-5 relative bg-red-100">
+<nav class="max-w-3xl mx-auto pb-0 relative bg-green-50 {{ class }}">
   <ul class="flex gap-x-40 text-sm">
     <li>
       <a href="" data-flyout-trigger="besuchen">Besuchen</a>
@@ -11,32 +11,9 @@
     </li>
   </ul>
   <div 
-    class="absolute left-0 top-25 pt-15 inline-flex text-sm h-auto w-auto opacity-0 pointer-events-none transition-all duration-200"
+    class="bg-red-100 absolute left-0 top-15 pt-20 inline-flex text-sm h-auto w-auto opacity-0 pointer-events-none transition-all duration-200"
     data-flyout-container>
-
-
-    <div class="menu-bubble
-            {{# 
-      bg-white
-      relative 
-      border-2 
-      rounded-[2px]
-      border-black 
-      before:content-['']
-      before:absolute
-      before:left-0
-      before:-top-9
-      before:bg-spike
-      before:bg-[length:64px_auto]
-      before:bg-no-repeat
-      before:w-44
-      before:h-22
-
-      before:rotate-45
-      before:border-t-2
-      before:border-l-2 
-      before:border-black
-      before:bg-white#}}">
+    <div class="relative p-10 min-w-[120px] bg-white rounded-[2px] border-2 border-black after:content-[''] after:absolute after:-top-[15px] after:left-[15px] after:h-0 after:w-0 after:border-x-[8px] after:border-b-[15px] after:border-x-transparent after:border-b-white after:z-[1] before:content-[''] before:absolute before:-top-[18px] before:left-[14px] before:h-0 before:w-0 before:border-x-[9px] before:border-b-[16px] before:border-x-transparent before:border-b-black before:z-0">
       
       <div class="hidden opacity-0" data-flyout-items="besuchen">
         <ul>
@@ -77,6 +54,7 @@
 
   </div>
 </nav>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
 

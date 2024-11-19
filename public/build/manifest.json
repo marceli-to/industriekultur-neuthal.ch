@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-1e6843e9.css",
+    "file": "assets/app-f8690cd5.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -27,10 +27,6 @@
   "resources/css/fonts/Calibre-Semibold.woff2": {
     "file": "assets/Calibre-Semibold-a6c6bc5d.woff2",
     "src": "resources/css/fonts/Calibre-Semibold.woff2"
-  },
-  "resources/img/spike.svg": {
-    "file": "assets/spike-8d8d67dc.svg",
-    "src": "resources/img/spike.svg"
   },
   "resources/js/app.js": {
     "file": "assets/app-881e75c5.js",

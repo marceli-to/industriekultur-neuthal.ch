@@ -1,16 +1,16 @@
   <nav 
     x-cloak 
-    x-show="menu"
+    x-show="has_menu"
     x-transition:enter="transition ease-out duration-240"
     x-transition:enter-start="opacity-0"
     x-transition:enter-end="opacity-100"
     x-transition:leave="transition ease-in duration-240"
     x-transition:leave-start="opacity-100"
     x-transition:leave-end="opacity-0"
-    class="bg-white">
+    class="bg-white h-dvh fixed top-0 left-0 w-full {{ class}}">
     <ul>
       {{ nav:main }}
-        {{ partial:menu/item }}
+        {{ partial:menu/mobile/item }}
       {{ /nav:main }}
     </ul>
   </nav>
