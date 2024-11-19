@@ -27,7 +27,7 @@ export default {
 
       fontFamily: {
         'calibre-bold': ['Calibre-Bold', ...defaultTheme.fontFamily.sans],
-        'calibre-semi-bold': ['Calibre-Semibold', ...defaultTheme.fontFamily.sans],
+        'calibre-semi': ['Calibre-Semibold', ...defaultTheme.fontFamily.sans],
         'calibre-regular': ['Calibre-Regular', ...defaultTheme.fontFamily.sans],
       },
 

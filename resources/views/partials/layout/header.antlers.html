@@ -1,9 +1,11 @@
-<header class="{{ class }}">
-  <div>
-    <a href="/" class="">
-      {{ partial:icons/logo class="h-50 md:h-65 lg:h-110 w-auto block" }}
-    </a>
-    {{# {{ partial:menu/button }} #}}
-    {{ partial:menu/wrapper }}
-  </div>
+<header class="{{ class }} sticky top-0 h-96 lg:h-164 bg-white w-full" data-header>
+  {{ partial:layout/inner class="w-full h-[inherit] flex items-center" }}
+    <div class="lg:w-[320px]">
+      {{ partial:icons/logo class="lg:h-53 w-auto" }}
+    </div>
+    <div class="lg:ml-96">
+      {{ partial:menu/button }}
+      {{ partial:menu/wrapper }}
+    </div>
+  {{ /partial:layout/inner }}
 </header>

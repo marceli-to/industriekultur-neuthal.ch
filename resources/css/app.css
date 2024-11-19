@@ -1,4 +1,5 @@
 @import "typo/webfonts.css";
+@import "partials/header.css";
 @import "partials/menu.css";
 
 @tailwind base;
