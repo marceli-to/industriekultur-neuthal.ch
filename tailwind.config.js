@@ -18,11 +18,18 @@ export default {
         'xs': '480px',
       },
 
-      fontFamily: {
+      backgroundImage: {
+        'spike': "url('../img/spike.svg')",
       },
 
       colors: {
       },      
+
+      fontFamily: {
+        'calibre-bold': ['Calibre-Bold', ...defaultTheme.fontFamily.sans],
+        'calibre-semi-bold': ['Calibre-Semibold', ...defaultTheme.fontFamily.sans],
+        'calibre-regular': ['Calibre-Regular', ...defaultTheme.fontFamily.sans],
+      },
 
       fontSize: {
         'sm': '0.875rem', // 14px

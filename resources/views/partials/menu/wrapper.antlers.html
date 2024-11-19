@@ -1,6 +1,6 @@
 <nav class="max-w-3xl mx-auto mt-20 py-5 relative bg-red-100">
   <ul class="flex gap-x-40 text-sm">
-    <li class="bg-orange-200">
+    <li>
       <a href="" data-flyout-trigger="besuchen">Besuchen</a>
     </li>
     <li>
@@ -14,23 +14,29 @@
     class="absolute left-0 top-25 pt-15 inline-flex text-sm h-auto w-auto opacity-0 pointer-events-none transition-all duration-200"
     data-flyout-container>
 
-    <div class="
-      p-10 
+
+    <div class="menu-bubble
+            {{# 
       bg-white
       relative 
       border-2 
+      rounded-[2px]
       border-black 
       before:content-['']
       before:absolute
-      before:left-20
+      before:left-0
       before:-top-9
-      before:w-15
-      before:h-15
+      before:bg-spike
+      before:bg-[length:64px_auto]
+      before:bg-no-repeat
+      before:w-44
+      before:h-22
+
       before:rotate-45
       before:border-t-2
-      before:border-l-2
+      before:border-l-2 
       before:border-black
-      before:bg-white">
+      before:bg-white#}}">
       
       <div class="hidden opacity-0" data-flyout-items="besuchen">
         <ul>
@@ -71,16 +77,6 @@
 
   </div>
 </nav>
-<style>
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  .is-active {
-    animation: fadeIn 0.3s .1s ease-in-out forwards;
-  }
-</style>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
 
@@ -95,7 +91,7 @@
         const menuId = e.target.dataset.flyoutTrigger;
         const triggerRect = e.target.getBoundingClientRect();
         const navRect = e.target.closest('nav').getBoundingClientRect();
-        const left = triggerRect.left - navRect.left;
+        const left = triggerRect.left - navRect.left - 20;
   
         // Add transition only if menu is already open
         if (isMenuOpen) {

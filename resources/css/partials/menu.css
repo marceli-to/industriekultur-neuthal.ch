@@ -1,0 +1,43 @@
+@keyframes menuFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.is-active {
+  animation: menuFadeIn 0.3s .1s ease-in-out forwards;
+}
+
+/**
+ * Created with: https://doodlenerd.com/css-element/speech-bubble-generator
+ */
+
+.menu-bubble {
+  @apply relative p-10 bg-white rounded-[2px] border-2 border-black;
+}
+
+.menu-bubble:after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 0 8px 15px;
+  border-color: #fcfcfc transparent;
+  display: block;
+  width: 0;
+  z-index: 1;
+  top: -15px;
+  left: 15px;
+}
+
+.menu-bubble:before {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 0 9px 16px;
+  border-color: #090808 transparent;
+  display: block;
+  width: 0;
+  z-index: 0;
+  top: -18px;
+  left: 14px;
+}
+

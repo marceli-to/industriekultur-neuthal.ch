@@ -1,8 +1,36 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-49697a65.css",
+    "file": "assets/app-b2612b00.css",
     "isEntry": true,
     "src": "resources/css/app.css"
+  },
+  "resources/css/fonts/Calibre-Bold.woff": {
+    "file": "assets/Calibre-Bold-38cd6f12.woff",
+    "src": "resources/css/fonts/Calibre-Bold.woff"
+  },
+  "resources/css/fonts/Calibre-Bold.woff2": {
+    "file": "assets/Calibre-Bold-6d513dd2.woff2",
+    "src": "resources/css/fonts/Calibre-Bold.woff2"
+  },
+  "resources/css/fonts/Calibre-Regular.woff": {
+    "file": "assets/Calibre-Regular-08b94660.woff",
+    "src": "resources/css/fonts/Calibre-Regular.woff"
+  },
+  "resources/css/fonts/Calibre-Regular.woff2": {
+    "file": "assets/Calibre-Regular-4cc3b83d.woff2",
+    "src": "resources/css/fonts/Calibre-Regular.woff2"
+  },
+  "resources/css/fonts/Calibre-Semibold.woff": {
+    "file": "assets/Calibre-Semibold-be1e39c4.woff",
+    "src": "resources/css/fonts/Calibre-Semibold.woff"
+  },
+  "resources/css/fonts/Calibre-Semibold.woff2": {
+    "file": "assets/Calibre-Semibold-a6c6bc5d.woff2",
+    "src": "resources/css/fonts/Calibre-Semibold.woff2"
+  },
+  "resources/img/spike.svg": {
+    "file": "assets/spike-8d8d67dc.svg",
+    "src": "resources/img/spike.svg"
   },
   "resources/js/app.js": {
     "file": "assets/app-350ff511.js",
