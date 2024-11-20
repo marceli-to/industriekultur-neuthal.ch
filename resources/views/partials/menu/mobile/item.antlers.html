@@ -23,7 +23,7 @@
             {{ if children }}
               <button 
                 @click="open_children = open_children === '{{ slug }}' ? null : '{{ slug }}'; return false;"
-                class="size-32 flex items-center justify-end">
+                class="h-32 w-48 flex items-center justify-end">
                 <span x-show="open_children == '{{ slug }}'">
                   {{ partial:icons/chevrons/up-small class="w-9 h-auto" }}
                 </span>
