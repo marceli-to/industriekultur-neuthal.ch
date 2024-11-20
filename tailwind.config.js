@@ -18,11 +18,21 @@ export default {
         'xs': '480px',
       },
 
-      backgroundImage: {
-        'spike': "url('../img/spike.svg')",
-      },
-
       colors: {
+        'midnight': '#002257',
+        'forest': '#003D04',
+        'mint': '#C3E0BC',
+        'ember': '#ED6200',
+        'peach': '#FDE3C1',
+        'sky': '#C3E7F9',
+        'blush': '#F4DFD9',
+        'crimson': '#BB012E',
+        'lemon': '#DFE896',
+        'pine': '#00514A',
+        'mist': '#D5E2E1',
+        'pink': '#F5AFBF',
+        'apricot': '#F5AB8E',
+        'vanilla': '#FFF6A9',
       },      
 
       fontFamily: {
@@ -32,10 +42,11 @@ export default {
       },
 
       fontSize: {
-        'sm': '0.875rem', // 14px
-        'base': '1rem',   // 16px 
-        'md': '1.125rem', // 18px
-        'lg': '1.625rem', // 26px
+        'sm': '1rem',       // 16px
+        'md': '1.625rem',   // 26px
+        'lg': '3.125rem',   // 50px
+        'xl': '3.4375rem',  // 55px
+        '2xl': '4.375rem',  // 70px
       },
       
       zIndex: {

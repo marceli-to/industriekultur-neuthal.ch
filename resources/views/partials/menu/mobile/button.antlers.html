@@ -1,7 +1,14 @@
 <a 
   href="javascript:;" 
-  x-on:click="has_menu = true" 
+  x-on:click="has_menu = !has_menu" 
   title="Menü anzeigen"
-  class="{{ class }}">
-  {{ partial:icons/burger class="w-36 h-24" }}
+  class="flex items-center justify-center fixed right-30 top-30 z-20 w-36 h-29 {{ class }}">
+  <span x-show="!has_menu">
+    {{ partial:icons/burger class="w-36 h-auto" }}
+  </span>
+  <span 
+    x-cloak
+    x-show="has_menu">
+    {{ partial:icons/cross class="w-29 h-auto" }}
+  </span>
 </a>

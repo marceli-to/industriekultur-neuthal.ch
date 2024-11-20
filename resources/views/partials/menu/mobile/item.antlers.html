@@ -1,22 +1,59 @@
-<li class="">
+<li>
   <a 
-    href="{{ url }}" 
-    class="{{ is_current || is_parent ? 'is-active' : '' }}"
+    href="{{ !children ? url : 'javascript:;' }}" 
+    class="flex items-center uppercase font-calibre-semi font-semibold tracking-wider pt-6 pb-0 leading-none border-b-2 border-black {{ is_current || is_parent ? 'font-calibre-semi font-semibold' : '' }}"
     target="{{ is_external ? '_blank' : '_self' }}"
     title="{{ title }}">
     {{ title }}
   </a>
   {{ if children }}
-    <ul>
+    <ul 
+      class=""
+      x-data="{ open_children: '{{ segment_2 ?? segment_1 ?? '' }}' }">
       {{ children }}
-        <li>
-          <a 
-            href="{{ url }}" 
-            class="{{ is_current || is_parent ? '' : '' }}"
-            target="{{ is_external ? '_blank' : '_self' }}"
-            title="{{ title }}">
-            {{ title }}
-          </a>
+        <li >
+          <span class="flex justify-between items-center border-b border-black">
+            <a 
+              href="{{ url }}" 
+              class=" block pt-11 pb-6  {{ is_current || is_parent ? 'font-calibre-semi font-semibold' : '' }}"
+              target="{{ is_external ? '_blank' : '_self' }}"
+              title="{{ title }}">
+              <span>{{ title }}</span>
+            </a>
+            {{ if children }}
+              <button 
+                @click="open_children = open_children === '{{ slug }}' ? null : '{{ slug }}'; return false;"
+                class="size-32 flex items-center justify-end">
+                <span x-show="open_children == '{{ slug }}'">
+                  {{ partial:icons/chevrons/up-small class="w-9 h-auto" }}
+                </span>
+                <span x-show="open_children != '{{ slug }}'">
+                  {{ partial:icons/chevrons/down-small class="w-9 h-auto" }}
+                </span>
+              </button>
+            {{ /if }}
+          </span>
+          {{ if children }}
+            <ul 
+              x-cloak
+              x-show="open_children === '{{ slug }}'"
+              class="mb-6 ml-30 w-[calc(100%_-_30px)]">
+              {{ children }}
+                <li>
+                  <a 
+                    {{ if url | contains('#') }}
+                      @click="has_menu = false"
+                    {{ /if }}
+                    href="{{ url }}"
+                    class="block pt-12 pb-6 border-black {{ !last ? 'border-b' : '' }} {{ is_current || is_parent ? 'font-calibre-semi font-semibold' : '' }}"
+                    target="{{ is_external ? '_blank' : '_self' }}"
+                    title="{{ title }}">
+                    {{ title }}
+                  </a>
+                </li>
+              {{ /children }}
+            </ul>
+          {{ /if }}
         </li>
       {{ /children }}
     </ul>

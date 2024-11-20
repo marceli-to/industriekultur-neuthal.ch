@@ -26,3 +26,47 @@ main ul:not(main nav ul) p {
 main li:not(main nav li) {
 }
 
+/* Themes */
+.theme-midnight {
+  @apply bg-midnight;
+}
+
+.theme-forest {
+  @apply bg-forest;
+}
+
+.theme-mint {
+  @apply bg-mint;
+}
+
+.theme-ember {
+  @apply bg-ember;
+}
+
+.theme-peach {
+  @apply bg-peach;
+}
+
+.theme-sky {
+  @apply bg-sky;
+}
+
+.theme-blush {
+  @apply bg-blush;
+}
+
+.theme-crimson {
+  @apply bg-crimson;
+}
+
+.theme-lemon {
+  @apply bg-lemon;
+}
+
+.theme-pine {
+  @apply bg-pine;
+}
+
+.theme-mist {
+  @apply bg-mist;
+}

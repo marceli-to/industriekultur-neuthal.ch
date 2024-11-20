@@ -3,7 +3,7 @@
   to { opacity: 1; }
 }
 
-.is-active {
+.is-visible {
   animation: menuFadeIn 0.3s .1s ease-in-out forwards;
 }
 

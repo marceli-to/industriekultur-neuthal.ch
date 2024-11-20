@@ -86,10 +86,10 @@
         menuItems.forEach(item => {
           if (item.dataset.flyoutItems === menuId) {
             item.classList.remove('hidden');
-            item.classList.add('is-active');
+            item.classList.add('is-visible');
           } else {
             item.classList.add('hidden');
-            item.classList.remove('is-active');
+            item.classList.remove('is-visible');
           }
         });
   

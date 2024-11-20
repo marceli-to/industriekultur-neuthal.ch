@@ -1,16 +1,16 @@
-  <nav 
-    x-cloak 
-    x-show="has_menu"
-    x-transition:enter="transition ease-out duration-240"
-    x-transition:enter-start="opacity-0"
-    x-transition:enter-end="opacity-100"
-    x-transition:leave="transition ease-in duration-240"
-    x-transition:leave-start="opacity-100"
-    x-transition:leave-end="opacity-0"
-    class="bg-white h-dvh fixed top-0 left-0 w-full {{ class}}">
-    <ul>
-      {{ nav:main }}
-        {{ partial:menu/mobile/item }}
-      {{ /nav:main }}
-    </ul>
-  </nav>
+<nav 
+  x-cloak 
+  x-show="has_menu"
+  x-transition:enter="transition ease-out duration-200"
+  x-transition:enter-start="opacity-0"
+  x-transition:enter-end="opacity-100"
+  x-transition:leave="transition ease-in duration-200"
+  x-transition:leave-start="opacity-100"
+  x-transition:leave-end="opacity-0"
+  class="bg-white h-dvh overflow-y-auto fixed z-10 top-0 left-0 w-full pt-80 pb-40 pl-20 pr-30 {{ class }}">
+  <ul class="flex flex-col space-y-30">
+    {{ nav:main }}
+      {{ partial:menu/mobile/item }}
+    {{ /nav:main }}
+  </ul>
+</nav>

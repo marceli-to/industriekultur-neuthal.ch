@@ -1,10 +1,12 @@
 <header class="{{ class }} sticky top-0 h-96 lg:h-164 bg-white w-full" data-header>
   {{ partial:layout/inner class="w-full h-[inherit] flex items-center relative" }}
     <div class="lg:w-[320px]">
-      {{ partial:icons/logo class="h-39 lg:h-53 w-auto" }}
+      <a href="/" title="Startseite">
+        {{ partial:icons/logo class="h-39 lg:h-53 w-auto" }}
+      </a>
     </div>
     <div class="lg:ml-96">
-      {{ partial:menu/mobile/button class="block absolute right-30 top-34 md:hidden" }}
+      {{ partial:menu/mobile/button class="md:hidden" }}
       {{ partial:menu/desktop/wrapper class="hidden md:block" }}
     </div>
   {{ /partial:layout/inner }}
