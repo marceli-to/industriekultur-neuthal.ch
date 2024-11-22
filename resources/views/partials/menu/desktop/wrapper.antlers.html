@@ -1,117 +1,82 @@
-<nav class="max-w-3xl mx-auto pb-0 relative bg-green-50 {{ class }}">
-  <ul class="flex gap-x-40 text-sm">
-    <li>
-      <a href="" data-flyout-trigger="besuchen">Besuchen</a>
-    </li>
-    <li>
-      <a href="" data-flyout-trigger="unterstutzen">Unterstützen</a>
-    </li>
-    <li>
-      <a href="" data-flyout-trigger="uber-uns">Über uns</a>
-    </li>
+<nav class="max-w-3xl mx-auto pb-0 mt-45 relative {{ class }}">
+
+  <ul class="flex gap-x-0 text-sm">
+    {{ nav:main }}
+      <li>
+        <a 
+          href="{{ children ? 'javascript:;' : url }}" 
+          {{ if children }} 
+            data-flyout-show="{{ title | slugify }}"
+          {{ else }}
+            data-flyout-hide
+          {{ /if }}
+          class="block uppercase tracking-wider leading-none bg-red-400 pt-5 px-20"
+          target="{{ is_external ? '_blank' : '_self' }}"
+          title="{{ title }}"
+          >
+          {{ title }}
+        </a>
+      </li>
+    {{ /nav:main }}
   </ul>
+ 
   <div 
-    class="bg-red-100 absolute left-0 top-15 pt-20 inline-flex text-sm h-auto w-auto opacity-0 pointer-events-none transition-all duration-200"
+    class="absolute left-0 top-20 pt-20 inline-flex text-sm h-auto w-auto min-w-[250px] opacity-0 pointer-events-none transition-all duration-200"
     data-flyout-container>
-    <div class="relative p-10 min-w-[120px] bg-white rounded-[2px] border-2 border-black after:content-[''] after:absolute after:-top-[15px] after:left-[15px] after:h-0 after:w-0 after:border-x-[8px] after:border-b-[15px] after:border-x-transparent after:border-b-white after:z-[1] before:content-[''] before:absolute before:-top-[18px] before:left-[14px] before:h-0 before:w-0 before:border-x-[9px] before:border-b-[16px] before:border-x-transparent before:border-b-black before:z-0">
-      
-      <div class="hidden opacity-0" data-flyout-items="besuchen">
-        <ul>
-          <li>
-            <a href="">Kontakt</a>
-          </li>
-          <li>
-            <a href="">Öffnungszeiten im Sommer</a>
-          </li>
-          <li>
-            <a href="">Anfahrt</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="hidden opacity-0" data-flyout-items="unterstutzen">
-        <ul>
-          <li>
-            <a href="">Spenden</a>
-          </li>
-          <li>
-            <a href="">Spendenkonto</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="hidden opacity-0" data-flyout-items="uber-uns">
-        <ul>
-          <li>
-            <a href="">Mitglied werden</a>
-          </li>
-          <li>
-            <a href="">Mitarbeiter</a>
-          </li>
-        </ul>
-      </div>
+    <div 
+      class="relative pl-20 pr-30 pt-10 pb-10 min-w-[120px] bg-white rounded-[2px] border-2 border-black after:content-[''] after:absolute after:-top-[15px] after:left-[15px] after:h-0 after:w-0 after:border-x-[8px] after:border-b-[15px] after:border-x-transparent after:border-b-white after:z-[1] before:content-[''] before:absolute before:-top-[18px] before:left-[14px] before:h-0 before:w-0 before:border-x-[9px] before:border-b-[16px] before:border-x-transparent before:border-b-black before:z-0">
+      {{ nav:main }}
+        {{ if children }}
+          <div class="hidden opacity-0" data-flyout-items="{{ title | slugify }}">
+            <ul>
+              {{ children }}
+                <li class="relative group hover:flex hover:justify-between">
+                   <a 
+                      href="{{ url }}" 
+                      data-flyout-item-parent
+                      class="block relative uppercase tracking-wider leading-none border-b border-black pt-11 pb-6 {{ last ? 'border-none' : ''}} {{ is_current || is_parent ? 'is-active' : '' }}" 
+                      target="{{ is_external ? '_blank' : '_self' }}">
+                      {{ title }}
+                    </a>
+                  {{ if children }}
+                    <ul 
+                      data-flyout-item-children
+                      class="pl-20 h-auto w-full hidden [&>li>a]:!p-0 [&>li>a]:!border-none group-hover:block">
+                      {{ *recursive children* }}
+                    </ul>
+                  {{ /if }}
+                </li>
+              {{ /children }}
+            </ul>
+          </div>
+        {{ /if }}
+      {{ /nav:main }}
     </div>
-
   </div>
 </nav>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
 
-    const menuTriggers = document.querySelectorAll('[data-flyout-trigger]');
-    const menuContainer = document.querySelector('[data-flyout-container]');
-    const menuItems = document.querySelectorAll('[data-flyout-items]');
-  
-    let isMenuOpen = false;  // Track if any menu is currently open
-  
-    menuTriggers.forEach(trigger => {
-      trigger.addEventListener('mouseenter', (e) => {
-        const menuId = e.target.dataset.flyoutTrigger;
-        const triggerRect = e.target.getBoundingClientRect();
-        const navRect = e.target.closest('nav').getBoundingClientRect();
-        const left = triggerRect.left - navRect.left - 20;
-  
-        // Add transition only if menu is already open
-        if (isMenuOpen) {
-          menuContainer.classList.add('transition-all', 'duration-200');
-        } else {
-          menuContainer.classList.remove('transition-all', 'duration-200');
-        }
-  
-        // Position the container
-        menuContainer.style.left = `${left}px`;
-        menuContainer.classList.remove('opacity-0', 'pointer-events-none');
 
-        // Show correct menu items
-        menuItems.forEach(item => {
-          if (item.dataset.flyoutItems === menuId) {
-            item.classList.remove('hidden');
-            item.classList.add('is-visible');
-          } else {
-            item.classList.add('hidden');
-            item.classList.remove('is-visible');
-          }
-        });
-  
-        isMenuOpen = true;
-      });
-    });
-  
-    // Hide menu when mouse leaves nav
-    const nav = document.querySelector('nav');
-    nav.addEventListener('mouseleave', () => {
-      menuContainer.classList.remove('transition-all', 'duration-200');  // Remove transition when closing
-      menuContainer.classList.add('opacity-0', 'pointer-events-none');
-      isMenuOpen = false;
-    });
-  
-    // Hide menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!menuContainer.contains(e.target)) {
-        menuContainer.classList.remove('transition-all', 'duration-200');  // Remove transition when closing
-        menuContainer.classList.add('opacity-0', 'pointer-events-none');
-        isMenuOpen = false;
-      }
-    });
-  });
-</script>
+<nav class="fixed top-0 left-0 w-full bg-green-200 hidden">
+  <ul>
+    {{ nav:main }}
+      <li>
+        <a href="">{{ title }}</a>
+        {{ if children }}
+          <ul class="pl-20">
+            {{ children }}
+              <li>
+                <a href="">{{ title }}</a>
+                {{ if children }}
+                  <ul class="pl-20">
+                    {{ *recursive children* }}
+                  </ul>
+                {{ /if }}
+              </li>
+            {{ /children }}
+          </ul>
+        {{ /if }}
+      </li>
+    {{ /nav:main }}
+  </ul>
+</nav>

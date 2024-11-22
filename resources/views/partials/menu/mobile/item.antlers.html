@@ -11,11 +11,11 @@
       class=""
       x-data="{ open_children: '{{ segment_2 ?? segment_1 ?? '' }}' }">
       {{ children }}
-        <li >
+        <li>
           <span class="flex justify-between items-center border-b border-black">
             <a 
               href="{{ url }}" 
-              class=" block pt-11 pb-6  {{ is_current || is_parent ? 'font-calibre-semi font-semibold' : '' }}"
+              class="block pt-11 pb-6 {{ is_current || is_parent ? 'font-calibre-semi font-semibold' : '' }}"
               target="{{ is_external ? '_blank' : '_self' }}"
               title="{{ title }}">
               <span>{{ title }}</span>

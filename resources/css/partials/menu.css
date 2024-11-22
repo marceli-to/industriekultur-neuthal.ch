@@ -4,6 +4,6 @@
 }
 
 .is-visible {
-  animation: menuFadeIn 0.3s .1s ease-in-out forwards;
+  animation: menuFadeIn 0.2s ease-in-out forwards;
 }
 
