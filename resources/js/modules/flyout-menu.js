@@ -22,7 +22,7 @@
       const left = triggerRect.left - navRect.left - 3;
 
       hideFlyoutChildren();
-      resetContainerWidth();
+      resetContainerSize();
 
       if (isMenuOpen) {
         menuContainer.classList.add('transition-all', 'duration-200');
@@ -56,7 +56,7 @@
         item.classList.remove('is-visible');
       });
       hideFlyoutChildren();
-      resetContainerWidth();
+      resetContainerSize();
     };
 
     const showFlyoutChildren = (slug, offsetWidth) => {
@@ -75,15 +75,22 @@
       });
     };
 
-    const resetContainerWidth = () => {
+    const resetContainerSize = () => {
       const container = document.querySelector('[data-flyout-container] > div');
       container.removeAttribute('style');
     };
 
-    const updateContainerWidth = (childWidth = 0) => {
+    const updateContainerSize = (childContainer, el) => {
       const container = document.querySelector('[data-flyout-container] > div');
       container.removeAttribute('style');
-      container.style.width = `${container.offsetWidth + childWidth}px`;
+      container.style.width = `${container.offsetWidth + childContainer.offsetWidth}px`;
+      const elRect = el.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+      const offset = -1 * (elRect.bottom - containerRect.bottom);
+      if (offset < childContainer.offsetHeight) {
+        container.style.height = `${container.offsetHeight + childContainer.offsetHeight - offset}px`;
+      }
+
     };
 
     // Event Listeners
@@ -97,14 +104,13 @@
 
     menuItemParent.forEach(el => {
       el.addEventListener('click', function() {
-        console.log(el);
         const slug = el.dataset.flyoutItemParent;
-        const children = document.querySelector(`[data-flyout-item-children="${slug}"]`);
-        resetContainerWidth();
+        const childContainer = document.querySelector(`[data-flyout-item-children="${slug}"]`);
+        resetContainerSize();
         hideFlyoutChildren();
 
-        if (children) {
-          updateContainerWidth(children.offsetWidth);
+        if (childContainer) {
+          updateContainerSize(childContainer, el);
           showFlyoutChildren(slug, el.parentElement.offsetWidth);
         }
       });

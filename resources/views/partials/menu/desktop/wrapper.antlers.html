@@ -12,7 +12,7 @@
           {{ else }}
             data-flyout-hide
           {{ /if }}
-          class="block uppercase tracking-wider leading-none bg-red-400 pt-5 px-20"
+          class="block uppercase tracking-wider leading-none pt-5 px-20"
           target="{{ is_external ? '_blank' : '_self' }}"
           title="{{ title }}"
           >
@@ -26,7 +26,7 @@
     class="absolute left-0 top-20 pt-20 inline-flex text-sm h-auto w-auto min-w-[250px] opacity-0 pointer-events-none transition-all duration-200"
     data-flyout-container>
     <div 
-      class="flex relative pl-20 pr-30 py-15 min-w-[120px] bg-white rounded-[2px] border-2 border-black after:content-[''] after:absolute after:-top-[15px] after:left-[15px] after:h-0 after:w-0 after:border-x-[8px] after:border-b-[15px] after:border-x-transparent after:border-b-white after:z-[1] before:content-[''] before:absolute before:-top-[18px] before:left-[14px] before:h-0 before:w-0 before:border-x-[9px] before:border-b-[16px] before:border-x-transparent before:border-b-black before:z-0">
+      class="flex relative pl-20 pr-30 py-15 min-w-[120px] h-auto bg-white rounded-[2px] border-2 border-black after:content-[''] after:absolute after:-top-[15px] after:left-[15px] after:h-0 after:w-0 after:border-x-[8px] after:border-b-[15px] after:border-x-transparent after:border-b-white after:z-[1] before:content-[''] before:absolute before:-top-[18px] before:left-[14px] before:h-0 before:w-0 before:border-x-[9px] before:border-b-[16px] before:border-x-transparent before:border-b-black before:z-0">
       {{ nav:main }}
         {{ if children }}
           <div 
