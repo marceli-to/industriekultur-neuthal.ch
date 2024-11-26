@@ -119,16 +119,6 @@ return [
           'xl-focal-4-3' => ['w' => 1440, 'h' => 1080, 'q' => 90, 'fit' => 'crop_focal'],
           '2xl-focal-4-3' => ['w' => 1680, 'h' => 1260, 'q' => 90, 'fit' => 'crop_focal'],
 
-          // Focal point image (3:4)
-          'md-focal-3-4-webp' => ['w' => 600, 'h' => 800, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
-          'lg-focal-3-4-webp' => ['w' => 900, 'h' => 1200, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
-          'xl-focal-3-4-webp' => ['w' => 1200, 'h' => 1600, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
-          '2xl-focal-3-4-webp' => ['w' => 1500, 'h' => 2000, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
-          'md-focal-3-4' => ['w' => 600, 'h' => 800, 'q' => 90, 'fit' => 'crop_focal'],
-          'lg-focal-3-4' => ['w' => 900, 'h' => 1200, 'q' => 90, 'fit' => 'crop_focal'],
-          'xl-focal-3-4' => ['w' => 1200, 'h' => 1600, 'q' => 90, 'fit' => 'crop_focal'],
-          '2xl-focal-3-4' => ['w' => 1500, 'h' => 2000, 'q' => 90, 'fit' => 'crop_focal'],
-
           // Focal point images (16:9)
           'md-focal-16-9-webp' => ['w' => 768, 'h' => 432, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
           'lg-focal-16-9-webp' => ['w' => 1280, 'h' => 720, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
@@ -149,24 +139,16 @@ return [
           'xl-focal-16-10' => ['w' => 1440, 'h' => 900, 'q' => 90, 'fit' => 'crop_focal'],
           '2xl-focal-16-10' => ['w' => 1680, 'h' => 1050, 'q' => 90, 'fit' => 'crop_focal'],
 
-          // Focal point image (1:1)
-          'md-focal-square-webp' => ['w' => 768, 'h' => 768, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
-          'lg-focal-square-webp' => ['w' => 1280, 'h' => 1280, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
-          'xl-focal-square-webp' => ['w' => 1440, 'h' => 1440, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
-          'md-focal-square' => ['w' => 768, 'h' => 768, 'q' => 90, 'fit' => 'crop_focal'],
-          'lg-focal-square' => ['w' => 1280, 'h' => 1280, 'q' => 90, 'fit' => 'crop_focal'],
-          'xl-focal-square' => ['w' => 1440, 'h' => 1440, 'q' => 90, 'fit' => 'crop_focal'],
-
           // Focal header visual
-          'md-focal-header-visual-webp' => ['w' => 768, 'h' => 480, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
-          'lg-focal-header-visual-webp' => ['w' => 1280, 'h' => 427, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
-          'xl-focal-header-visual-webp' => ['w' => 1440, 'h' => 480, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
-          '2xl-focal-header-visual' => ['w' => 1800, 'h' => 600, 'q' => 90, 'fit' => 'crop_focal'],
-          'md-focal-header-visual' => ['w' => 768, 'h' => 480, 'q' => 90, 'fit' => 'crop_focal'],
-          'lg-focal-header-visual' => ['w' => 1280, 'h' => 427, 'q' => 90, 'fit' => 'crop_focal'],
-          'xl-focal-header-visual' => ['w' => 1440, 'h' => 480, 'q' => 90, 'fit' => 'crop_focal'],
-          '2xl-focal-header-visual' => ['w' => 1800, 'h' => 600, 'q' => 90, 'fit' => 'crop_focal'],
-          
+          'md-focal-gallery-fullscreen-webp' => ['w' => 768, 'h' => 336, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
+          'lg-focal-gallery-fullscreen-webp' => ['w' => 1280, 'h' => 480, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
+          'xl-focal-gallery-fullscreen-webp' => ['w' => 1440, 'h' => 540, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
+          '2xl-focal-gallery-fullscreen' => ['w' => 1800, 'h' => 675, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
+          'md-focal-gallery-fullscreen' => ['w' => 768, 'h' => 336, 'q' => 90, 'fit' => 'crop_focal'],
+          'lg-focal-gallery-fullscreen' => ['w' => 1280, 'h' => 480, 'q' => 90, 'fit' => 'crop_focal'],
+          'xl-focal-gallery-fullscreen' => ['w' => 1440, 'h' => 540, 'q' => 90, 'fit' => 'crop_focal'],
+          '2xl-focal-gallery-fullscreen' => ['w' => 1800, 'h' => 675, 'q' => 90, 'fit' => 'crop_focal'],
+
           'max_upload_size' => ['w' => 4000, 'h' => 4000, 'fit' => 'max'],
 
         ],

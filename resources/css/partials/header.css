@@ -1,5 +1,5 @@
 header[data-header] {
-  @apply lg:transition-all duration-200;
+  @apply lg:transition-all duration-100;
 }
 
 header[data-header].is-shrinked {
@@ -7,6 +7,6 @@ header[data-header].is-shrinked {
 }
 
 header[data-header].is-shrinked [data-logo] {
-  @apply lg:h-30 lg:w-auto lg:transition-all duration-100;
+  @apply lg:w-auto lg:transition-all duration-100;
   will-change: height, width;
 }

@@ -2,6 +2,7 @@
 @import "partials/header.css";
 @import "partials/menu.css";
 @import "partials/forms.css";
+@import "vendor/swiper.css";
 @import "theme.css";
 
 @tailwind base;

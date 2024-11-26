@@ -1,0 +1,14 @@
+<div class="swiper" data-gallery-fullscreen>
+  <div class="swiper-wrapper">
+    {{ images }}
+      <div class="swiper-slide">
+        {{ partial:media/image_fullscreen 
+          :image="url" 
+          :sizes="['2xl', 'xl', 'lg']" 
+          preset="focal-gallery-fullscreen"
+          class="w-full h-auto aspect-[16/7] md:aspect-[16/6]" }}
+      </div>
+    {{ /images}}
+  </div>
+  <div class="swiper-pagination"></div>
+</div>

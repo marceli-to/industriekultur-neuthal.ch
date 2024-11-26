@@ -1,0 +1,7 @@
+.swiper-pagination-bullet {
+  @apply !size-10 !bg-white !opacity-100;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  @apply !bg-lemon;
+}

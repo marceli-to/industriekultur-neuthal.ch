@@ -30,6 +30,17 @@ tabs:
                     neues_set:
                       display: 'Neues Set'
                       fields: {  }
+                special_elements:
+                  display: Spezialelemente
+                  icon: addon-boxes-stack
+                  sets:
+                    image_gallery_fullscreen:
+                      display: 'Bildergalerie (Fullscreen)'
+                      instructions: 'Bildergalerie (Fullscreen) hinzufügen.'
+                      icon: media-image-picture-gallery
+                      fields:
+                        -
+                          import: image_gallery_fullscreen
   seo:
     display: SEO
     sections:

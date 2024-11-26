@@ -5,3 +5,4 @@ Alpine.start();
 import './bootstrap';
 import './modules/shrinking-header';
 import './modules/flyout-menu';
+import './modules/gallery-fullscreen';
