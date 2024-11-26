@@ -1,0 +1,16 @@
+{{ partial:components/swiper/wrapper 
+  selector="data-gallery-fullscreen"
+  hasNavigation="true" 
+  hasPagination="true"
+  prevClass="left-30 md:left-50 text-white hover:text-lemon"
+  nextClass="right-30 md:right-50 text-white hover:text-lemon" }}
+  {{ images }}
+    {{ partial:components/swiper/slide }}
+      {{ partial:media/image_fullscreen 
+        :image="url" 
+        :sizes="['2xl', 'xl', 'lg']" 
+        preset="focal-gallery-fullscreen"
+        class="w-full h-auto aspect-[16/7] md:aspect-[16/6]" }}
+    {{ /partial:components/swiper/slide }}
+  {{ /images }}
+{{ /partial:components/swiper/wrapper }}

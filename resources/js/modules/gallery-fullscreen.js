@@ -17,7 +17,7 @@ const swiper = new Swiper('[data-gallery-fullscreen]', {
     clickable: true,
   },
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: '.swiper-btn-next',
+    prevEl: '.swiper-btn-prev',
   },
 });
