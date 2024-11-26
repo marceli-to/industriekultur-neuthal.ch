@@ -5,21 +5,33 @@ tabs:
       -
         fields:
           -
+            handle: name
+            field:
+              type: text
+              display: Name
+          -
+            handle: byline
+            field:
+              type: text
+              display: Byline
+          -
             handle: address
             field:
               type: textarea
               display: Adresse
-              width: 75
           -
-            handle: main_address_phone_fax
+            handle: phone
             field:
-              type: textarea
-              display: Telefon/Fax
-              width: 75
+              type: text
+              display: Telefon
           -
-            handle: main_address_email
+            handle: email
             field:
               input_type: email
               type: text
               display: E-Mail
-              width: 75
+          -
+            handle: google_maps_url
+            field:
+              type: text
+              display: 'Google Maps URL'

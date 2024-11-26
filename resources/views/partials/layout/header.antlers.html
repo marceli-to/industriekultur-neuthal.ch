@@ -1,17 +1,19 @@
-<header class="{{ class }} sticky top-0 h-96 lg:h-164 bg-white w-full" data-header>
-  {{ partial:layout/inner class="w-full h-[inherit] flex items-center relative" }}
-    <div class="lg:w-[320px]">
+<header 
+  class="{{ class }} sticky top-0 h-96 xl:h-164 bg-white w-full" 
+  data-header>
+  {{ partial:layout/inner class="h-[inherit] flex items-center relative" }}
+    <div class="xl:w-[320px]">
       <a href="/" title="Startseite">
-        {{ partial:icons/logo class="h-39 lg:h-53 w-auto" }}
+        {{ partial:icons/logo class="h-39 xl:h-53 w-auto" }}
       </a>
     </div>
-    <div class="lg:ml-96">
-      {{ partial:menu/mobile/button class="md:hidden" }}
-      {{ partial:menu/desktop/wrapper class="hidden md:block" }}
+    <div class="lg:ml-36 xl:ml-96">
+      {{ partial:menu/mobile/button class="lg:hidden" }}
+      {{ partial:menu/desktop/wrapper class="hidden lg:block" }}
     </div>
   {{ /partial:layout/inner }}
 
-  {{ partial:menu/mobile/wrapper class="md:hidden" }}
+  {{ partial:menu/mobile/wrapper class="lg:hidden" }}
 
 
 </header>

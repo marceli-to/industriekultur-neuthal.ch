@@ -1,6 +1,8 @@
 @import "typo/webfonts.css";
 @import "partials/header.css";
 @import "partials/menu.css";
+@import "partials/forms.css";
+@import "theme.css";
 
 @tailwind base;
 @tailwind components;
@@ -26,47 +28,7 @@ main ul:not(main nav ul) p {
 main li:not(main nav li) {
 }
 
-/* Themes */
-.theme-midnight {
-  @apply bg-midnight;
-}
-
-.theme-forest {
-  @apply bg-forest;
-}
-
-.theme-mint {
-  @apply bg-mint;
-}
-
-.theme-ember {
-  @apply bg-ember;
-}
-
-.theme-peach {
-  @apply bg-peach;
-}
-
-.theme-sky {
-  @apply bg-sky;
-}
-
-.theme-blush {
-  @apply bg-blush;
-}
-
-.theme-crimson {
-  @apply bg-crimson;
-}
-
-.theme-lemon {
-  @apply bg-lemon;
-}
-
-.theme-pine {
-  @apply bg-pine;
-}
-
-.theme-mist {
-  @apply bg-mist;
+/* Headings */
+h1, h2, h3 {
+  @apply font-calibre-bold font-bold;
 }

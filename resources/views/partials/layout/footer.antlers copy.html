@@ -1,0 +1,57 @@
+<footer class="bg-white md:pt-30 md:pb-45">
+  {{ partial:layout/inner }}
+    <div class="md:grid md:grid-cols-12 md:gap-x-20">
+      <div class="md:col-span-12 md:grid md:grid-cols-subgrid md:gap-x-20">
+        <div class="md:col-span-4 lg:col-span-3">
+
+          <h2>{{ contact_information:name }}<br>{{ contact_information:byline }}</h2>
+  
+          {{ if contact_information:address }}
+            <address class="not-italic">
+              {{ if contact_information:google_maps_url }}
+                <a href="{{ contact_information:address }}" target="_blank" title="Auf Google Maps anzeigen">
+                  {{ contact_information:address | nl2br }}
+                </a>
+              {{ /if }}
+            </address>
+          {{ /if }}
+          
+          {{ if contact_information:phone }}
+            <div>
+              <a href="tel:{{ contact_information:phone }}" target="_blank" title="Rufen Sie uns an!">
+                {{ contact_information:phone }}
+              </a>
+            </div>
+          {{ /if }}
+  
+          {{ if contact_information:email }}
+            <div>
+              <a href="mailto:{{ contact_information:email }}" target="_blank" title="Schreiben Sie uns!">
+                {{ contact_information:email }}
+              </a>
+            </div>
+          {{ /if }}
+        </div>
+  
+        <div class="md:col-span-4 lg:col-span-3">
+          <h2>Öffnungszeiten</h2>
+          {{ opening_hours:opening_hours | nl2br }}
+        </div>
+  
+        <div class="md:col-span-4 lg:col-span-3">
+          <h2>Abonnieren Sie uneren Newsletter<br>und bleiben Sie informiert!</h2>
+          <form class="md:mt-10 flex flex-col gap-y-15">
+            <div>
+              <input type="email" placeholder="Ihre E-Mail-Adresse" />
+            </div>
+            <div>
+              {{ partial:components/buttons/primary type="submit" label="Abonnieren" }}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  {{ /partial:layout/inner }}
+</footer>
+{{ vite src="resources/js/app.js" }}
+{{ livewire:scripts }}

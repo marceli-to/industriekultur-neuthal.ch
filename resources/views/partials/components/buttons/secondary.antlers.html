@@ -1,0 +1,14 @@
+{{ class = 'bg-white text-black border border-black hover:bg-black hover:text-white transition-colors leading-none min-h-25 rounded-md px-15 flex items-center justify-center pt-5'}}
+{{ if is_button }}
+  <button class="{{ class }}">
+    {{ label }}
+  </button>
+{{ else }}
+  <a
+    href="{{ url }}" 
+    class="{{ class }}"
+    target="{{ target ?? '_self' }}"
+    title="{{ label }}">
+    {{ label }}
+  </a>
+{{ /if }}

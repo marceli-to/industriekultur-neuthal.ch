@@ -1,12 +1,7 @@
 title: Settings
 fields:
   -
-    handle: page_class
-    field:
-      options:
-        page-privacy: Impressum/Datenschutz
-      type: select
-      display: 'Seiten CSS-Klasse'
+    import: theme_selector
   -
     handle: debug
     field:

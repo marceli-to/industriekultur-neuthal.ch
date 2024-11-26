@@ -1,0 +1,8 @@
+title: 'Bildergalerie (Fullscreen)'
+fields:
+  -
+    handle: images
+    field:
+      container: assets
+      type: assets
+      display: Bilder
