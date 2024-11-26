@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-f0f7d367.css",
+    "file": "assets/app-24ddcb00.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -29,7 +29,7 @@
     "src": "resources/css/fonts/Calibre-Semibold.woff2"
   },
   "resources/js/app.js": {
-    "file": "assets/app-adf2ff6c.js",
+    "file": "assets/app-9ede79ca.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

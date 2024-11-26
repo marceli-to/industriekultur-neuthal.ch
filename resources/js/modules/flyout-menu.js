@@ -2,11 +2,17 @@
   'use strict';
   
   const init = () => {
-    const menuShowEls = document.querySelectorAll('[data-flyout-show]');
-    const menuHideEls = document.querySelectorAll('[data-flyout-hide]');
+
+    const menu = document.querySelector('[data-flyout-menu]');
     const menuContainer = document.querySelector('[data-flyout-container]');
+    const menuBtnShow = document.querySelectorAll('[data-flyout-show]');
+    const menuBtnHide = document.querySelectorAll('[data-flyout-hide]');
     const menuItems = document.querySelectorAll('[data-flyout-items]');
-  
+    const menuItemParent = document.querySelectorAll('[data-flyout-item-parent]');
+    
+    // Currently not in use
+    // const menuItemChildren = document.querySelectorAll('[data-flyout-item-children]');
+
     let isMenuOpen = false;
   
     const showFlyout = (e) => {
@@ -14,6 +20,9 @@
       const triggerRect = e.target.getBoundingClientRect();
       const navRect = e.target.closest('nav').getBoundingClientRect();
       const left = triggerRect.left - navRect.left - 3;
+
+      hideFlyoutChildren();
+      resetContainerWidth();
 
       if (isMenuOpen) {
         menuContainer.classList.add('transition-all', 'duration-200');
@@ -46,25 +55,62 @@
         item.classList.add('hidden');
         item.classList.remove('is-visible');
       });
+      hideFlyoutChildren();
+      resetContainerWidth();
+    };
+
+    const showFlyoutChildren = (slug, offsetWidth) => {
+      const flyoutItemChildren = document.querySelector(`[data-flyout-item-children="${slug}"]`);
+      flyoutItemChildren.classList.add('is-open');
+      flyoutItemChildren.classList.remove('invisible');
+      flyoutItemChildren.style.left = `${offsetWidth}px`;
+    };
+
+    const hideFlyoutChildren = () => {
+      const flyoutItemChildren = document.querySelectorAll('[data-flyout-item-children]');
+      flyoutItemChildren.forEach(child => {
+        child.classList.remove('is-open');
+        child.classList.add('invisible');
+        child.removeAttribute('style');
+      });
+    };
+
+    const resetContainerWidth = () => {
+      const container = document.querySelector('[data-flyout-container] > div');
+      container.removeAttribute('style');
+    };
+
+    const updateContainerWidth = (childWidth = 0) => {
+      const container = document.querySelector('[data-flyout-container] > div');
+      container.removeAttribute('style');
+      container.style.width = `${container.offsetWidth + childWidth}px`;
     };
 
     // Event Listeners
-    menuShowEls.forEach(el => {
+    menuBtnShow.forEach(el => {
       el.addEventListener('mouseenter', showFlyout);
     });
 
-    menuHideEls.forEach(el => {
+    menuBtnHide.forEach(el => {
       el.addEventListener('mouseenter', hideFlyout);
     });
 
-    const nav = document.querySelector('nav');
-    nav.addEventListener('mouseleave', hideFlyout);
+    menuItemParent.forEach(el => {
+      el.addEventListener('click', function() {
+        console.log(el);
+        const slug = el.dataset.flyoutItemParent;
+        const children = document.querySelector(`[data-flyout-item-children="${slug}"]`);
+        resetContainerWidth();
+        hideFlyoutChildren();
 
-    document.addEventListener('click', (e) => {
-      if (!menuContainer.contains(e.target)) {
-        hideFlyout();
-      }
+        if (children) {
+          updateContainerWidth(children.offsetWidth);
+          showFlyoutChildren(slug, el.parentElement.offsetWidth);
+        }
+      });
     });
+
+    menu.addEventListener('mouseleave', hideFlyout);
   };
 
   // Initialize when DOM is ready

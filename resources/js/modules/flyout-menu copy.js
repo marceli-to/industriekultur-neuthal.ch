@@ -6,7 +6,7 @@
     const menuHideEls = document.querySelectorAll('[data-flyout-hide]');
     const menuContainer = document.querySelector('[data-flyout-container]');
     const menuItems = document.querySelectorAll('[data-flyout-items]');
-  
+
     let isMenuOpen = false;
   
     const showFlyout = (e) => {

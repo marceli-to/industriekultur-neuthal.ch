@@ -1,0 +1,82 @@
+<nav class="max-w-3xl mx-auto pb-0 mt-45 relative {{ class }}">
+
+  <ul class="flex gap-x-0 text-sm">
+    {{ nav:main }}
+      <li>
+        <a 
+          href="{{ children ? 'javascript:;' : url }}" 
+          {{ if children }} 
+            data-flyout-show="{{ title | slugify }}"
+          {{ else }}
+            data-flyout-hide
+          {{ /if }}
+          class="block uppercase tracking-wider leading-none bg-red-400 pt-5 px-20"
+          target="{{ is_external ? '_blank' : '_self' }}"
+          title="{{ title }}"
+          >
+          {{ title }}
+        </a>
+      </li>
+    {{ /nav:main }}
+  </ul>
+ 
+  <div 
+    class="absolute left-0 top-20 pt-20 inline-flex text-sm h-auto w-auto min-w-[250px] opacity-0 pointer-events-none transition-all duration-200"
+    data-flyout-container>
+    <div 
+      class="relative pl-20 pr-30 pt-10 pb-10 min-w-[120px] bg-white rounded-[2px] border-2 border-black after:content-[''] after:absolute after:-top-[15px] after:left-[15px] after:h-0 after:w-0 after:border-x-[8px] after:border-b-[15px] after:border-x-transparent after:border-b-white after:z-[1] before:content-[''] before:absolute before:-top-[18px] before:left-[14px] before:h-0 before:w-0 before:border-x-[9px] before:border-b-[16px] before:border-x-transparent before:border-b-black before:z-0">
+      {{ nav:main }}
+        {{ if children }}
+          <div class="hidden opacity-0" data-flyout-items="{{ title | slugify }}">
+            <ul>
+              {{ children }}
+                <li class="relative group">
+                   <a 
+                      href="{{ url }}" 
+                      data-flyout-item-parent
+                      class="block relative uppercase tracking-wider leading-none border-b border-black pt-11 pb-6 {{ last ? 'border-none' : ''}} {{ is_current || is_parent ? 'is-active' : '' }}" 
+                      target="{{ is_external ? '_blank' : '_self' }}">
+                      {{ title }}
+                    </a>
+                  {{ if children }}
+                    <ul 
+                      data-flyout-item-children
+                      class="h-auto w-full hidden [&>li>a]:!p-0 [&>li>a]:keep-all group-hover:block">
+                      {{ *recursive children* }}
+                    </ul>
+                  {{ /if }}
+                </li>
+              {{ /children }}
+            </ul>
+          </div>
+        {{ /if }}
+      {{ /nav:main }}
+    </div>
+  </div>
+</nav>
+
+
+
+<nav class="fixed top-0 left-0 w-full bg-green-200 hidden">
+  <ul>
+    {{ nav:main }}
+      <li>
+        <a href="">{{ title }}</a>
+        {{ if children }}
+          <ul class="pl-20">
+            {{ children }}
+              <li>
+                <a href="">{{ title }}</a>
+                {{ if children }}
+                  <ul class="pl-20">
+                    {{ *recursive children* }}
+                  </ul>
+                {{ /if }}
+              </li>
+            {{ /children }}
+          </ul>
+        {{ /if }}
+      </li>
+    {{ /nav:main }}
+  </ul>
+</nav>
