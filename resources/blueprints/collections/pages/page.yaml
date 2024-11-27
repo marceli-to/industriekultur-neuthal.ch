@@ -34,6 +34,13 @@ tabs:
                       fields:
                         -
                           import: intro_homepage
+                    page_teaser:
+                      display: Seitenteaser
+                      instructions: 'Seitenteaser hinzufügen'
+                      icon: text-formatting-image-top
+                      fields:
+                        -
+                          import: page_teaser
                 special_elements:
                   display: Spezialelemente
                   icon: addon-boxes-stack

@@ -1,0 +1,112 @@
+title: Seitenteaser
+fields:
+  -
+    import: theme_selector
+  -
+    handle: teaser_columns
+    field:
+      options:
+        -
+          key: 3
+          value: '3 Spalten'
+        -
+          key: 4
+          value: '4 Spalten'
+      default: '3'
+      type: select
+      display: Spalten
+      instructions: 'Anzahl Spalten (ab mittlerer Bildschirmgrösse)'
+      width: 50
+      instructions_position: below
+  -
+    handle: teaser_type
+    field:
+      options:
+        -
+          key: image_title_text
+          value: 'Bild, Titel, Text'
+        -
+          key: image_title
+          value: 'Bild, Titel'
+      default: image_title_text
+      type: select
+      display: Typ
+      instructions: 'Teaser mit Bild/Titel/Text oder Bild/Titel (Mouseover)'
+      width: 50
+      instructions_position: below
+  -
+    handle: teasers
+    field:
+      type: replicator
+      display: Teasers
+      collapse: true
+      sets:
+        teaser:
+          display: Teaser
+          instructions: 'Teaser hinzufügen'
+          icon: text-formatting-image-top
+          sets:
+            teaser:
+              display: Teaser
+              instructions: 'Teaser hinzufügen'
+              icon: text-formatting-image-top
+              fields:
+                -
+                  handle: teaser_image
+                  field:
+                    max_files: 1
+                    container: assets
+                    type: assets
+                    display: Bild
+                -
+                  handle: teaser_title
+                  field:
+                    type: text
+                    display: Titel
+                -
+                  handle: teaser_text
+                  field:
+                    buttons:
+                      - bold
+                      - unorderedlist
+                      - removeformat
+                      - anchor
+                      - nobr
+                    toolbar_mode: floating
+                    remove_empty_nodes: true
+                    type: bard
+                    display: Text
+                    instructions: 'Nur für Variante "Bild, Titel, Text"'
+                    instructions_position: below
+                -
+                  handle: links
+                  field:
+                    type: replicator
+                    display: Links
+                    instructions_position: below
+                    collapse: true
+                    sets:
+                      link:
+                        display: Link
+                        instructions: 'Link hinzufügen'
+                        icon: link
+                        sets:
+                          link:
+                            display: Link
+                            instructions: 'Link hinzufügen'
+                            icon: link
+                            fields:
+                              -
+                                handle: teaser_link_url
+                                field:
+                                  collections:
+                                    - pages
+                                  type: link
+                                  display: Link
+                              -
+                                handle: teaser_link_text
+                                field:
+                                  type: text
+                                  display: Linktext
+                                  instructions: 'Optional, standardmässig wird «Mehr erfahren» verwendet'
+                                  instructions_position: below

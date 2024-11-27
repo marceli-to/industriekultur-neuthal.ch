@@ -1,5 +1,5 @@
 {{ if type == 'editor' }}
-  {{ partial:components/editor }}
+  {{ partial:components/blocks/editor }}
 {{ /if }}
 
 {{ if type == 'gallery_fullscreen' }}
@@ -10,4 +10,8 @@
 
 {{ if type == 'intro_homepage' }}
   {{ partial:components/blocks/intro_homepage }}
-{{ /if}}
+{{ /if }}
+
+{{ if type == 'page_teaser' }}
+  {{ partial:components/blocks/page_teaser }}
+{{ /if }}
