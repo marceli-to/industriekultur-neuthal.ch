@@ -48,6 +48,27 @@ tabs:
                       fields:
                         -
                           import: page_teaser
+                    two_columns_text_image:
+                      display: 'Inhalt zweispaltig (Text, Bild)'
+                      instructions: 'Inhalt mit 2 Spalten (Text, Bild) hinzufügen'
+                      icon: text-formatting-wrap-image-left
+                      fields:
+                        -
+                          import: two_columns_text_image
+                    two_columns_text_only:
+                      display: 'Inhalt zweispaltig (nur Text)'
+                      instructions: 'Inhalt mit 2 Spalten (Text) hinzufügen'
+                      icon: text-formatting-initial-letter
+                      fields:
+                        -
+                          import: two_columns_text_only
+                    one_column_text_wide:
+                      display: 'Inhalt einspaltig (nur Text)'
+                      instructions: 'Inhalt einspaltig (nur Text) hinzufügen'
+                      icon: text-formatting-initial-letter
+                      fields:
+                        -
+                          import: one_column_text_wide
                 special_elements:
                   display: Spezialelemente
                   icon: addon-boxes-stack

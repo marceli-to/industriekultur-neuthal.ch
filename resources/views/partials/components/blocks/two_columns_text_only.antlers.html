@@ -1,0 +1,16 @@
+{{ partial:layout/outer }}
+  {{ partial:layout/inner }}
+    {{ partial:layout/grid }}
+      {{ if editor_left }}
+        <article class="md:col-span-6">
+          {{ partial:components/blocks/editor :editor="editor_left" }}
+        </article>
+      {{ /if }}
+      {{ if editor_right }}
+        <article class="md:col-span-6">
+          {{ partial:components/blocks/editor :editor="editor_right" }}
+        </article>
+      {{ /if }}
+    {{ /partial:layout/grid }}
+  {{ /partial:layout/inner }}
+{{ /partial:layout/outer }}

@@ -78,6 +78,9 @@ fields:
                     display: Text
                     instructions: 'Nur für Variante "Bild, Titel, Text"'
                     instructions_position: below
+                    link_collections:
+                      - pages
+                    container: assets
                 -
                   handle: links
                   field:

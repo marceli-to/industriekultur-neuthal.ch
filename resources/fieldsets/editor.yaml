@@ -17,3 +17,5 @@ fields:
       display: Editor
       container: assets
       localizable: true
+      link_collections:
+        - pages

@@ -1,0 +1,47 @@
+title: 'Inhalt zweispaltig  (Text, Bild)'
+fields:
+  -
+    import: theme_selector
+  -
+    handle: mirrored
+    field:
+      type: toggle
+      display: 'Gespiegelt?'
+      instructions: 'Ändert die Reihenfolge auf Bild/Text (Standard ist Text/Bild)'
+  -
+    handle: editor
+    field:
+      buttons:
+        - h3
+        - bold
+        - unorderedlist
+        - removeformat
+        - anchor
+        - nobr
+      toolbar_mode: floating
+      remove_empty_nodes: true
+      link_collections:
+        - pages
+      container: assets
+      type: bard
+      display: Texteditor
+      sets:
+        elements:
+          display: Elemente
+          instructions: 'Elemente hinzufügen'
+          icon: addon-boxes-stack
+          sets:
+            button:
+              display: Button
+              instructions: 'Button hinzufügen'
+              icon: link
+              fields:
+                -
+                  import: button
+  -
+    handle: image
+    field:
+      max_files: 1
+      container: assets
+      type: assets
+      display: Bild

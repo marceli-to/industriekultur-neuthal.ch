@@ -1,0 +1,20 @@
+{{ partial:layout/outer }}
+  {{ partial:layout/inner }}
+    {{ partial:layout/grid }}
+      {{ if editor }}
+        <article class="md:col-span-6 {{ mirrored ? 'md:order-2' : ''}}">
+          {{ partial:components/blocks/editor }}
+        </article>
+      {{ /if }}
+      {{ if image }}
+        <div class="md:col-span-6 {{ mirrored ? 'md:order-1' : ''}}">
+          {{ partial:media/image 
+            class="w-full h-auto"
+            preset="focal-16-10"
+            sizes="['lg', 'md']"
+            :image="image" }}
+        </div>
+      {{ /if }}
+    {{ /partial:layout/grid }}
+  {{ /partial:layout/inner }}
+{{ /partial:layout/outer }}

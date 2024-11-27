@@ -1,7 +1,7 @@
 title: Button
 fields:
   -
-    handle: url
+    handle: button_url
     field:
       collections:
         - pages
@@ -9,7 +9,7 @@ fields:
       type: link
       display: Link
   -
-    handle: text
+    handle: button_text
     field:
       type: text
       display: Linktext

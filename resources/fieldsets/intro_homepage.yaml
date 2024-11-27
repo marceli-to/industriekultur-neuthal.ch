@@ -30,7 +30,7 @@ fields:
       toolbar_mode: floating
       remove_empty_nodes: true
       type: bard
-      display: Text
+      display: Texteditor
   -
     handle: teaser_exhibition
     field:

@@ -2,7 +2,7 @@
   {{ partial:layout/inner  }}
     {{ partial:layout/grid class="relative" }}
       <div class="md:col-span-5">
-        {{ partial:components/headings/h1 class="mb-30 md:mb-0"}}
+        {{ partial:components/headings/h1 }}
           {{ title | nl2br }}
         {{ /partial:components/headings/h1 }}
       </div>
@@ -10,13 +10,13 @@
         {{ text }}
       </div>
       {{ if splash_group_tour }}
-        <a href="" title="Gruppenführungen ganzjährig">
-          {{ partial:icons/splash/group-tour class="hidden md:block md:w-90 xl:w-120 h-auto absolute z-60 md:-top-40 xl:-top-50 md:-right-20 xl:right-0" }}
+        <a href="" title="Gruppenführungen ganzjährig" class="hidden md:block">
+          {{ partial:icons/splash/group-tour class="md:w-90 xl:w-120 h-auto absolute z-60 md:-top-40 xl:-top-50 md:-right-20 xl:right-0" }}
         </a>
       {{ /if }}
       {{ if splash_opening_hours }}
-        <a href="" title="Jeden Sonntag geöffnet">
-          {{ partial:icons/splash/opening-hours class="hidden md:block md:w-120 xl:w-170 h-auto absolute z-50 md:-top-130 md:right-10 xl:-top-170 xl:right-60" }}
+        <a href="" title="Jeden Sonntag geöffnet" class="hidden md:block">
+          {{ partial:icons/splash/opening-hours class="md:w-120 xl:w-170 h-auto absolute z-50 md:-top-130 md:right-10 xl:-top-170 xl:right-60" }}
         </a>
       {{ /if }}
     {{ /partial:layout/grid }}
@@ -40,7 +40,7 @@
 
               {{ if teaser_url }}
                 <div class="mt-20 lg:mt-35">
-                  {{ partial:components/buttons/secondary type="submit" label="{{ teaser_link_text ?? 'Mehr' }}" is_button="false" }}
+                  {{ partial:components/buttons/secondary url="{{ teaser_url }}" label="{{ teaser_link_text ?? 'Mehr' }}" is_button="false" }}
                 </div>
               {{ /if}}
             </div>

@@ -1,0 +1,11 @@
+{{ partial:layout/outer }}
+  {{ partial:layout/inner }}
+    {{ partial:layout/grid }}
+      {{ if editor }}
+        <article class="md:col-span-9">
+          {{ partial:components/blocks/editor  }}
+        </article>
+      {{ /if }}
+    {{ /partial:layout/grid }}
+  {{ /partial:layout/inner }}
+{{ /partial:layout/outer }}
