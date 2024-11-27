@@ -1,4 +1,4 @@
-title: Intro
+title: 'Intro Homepage'
 fields:
   -
     handle: splash_opening_hours
@@ -40,17 +40,16 @@ fields:
     handle: teaser_title
     field:
       type: text
-      display: 'Teaser Titel'
+      display: Titel
       if:
         teaser_exhibition: 'equals true'
   -
     handle: teaser_subtitle
     field:
       type: textarea
-      display: 'Teaser Subtitel'
+      display: Subtitel
       if:
         teaser_exhibition: 'equals true'
-      width: 50
   -
     handle: teaser_text
     field:
@@ -63,16 +62,27 @@ fields:
       toolbar_mode: floating
       remove_empty_nodes: true
       type: bard
-      display: 'Teaser Text'
+      display: Text
       if:
         teaser_exhibition: 'equals true'
-      width: 50
   -
     handle: teaser_image
     field:
       max_files: 1
       container: assets
       type: assets
-      display: 'Teaser Bild'
+      display: Bild
       if:
         teaser_exhibition: 'equals true'
+  -
+    handle: teaser_url
+    field:
+      collections:
+        - pages
+      type: link
+      display: Link
+  -
+    handle: teaser_link_text
+    field:
+      type: text
+      display: Linktext

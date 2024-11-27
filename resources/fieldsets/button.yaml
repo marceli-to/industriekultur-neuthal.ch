@@ -1,0 +1,28 @@
+title: Button
+fields:
+  -
+    handle: url
+    field:
+      collections:
+        - pages
+      container: assets
+      type: link
+      display: Link
+  -
+    handle: text
+    field:
+      type: text
+      display: Linktext
+  -
+    handle: target
+    field:
+      options:
+        -
+          key: _blank
+          value: 'Neues Fenster'
+        -
+          key: _self
+          value: 'Gleiches Fenster'
+      default: _self
+      type: select
+      display: 'Öffnen in'

@@ -36,6 +36,12 @@
           {{ /if }}
           <div class="text-pretty">
             {{ teaser_text }}
+
+            {{ if teaser_url }}
+              <div class="mt-20 lg:mt-35">
+                {{ partial:components/buttons/secondary type="submit" label="{{ teaser_link_text ?? 'Mehr' }}" is_button="false" }}
+              </div>
+            {{ /if}}
           </div>
         </div>
         {{ if teaser_image }}

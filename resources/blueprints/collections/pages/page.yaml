@@ -27,13 +27,13 @@ tabs:
                   display: Hauptelemente
                   icon: addon-boxes-stack
                   sets:
-                    intro_title_text:
-                      display: Intro
-                      instructions: 'Intro mit Titel und Text hinzufügen'
+                    intro_homepage:
+                      display: 'Intro Homepage'
+                      instructions: 'Intro für Homepage hinzufügen.'
                       icon: text-formatting-image-left
                       fields:
                         -
-                          import: intro_title_text
+                          import: intro_homepage
                 special_elements:
                   display: Spezialelemente
                   icon: addon-boxes-stack
