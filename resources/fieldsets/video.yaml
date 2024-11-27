@@ -1,0 +1,11 @@
+title: Video
+fields:
+  -
+    import: theme_selector
+  -
+    handle: video_file
+    field:
+      max_files: 1
+      container: assets
+      type: assets
+      display: 'Video Datei'

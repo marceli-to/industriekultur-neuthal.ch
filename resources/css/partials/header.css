@@ -1,5 +1,6 @@
 header[data-header] {
-  @apply lg:transition-all duration-300;
+  /* @apply lg:transition-all duration-300; */
+  transition: height 100ms ease-in-out;
   will-change: height;
 }
 
