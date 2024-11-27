@@ -2,12 +2,12 @@
   {{ partial:layout/inner }}
     {{ partial:layout/grid }}
       {{ if editor }}
-        <article class="md:col-span-6 {{ mirrored ? 'md:order-2' : ''}}">
+        <article class="{{ wide ? 'md:col-span-6 lg:col-span-8' : 'md:col-span-6'}} {{ mirrored ? 'md:order-2' : ''}}">
           {{ partial:components/blocks/editor }}
         </article>
       {{ /if }}
       {{ if image }}
-        <div class="md:col-span-6 {{ mirrored ? 'md:order-1' : ''}}">
+        <div class="{{ wide ? 'md:col-span-6 lg:col-span-4' : 'md:col-span-6'}} {{ mirrored ? 'md:order-1' : ''}}">
           {{ partial:media/image 
             class="w-full h-auto"
             preset="focal-16-10"

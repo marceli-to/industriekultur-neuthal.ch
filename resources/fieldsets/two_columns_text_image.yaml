@@ -8,6 +8,14 @@ fields:
       type: toggle
       display: 'Gespiegelt?'
       instructions: 'Ändert die Reihenfolge auf Bild/Text (Standard ist Text/Bild)'
+      width: 50
+  -
+    handle: wide
+    field:
+      type: toggle
+      display: 'Wide?'
+      instructions: 'Erstreckt den Text über 2/3 der Breite.'
+      width: 50
   -
     handle: editor
     field:
