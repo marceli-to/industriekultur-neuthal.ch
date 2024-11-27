@@ -27,20 +27,24 @@ tabs:
                   display: Hauptelemente
                   icon: addon-boxes-stack
                   sets:
-                    neues_set:
-                      display: 'Neues Set'
-                      fields: {  }
+                    intro_title_text:
+                      display: Intro
+                      instructions: 'Intro mit Titel und Text hinzufügen'
+                      icon: text-formatting-image-left
+                      fields:
+                        -
+                          import: intro_title_text
                 special_elements:
                   display: Spezialelemente
                   icon: addon-boxes-stack
                   sets:
-                    image_gallery_fullscreen:
+                    gallery_fullscreen:
                       display: 'Bildergalerie (Fullscreen)'
                       instructions: 'Bildergalerie (Fullscreen) hinzufügen.'
                       icon: media-image-picture-gallery
                       fields:
                         -
-                          import: image_gallery_fullscreen
+                          import: gallery_fullscreen
   seo:
     display: SEO
     sections:

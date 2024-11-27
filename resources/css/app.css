@@ -29,7 +29,15 @@ main ul:not(main nav ul) p {
 main li:not(main nav li) {
 }
 
+b, strong {
+  @apply font-calibre-bold font-bold
+}
+
 /* Headings */
 h1, h2, h3 {
   @apply font-calibre-bold font-bold;
+}
+
+.wavy-border {
+  @apply border-[0.185rem] border-black rounded-[65px_25px_90px_35px_/_35px_95px_25px_75px] lg:rounded-[75px_25px_90px_35px_/_35px_95px_25px_75px];
 }

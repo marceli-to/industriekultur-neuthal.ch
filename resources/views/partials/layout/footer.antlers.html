@@ -1,8 +1,8 @@
 <footer class="bg-white py-30 lg:py-40">
   {{ partial:layout/inner }}
-    <div class="md:grid md:grid-cols-12 md:gap-x-20 lg:gap-x-40">
+    {{ partial:layout/grid }}
       <div class="md:col-span-full lg:col-span-8">
-        <div class="flex flex-col gap-y-30 md:gap-y-0 md:flex-row justify-between">
+        <div class="flex flex-col gap-y-30 md:gap-y-0 lg:gap-x-30 xl:gap-x-60 md:flex-row justify-between lg:justify-start">
           <div>
             <h2>{{ contact_information:name }}<br>{{ contact_information:byline }}</h2>
             {{ if contact_information:address }}
@@ -75,7 +75,7 @@
           [ZVV Widget]
         </div>
       </div>
-    </div>
+    {{ /partial:layout/grid }} 
   {{ /partial:layout/inner }}
 </footer>
 {{ vite src="resources/js/app.js" }}

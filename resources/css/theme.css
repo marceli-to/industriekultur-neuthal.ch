@@ -18,6 +18,10 @@
   @apply bg-peach;
 }
 
+.theme-peach h1 {
+  @apply text-ember;
+}
+
 .theme-sky {
   @apply bg-sky;
 }

@@ -1,0 +1,78 @@
+title: Intro
+fields:
+  -
+    handle: splash_opening_hours
+    field:
+      type: toggle
+      display: 'Störer Öffnungszeiten'
+      width: 50
+  -
+    handle: splash_group_tour
+    field:
+      type: toggle
+      display: 'Störer Gruppenführungen'
+      width: 50
+  -
+    handle: title
+    field:
+      type: textarea
+      display: Titel
+      instructions: 'Mehrzeiliger Titel'
+  -
+    handle: text
+    field:
+      buttons:
+        - bold
+        - unorderedlist
+        - removeformat
+        - anchor
+        - nobr
+      toolbar_mode: floating
+      remove_empty_nodes: true
+      type: bard
+      display: Text
+  -
+    handle: teaser_exhibition
+    field:
+      type: toggle
+      display: 'Teaser Ausstellung?'
+  -
+    handle: teaser_title
+    field:
+      type: text
+      display: 'Teaser Titel'
+      if:
+        teaser_exhibition: 'equals true'
+  -
+    handle: teaser_subtitle
+    field:
+      type: textarea
+      display: 'Teaser Subtitel'
+      if:
+        teaser_exhibition: 'equals true'
+      width: 50
+  -
+    handle: teaser_text
+    field:
+      buttons:
+        - bold
+        - unorderedlist
+        - removeformat
+        - anchor
+        - nobr
+      toolbar_mode: floating
+      remove_empty_nodes: true
+      type: bard
+      display: 'Teaser Text'
+      if:
+        teaser_exhibition: 'equals true'
+      width: 50
+  -
+    handle: teaser_image
+    field:
+      max_files: 1
+      container: assets
+      type: assets
+      display: 'Teaser Bild'
+      if:
+        teaser_exhibition: 'equals true'

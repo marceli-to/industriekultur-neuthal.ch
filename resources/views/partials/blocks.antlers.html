@@ -2,6 +2,12 @@
   {{ partial:components/editor }}
 {{ /if }}
 
-{{ if type == 'image_gallery_fullscreen' }}
-  {{ partial:media/gallery_fullscreen }}
+{{ if type == 'gallery_fullscreen' }}
+  <div>
+    {{ partial:media/gallery_fullscreen }}
+  </div>
 {{ /if }}
+
+{{ if type == 'intro_title_text' }}
+  {{ partial:components/blocks/intro_title_text }}
+{{ /if}}
