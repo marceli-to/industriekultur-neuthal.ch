@@ -59,6 +59,13 @@ tabs:
                       fields:
                         -
                           import: video
+                    event_teaser:
+                      display: Veranstaltungsteaser
+                      instructions: 'Veranstaltungsteaser hinzufügen'
+                      icon: dashboard-layout
+                      fields:
+                        -
+                          import: event_teaser
   seo:
     display: SEO
     sections:

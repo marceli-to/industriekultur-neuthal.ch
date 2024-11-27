@@ -16,6 +16,10 @@
   {{ partial:components/blocks/page_teaser }}
 {{ /if }}
 
+{{ if type == 'event_teaser' }}
+  {{ partial:components/blocks/event_teaser }}
+{{ /if }}
+
 {{ if type == 'video' }}
   {{ partial:components/blocks/video }}
 {{ /if }}
