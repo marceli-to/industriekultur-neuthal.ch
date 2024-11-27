@@ -1,0 +1,23 @@
+{{ partial:layout/outer }}
+  {{ partial:layout/inner }}
+
+    {{ partial:components/headings/h1 class="mb-20 lg:mb-40"  }}
+      {{ title }}
+    {{ /partial:components/headings/h1 }}
+
+    {{ if images }}
+      <div class="mb-20 lg:mb-40">
+        {{ partial:media/slideshow }}
+      </div>
+    {{ /if }}
+
+    {{ if text }}
+      {{ partial:layout/grid }}
+        <article class="md:col-span-6">
+          {{ text }}
+        </article>
+      {{ /partial:layout/grid }}
+    {{ /if }}
+
+  {{ /partial:layout/inner }}
+{{ /partial:layout/outer }}

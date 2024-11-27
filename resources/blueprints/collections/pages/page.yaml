@@ -34,6 +34,13 @@ tabs:
                       fields:
                         -
                           import: intro_homepage
+                    intro_content:
+                      display: 'Intro Inhaltsseite'
+                      instructions: 'Intro für Inhaltsseiten hinzufügen.'
+                      icon: text-formatting-image-top
+                      fields:
+                        -
+                          import: intro_content
                     page_teaser:
                       display: Seitenteaser
                       instructions: 'Seitenteaser hinzufügen'
@@ -45,13 +52,13 @@ tabs:
                   display: Spezialelemente
                   icon: addon-boxes-stack
                   sets:
-                    gallery_fullscreen:
-                      display: 'Bildergalerie (Fullscreen)'
-                      instructions: 'Bildergalerie (Fullscreen) hinzufügen.'
+                    slideshow_fullscreen:
+                      display: 'Slideshow (Fullscreen)'
+                      instructions: 'Slideshow (Fullscreen) hinzufügen'
                       icon: media-image-picture-gallery
                       fields:
                         -
-                          import: gallery_fullscreen
+                          import: slideshow_fullscreen
                     video:
                       display: Video
                       instructions: 'Video hinzufügen'

@@ -1,8 +1,8 @@
-title: 'Bildergalerie (Fullscreen)'
+title: 'Slideshow (Fullscreen)'
 fields:
   -
     handle: images
     field:
       container: assets
       type: assets
-      display: Bilder
+      display: Slideshow-Bilder

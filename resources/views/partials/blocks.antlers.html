@@ -2,14 +2,16 @@
   {{ partial:components/blocks/editor }}
 {{ /if }}
 
-{{ if type == 'gallery_fullscreen' }}
-  <div>
-    {{ partial:media/gallery_fullscreen }}
-  </div>
+{{ if type == 'slideshow_fullscreen' }}
+  {{ partial:media/slideshow_fullscreen }}
 {{ /if }}
 
 {{ if type == 'intro_homepage' }}
   {{ partial:components/blocks/intro_homepage }}
+{{ /if }}
+
+{{ if type == 'intro_content' }}
+  {{ partial:components/blocks/intro_content }}
 {{ /if }}
 
 {{ if type == 'page_teaser' }}

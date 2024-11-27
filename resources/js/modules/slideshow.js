@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const swiper = new Swiper('[data-gallery-fullscreen]', {
+const swiper = new Swiper('[data-gallery]', {
   modules: [Navigation, Pagination, Autoplay],
   direction: 'horizontal',
   loop: true,

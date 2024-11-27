@@ -27,6 +27,12 @@
   @apply bg-sky;
 }
 
+.theme-sky h1,
+.theme-sky h2,
+.theme-sky article {
+  @apply text-midnight;
+}
+
 .theme-blush {
   @apply bg-blush;
 }

@@ -1,0 +1,23 @@
+title: 'Intro Inhaltsseite'
+fields:
+  -
+    import: theme_selector
+  -
+    import: slideshow
+  -
+    handle: title
+    field:
+      type: text
+      display: Titel
+  -
+    handle: text
+    field:
+      buttons:
+        - bold
+        - unorderedlist
+        - removeformat
+        - anchor
+        - nobr
+      remove_empty_nodes: false
+      type: bard
+      display: Text

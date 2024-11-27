@@ -11,19 +11,19 @@
 
 [x-cloak] { display: none !important; }
 
-main p {
-}
-
-main p:last-child {
+main p:not(:last-child) {
+  @apply mb-15 lg:mb-20
 }
 
 main a {
 }
 
 main ul:not(main nav ul) {
+  @apply mb-20 lg:mb-30
 }
 
 main ul:not(main nav ul) p {
+  @apply inline
 }
 
 main li:not(main nav li) {
