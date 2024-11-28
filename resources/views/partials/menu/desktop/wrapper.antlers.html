@@ -39,7 +39,7 @@
                       href="{{ url }}" 
                       class="w-full uppercase tracking-wider leading-none pt-11 pb-6  {{ is_current || is_parent ? 'font-calibre-semi' : '' }}" 
                       target="{{ is_external ? '_blank' : '_self' }}">
-                      {{ title }}
+                      {{ title | replace(' ', '&nbsp;') }}
                     </a>
                     {{ if children }}
                       <button
