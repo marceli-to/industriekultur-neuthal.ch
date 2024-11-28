@@ -1,0 +1,37 @@
+{{ partial:layout/outer }}
+  {{ partial:layout/inner }}
+    {{ if title }}
+      {{ partial:components/headings/h2 class="mb-15 lg:mb-25"  }}
+        {{ title }}
+      {{ /partial:components/headings/h2 }}
+    {{ /if }}
+    {{ partial:layout/grid }}
+
+      {{ if lead || editor }}
+        <div class="md:col-span-6 lg:col-span-8 md:grid md:grid-cols-subgrid md:gap-x-20 {{ mirrored ? 'md:order-2' : ''}}">
+          {{ if lead }}
+            <article class="font-calibre-bold md:col-span-6 lg:col-span-4 {{ mirrored ? 'md:order-2' : ''}}">
+              {{ lead | nl2br }}
+            </article>
+          {{ /if }}
+          {{ if editor }}
+            <article class="md:col-span-6 lg:col-span-4 {{ mirrored ? 'md:order-2' : ''}}">
+              {{ partial:components/blocks/editor }}
+            </article>
+          {{ /if }}
+        </div>
+      {{ /if }}
+
+
+      {{ if image }}
+        <div class="md:col-span-6 lg:col-span-4 {{ mirrored ? 'md:order-1' : ''}}">
+          {{ partial:media/image 
+            class="w-full h-auto"
+            preset="focal-16-10"
+            sizes="['lg', 'md']"
+            :image="image" }}
+        </div>
+      {{ /if }}
+    {{ /partial:layout/grid }}
+  {{ /partial:layout/inner }}
+{{ /partial:layout/outer }}

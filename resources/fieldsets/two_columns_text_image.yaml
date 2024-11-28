@@ -17,6 +17,11 @@ fields:
       instructions: 'Erstreckt den Text über 2/3 der Breite.'
       width: 50
   -
+    handle: title
+    field:
+      type: text
+      display: Titel
+  -
     handle: editor
     field:
       buttons:

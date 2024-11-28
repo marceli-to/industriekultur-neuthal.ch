@@ -1,5 +1,10 @@
 {{ partial:layout/outer }}
   {{ partial:layout/inner }}
+    {{ if title }}
+      {{ partial:components/headings/h2 class="mb-15 lg:mb-25"  }}
+        {{ title }}
+      {{ /partial:components/headings/h2 }}
+    {{ /if }}
     {{ partial:layout/grid }}
       {{ if editor }}
         <article class="{{ wide ? 'md:col-span-6 lg:col-span-8' : 'md:col-span-6'}} {{ mirrored ? 'md:order-2' : ''}}">

@@ -69,6 +69,13 @@ tabs:
                       fields:
                         -
                           import: one_column_text_wide
+                    three_columns_lead_text_image:
+                      display: 'Inhalt dreispaltig (Lead, Text, Bild)'
+                      instructions: 'Inhalt dreispaltig (Lead, Text, Bild) hinzufügen'
+                      icon: text-formatting-image-left
+                      fields:
+                        -
+                          import: three_columns_lead_text_image
                 special_elements:
                   display: Spezialelemente
                   icon: addon-boxes-stack

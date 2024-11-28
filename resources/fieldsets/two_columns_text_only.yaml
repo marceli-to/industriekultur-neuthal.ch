@@ -3,6 +3,11 @@ fields:
   -
     import: theme_selector
   -
+    handle: title
+    field:
+      type: text
+      display: Titel
+  -
     handle: editor_left
     field:
       buttons:
