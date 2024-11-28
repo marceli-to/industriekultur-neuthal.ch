@@ -5,14 +5,14 @@
         {{ teaser_title }}
       {{ /partial:components/headings/h2 }}
     {{ /if }}
-      {{ collection:events as="events" sort="event_date:asc" filter="date:is_future" }}
-        {{ if events }}
-          {{ events }}
-            {{ if event_date | modify_date("+1 day") | is_future }}
-              {{ partial:events/item }}
-            {{ /if }}
-          {{ /events }}
-        {{ /if }}
-      {{ /collection:events }}
-    {{ /partial:layout/inner }}
+    {{ collection:events as="events" sort="event_date:asc" filter="date:is_future" }}
+      {{ if events }}
+        {{ events }}
+          {{ if event_date | modify_date("+1 day") | is_future }}
+            {{ partial:events/item }}
+          {{ /if }}
+        {{ /events }}
+      {{ /if }}
+    {{ /collection:events }}
+  {{ /partial:layout/inner }}
 {{ /partial:layout/outer }}
