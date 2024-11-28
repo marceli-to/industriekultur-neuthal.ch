@@ -1,7 +1,65 @@
 {{ partial:layout/outer theme="theme-peach" }}
   {{ partial:layout/inner }}
-    {{ partial:components/headings/h1 class="mb-20 lg:mb-40"  }}
+
+    {{ partial:components/headings/h2 class="!text-base lg:!text-md mb-10 lg:mb-15"  }}
+      {{ event_date iso_format="dddd, Do MMMM YYYY" }}, {{ time_start | format="H.s" }}{{ if time_end }} – {{ time_end | format="H.s" }}{{ /if }} Uhr
+    {{ /partial:components/headings/h2 }}
+
+    {{ partial:components/headings/h1 class="mb-5 md:mb-15"  }}
       {{ title }}
     {{ /partial:components/headings/h1 }}
+
+    <div class="font-calibre-semi max-w-prose text-pretty mb-15 md:mb-30 lg:mb-40">
+      {{ subtitle }}
+    </div>
+
+    {{ if image }}
+      <div class="mb-15 md:mb-30 lg:mb-40">
+        <div class="relative">
+        {{ partial:media/image_fullscreen 
+          :image="image" 
+          :sizes="['2xl', 'xl', 'lg']" 
+          preset="focal-gallery-fullscreen"
+          class="w-full h-auto aspect-[16/7] md:aspect-[16/6] wavy-border" }}
+        </div>
+      </div>
+    {{ /if }}
+
+    {{ if text || informations }}
+
+      {{ partial:layout/grid }}
+
+        <article class="order-1 max-w-prose text-pretty md:col-span-7 lg:col-span-8">
+          {{ text }}
+        </article>
+
+        {{ if has_register_form }}
+          <div class="order-3 !mt-10 lg:!mt-0 md:col-span-5">
+            {{ partial:components/headings/h3 class="mb-5 lg:mb-10 text-ember" }}
+              Anmeldung
+            {{ /partial:components/headings/h3 }}
+          </div>
+        {{ /if }}
+
+        <div class="order-2 wavy-border-xs max-w-sm md:place-self-end bg-white py-15 px-15 md:col-span-5 lg:col-span-4">
+          {{ partial:components/headings/h3 class="mb-5 lg:mb-10 text-ember" }}
+            Informationen
+          {{ /partial:components/headings/h3 }}
+          {{ if informations }}
+            <table>
+            {{ informations }}
+              <tr>
+                <td class="font-calibre-bold pr-10 lg:pr-15 py-5">{{ label }}</td>
+                <td class="py-5">{{ description }}</td>
+              </tr>
+            {{ /informations }}
+            </table>
+          {{ /if }}
+        </div>
+
+      {{ /partial:layout/grid }}
+
+    {{ /if }}
+
   {{ /partial:layout/inner }}
 {{ /partial:layout/outer }}

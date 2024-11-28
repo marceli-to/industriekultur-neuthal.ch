@@ -19,7 +19,7 @@ export default {
       },
       
       maxWidth: {
-        'prose': '80ch'
+        'prose': '86ch'
       },
 
       colors: {

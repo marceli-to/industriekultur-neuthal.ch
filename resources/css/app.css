@@ -38,11 +38,19 @@ b, strong {
   @apply font-calibre-bold font-bold
 }
 
+table td {
+  @apply align-top
+}
+
 /* Headings */
 h1, h2, h3 {
   @apply font-calibre-bold font-bold;
 }
 
 .wavy-border {
-  @apply border-[0.2rem] border-black rounded-[65px_25px_90px_35px_/_35px_95px_25px_75px] lg:rounded-[75px_25px_90px_35px_/_35px_95px_25px_75px];
+  @apply border-[0.15rem] border-black rounded-[65px_25px_90px_35px_/_35px_95px_25px_75px] lg:rounded-[75px_25px_90px_35px_/_35px_95px_25px_75px];
+}
+
+.wavy-border-xs {
+  @apply border-[0.15rem] border-black rounded-[45px_25px_60px_15px_/_15px_75px_15px_75px];
 }
