@@ -1,0 +1,18 @@
+{{ partial:layout/outer }}
+  {{ partial:layout/inner }}
+    {{ if teaser_title }} 
+      {{ partial:components/headings/h2 class="mb-15 lg:mb-25"  }}
+        {{ teaser_title }}
+      {{ /partial:components/headings/h2 }}
+    {{ /if }}
+      {{ collection:events as="events" sort="event_date:asc" filter="date:is_future" }}
+        {{ if events }}
+          {{ events }}
+            {{ if event_date | modify_date("+1 day") | is_future }}
+              {{ partial:events/item }}
+            {{ /if }}
+          {{ /events }}
+        {{ /if }}
+      {{ /collection:events }}
+    {{ /partial:layout/inner }}
+{{ /partial:layout/outer }}

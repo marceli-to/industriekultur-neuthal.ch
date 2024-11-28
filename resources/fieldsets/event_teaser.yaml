@@ -2,3 +2,10 @@ title: Veranstaltungsteaser
 fields:
   -
     import: theme_selector
+  -
+    handle: teaser_title
+    field:
+      type: text
+      display: Titel
+      instructions: 'Optionaler Titel (wird z.B. auf der Startseite benötigt)'
+      instructions_position: below

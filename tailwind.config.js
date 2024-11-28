@@ -17,6 +17,10 @@ export default {
       screens: {
         'xs': '480px',
       },
+      
+      maxWidth: {
+        'prose': '80ch'
+      },
 
       colors: {
         'midnight': '#002257',

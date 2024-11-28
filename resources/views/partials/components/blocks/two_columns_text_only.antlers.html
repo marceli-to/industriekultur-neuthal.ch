@@ -7,12 +7,12 @@
     {{ /if }}
     {{ partial:layout/grid }}
       {{ if editor_left }}
-        <article class="md:col-span-6">
+        <article class="text-pretty md:col-span-6">
           {{ partial:components/blocks/editor :editor="editor_left" }}
         </article>
       {{ /if }}
       {{ if editor_right }}
-        <article class="md:col-span-6">
+        <article class="text-pretty md:col-span-6">
           {{ partial:components/blocks/editor :editor="editor_right" }}
         </article>
       {{ /if }}

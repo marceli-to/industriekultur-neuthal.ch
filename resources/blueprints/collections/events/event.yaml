@@ -1,0 +1,115 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: event_date
+            field:
+              type: date
+              display: Datum
+          -
+            handle: time_start
+            field:
+              type: time
+              display: Beginn
+              width: 50
+          -
+            handle: time_end
+            field:
+              type: time
+              display: Ende
+              width: 50
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: subtitle
+            field:
+              type: textarea
+              display: Subtitel
+          -
+            handle: text
+            field:
+              buttons:
+                - h3
+                - bold
+                - unorderedlist
+                - removeformat
+                - anchor
+                - nobr
+              toolbar_mode: floating
+              remove_empty_nodes: true
+              type: bard
+              display: Text
+          -
+            handle: informations
+            field:
+              type: replicator
+              display: Informationen
+              sets:
+                elements:
+                  display: Elemente
+                  instructions: 'Elemente hinzufügen'
+                  icon: addon-boxes-stack
+                  sets:
+                    info:
+                      display: Info
+                      instructions: 'Info hinzufügen'
+                      icon: align-object-center
+                      fields:
+                        -
+                          handle: label
+                          field:
+                            type: text
+                            display: Label
+                        -
+                          handle: description
+                          field:
+                            type: text
+                            display: Beschreibung
+  media:
+    display: Medien
+    sections:
+      -
+        display: Medien
+        fields:
+          -
+            handle: image
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: Bild
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: has_register_form
+            field:
+              type: toggle
+              display: 'Anmeldung?'
+              instructions: 'Um das Anmeldeformular anzuzeigen, muss dies aktiviert werden.'
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - events
+              max_items: 1
+              listable: false
+              localizable: true
+title: Event

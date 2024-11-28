@@ -1,0 +1,27 @@
+<article class="border-t border-black pt-10 lg:pt-15 flex gap-x-20 lg:gap-x-30 mb-20 lg:mb-30 last-of-type:mb-0 relative before:content-[''] before:block before:absolute before:-top-2 before:left-0 before:h-3 before:w-80 before:lg:w-115 before:bg-black">
+  <div class="w-80 lg:w-115 mt-1 font-calibre-semi font-semibold text-ember leading-[1.2] shrink-0">
+    <span class="block lg:mb-3">{{ event_date iso_format="dddd" }}</span>
+    <span class="block text-base lg:text-md">{{ event_date iso_format="DD MMM" }}.</span>
+    <span class="block">{{ event_date iso_format="YYYY" }}</span>
+  </div>
+  <div class="flex justify-between flex-1">
+    <div>
+      <span class="block mb-2 lg:mb-5">
+        {{ time_start | format="H.s" }}{{ if time_end }} – {{ time_end | format="H.s" }}{{ /if }} Uhr
+      </span>
+      {{ partial:components/headings/h3 class="lg:mb-5 !text-ember text-base lg:text-md" }}
+        {{ title }}
+      {{ /partial:components/headings/h3 }}
+      <p class="font-calibre-semi text-pretty max-w-prose">
+        {{ subtitle }}
+      </p>
+    </div>
+    <div class="lg:pt-25">
+      {{ partial:components/buttons/secondary 
+        url="{{ url }}" 
+        label="{{ has_register_form ? 'Details und Anmeldung' : 'Informationen' }}"
+        is_button="false" }}
+    </div>
+  </div>
+
+</article>

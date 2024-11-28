@@ -7,7 +7,7 @@
     {{ /if }}
     {{ partial:layout/grid }}
       {{ if editor }}
-        <article class="{{ wide ? 'md:col-span-6 lg:col-span-8' : 'md:col-span-6' }} {{ mirrored ? 'md:order-2' : ''}}">
+        <article class="text-pretty {{ wide ? 'md:col-span-6 lg:col-span-8' : 'md:col-span-6' }} {{ mirrored ? 'md:order-2' : ''}}">
           {{ partial:components/blocks/editor }}
         </article>
       {{ /if }}
