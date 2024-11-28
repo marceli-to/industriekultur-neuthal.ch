@@ -12,7 +12,7 @@
           {{ else }}
             data-flyout-hide
           {{ /if }}
-          class="block uppercase tracking-wider leading-none pt-5 lg:px-10 xl:px-20"
+          class="block uppercase tracking-wider leading-none pt-5 lg:px-10 xl:px-20 {{ is_current || is_parent ? 'font-calibre-semi' : '' }}"
           target="{{ is_external ? '_blank' : '_self' }}"
           title="{{ title }}"
           >
