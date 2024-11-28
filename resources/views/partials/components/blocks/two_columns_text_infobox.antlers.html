@@ -1,0 +1,37 @@
+{{ partial:layout/outer }}
+  {{ partial:layout/inner }}
+    {{ if title }}
+      {{ partial:components/headings/h2 class="mb-15 lg:mb-25" }}
+        {{ title }}
+      {{ /partial:components/headings/h2 }}
+    {{ /if }}
+    {{ partial:layout/grid }}
+      {{ if editor }}
+        <article class="md:col-span-6 lg:col-span-8 {{ mirrored ? 'md:order-2' : ''}}">
+          {{ partial:components/blocks/editor }}
+        </article>
+      {{ /if }}
+      {{ if title_infobox || infos }}
+        <div class="md:col-span-6 lg:col-span-4 {{ mirrored ? 'md:order-1' : ''}}">
+          <div class="wavy-border bg-white py-30 px-20">
+            {{ if title_infobox }}
+              {{ partial:components/headings/h3 class="mb-5 lg:mb-10" }}
+                {{ title_infobox }}
+              {{ /partial:components/headings/h3 }}
+            {{ /if }}
+            {{ if infos }}
+              <table>
+              {{ infos }}
+                <tr>
+                  <td class="font-calibre-bold pr-15 lg:pr-20 py-5">{{ label }}</td>
+                  <td class="py-5">{{ description }}</td>
+                </tr>
+              {{ /infos }}
+              </table>
+            {{ /if }}
+          </div>
+        </div>
+      {{ /if }}
+    {{ /partial:layout/grid }}
+  {{ /partial:layout/inner }}
+{{ /partial:layout/outer }}

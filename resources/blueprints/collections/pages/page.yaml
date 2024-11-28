@@ -76,6 +76,13 @@ tabs:
                       fields:
                         -
                           import: three_columns_lead_text_image
+                    two_columns_text_infobox:
+                      display: 'Inhalt zweispaltig (Text, Infobox)'
+                      instructions: 'Inhalt zweispaltig (Text, Infobox) hinzufügen'
+                      icon: text-formatting-image-right
+                      fields:
+                        -
+                          import: two_columns_text_infobox
                 special_elements:
                   display: Spezialelemente
                   icon: addon-boxes-stack
@@ -101,6 +108,13 @@ tabs:
                       fields:
                         -
                           import: event_teaser
+                    anchor:
+                      display: Anker
+                      instructions: 'Ankerpunkt für Inhalte hinzufügen'
+                      icon: link
+                      fields:
+                        -
+                          import: anchor
   seo:
     display: SEO
     sections:

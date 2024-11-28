@@ -1,4 +1,4 @@
-<footer class="theme-white py-30 lg:py-40">
+<footer class="theme-white py-30 lg:py-40 border-t-2 border-black">
   {{ partial:layout/inner }}
     {{ partial:layout/grid }}
       <div class="md:col-span-full lg:col-span-8">
@@ -37,7 +37,7 @@
             <h2>Abonnieren Sie uneren Newsletter<br>und bleiben Sie informiert!</h2>
             <form class="mt-10 flex flex-col gap-y-15">
               <div>
-                <input type="email" placeholder="Ihre E-Mail-Adresse" />
+                <input type="email" placeholder="Ihre E-Mail-Adresse" class="max-w-[280px]" />
               </div>
               <div>
                 {{ partial:components/buttons/secondary type="submit" label="Abonnieren" is_button="true" }}

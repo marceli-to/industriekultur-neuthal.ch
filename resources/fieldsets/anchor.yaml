@@ -1,0 +1,9 @@
+title: Anker
+fields:
+  -
+    handle: anchor_name
+    field:
+      type: text
+      display: Ankername
+      validate:
+        - required
