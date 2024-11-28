@@ -16,7 +16,7 @@
           target="{{ is_external ? '_blank' : '_self' }}"
           title="{{ title }}"
           >
-          {{ title }}
+          {{ title | replace(' ', '&nbsp;') }}
         </a>
       </li>
     {{ /nav:main }}
