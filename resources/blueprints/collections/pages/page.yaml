@@ -129,6 +129,13 @@ tabs:
                       fields:
                         -
                           import: impressions
+                    shop_teaser:
+                      display: Shopteaser
+                      instructions: 'Shopteaser hinzufügen'
+                      icon: media-image-picture-gallery
+                      fields:
+                        -
+                          import: shop_teaser
   seo:
     display: SEO
     sections:

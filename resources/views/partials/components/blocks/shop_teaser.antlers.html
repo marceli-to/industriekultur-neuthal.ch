@@ -1,0 +1,23 @@
+{{ partial:layout/outer }}
+  {{ partial:layout/inner }}
+    {{ if anchor_name }}
+      {{ partial:components/blocks/anchor }}
+    {{ /if }}
+
+    {{ if shop_teaser_title }}
+      {{ partial:components/headings/h2 class="mb-10 lg:mb-20" }}
+        {{ shop_teaser_title }}
+      {{ /partial:components/headings/h2 }}
+    {{ /if }}
+
+    {{ if shop_teaser_text }} 
+      {{ partial:components/blocks/editor :editor="shop_teaser_text" }}
+    {{ /if }}
+
+    {{ partial:layout/grid class="relative md:gap-y-20" }}
+      
+
+    {{ /partial:layout/grid }}
+
+  {{ /partial:layout/inner }}
+{{ /partial:layout/outer }}
