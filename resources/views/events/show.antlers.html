@@ -9,7 +9,7 @@
       {{ title }}
     {{ /partial:components/headings/h1 }}
 
-    <div class="font-calibre-semi max-w-prose text-pretty mb-15 md:mb-30 lg:mb-40">
+    <div class="font-calibre-semi font-semibold max-w-prose text-pretty mb-15 md:mb-30 lg:mb-40">
       {{ subtitle }}
     </div>
 
@@ -40,12 +40,16 @@
         </article>
 
         {{ if has_register_form }}
-          <div class="order-3 !mt-10 lg:!mt-0 md:col-span-5">
+          <div class="order-3 !mt-10 lg:!mt-20 md:col-span-5">
             {{ partial:components/headings/h3 class="mb-5 lg:mb-10 text-ember" }}
               Anmeldung
             {{ /partial:components/headings/h3 }}
+
+            <div id="event-form">
+              <event-registration :event-id="'{{ id }}'"></event-registration>
+            </div>
           </div>
-        {{ /if }}
+        {{ /if  }}
 
         <div class="order-2 wavy-border-xs max-w-sm md:place-self-end bg-white py-15 px-15 md:col-span-5 lg:col-span-4">
           {{ partial:components/headings/h3 class="mb-5 lg:mb-10 text-ember" }}
@@ -55,7 +59,7 @@
             <table>
             {{ informations }}
               <tr>
-                <td class="font-calibre-bold pr-10 lg:pr-15 py-5">{{ label }}</td>
+                <td class="font-calibre-bold font-bold pr-10 lg:pr-15 py-5">{{ label }}</td>
                 <td class="py-5">{{ description }}</td>
               </tr>
             {{ /informations }}

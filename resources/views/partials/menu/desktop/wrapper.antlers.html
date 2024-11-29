@@ -12,7 +12,7 @@
           {{ else }}
             data-flyout-hide
           {{ /if }}
-          class="block uppercase tracking-wider leading-none pt-5 lg:px-10 xl:px-20 {{ is_current || is_parent ? 'font-calibre-semi' : '' }}"
+          class="block uppercase tracking-wider leading-none pt-5 lg:px-10 xl:px-20 {{ is_current || is_parent ? 'font-calibre-semi font-semibold' : '' }}"
           target="{{ is_external ? '_blank' : '_self' }}"
           title="{{ title }}"
           >
@@ -37,7 +37,7 @@
                 <li class="relative flex justify-between items-center border-b border-black {{ last ? 'border-none' : ''}}">
                    <a 
                       href="{{ url }}" 
-                      class="w-full uppercase tracking-wider leading-none pt-11 pb-6  {{ is_current || is_parent ? 'font-calibre-semi' : '' }}" 
+                      class="w-full uppercase tracking-wider leading-none pt-11 pb-6  {{ is_current || is_parent ? 'font-calibre-semi font-semibold' : '' }}" 
                       target="{{ is_external ? '_blank' : '_self' }}">
                       {{ title | replace(' ', '&nbsp;') }}
                     </a>
