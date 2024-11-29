@@ -42,7 +42,8 @@
 }
 
 .theme-sky h1,
-.theme-sky h2 {
+.theme-sky h2,
+.theme-sky h3 {
   @apply text-midnight;
 }
 

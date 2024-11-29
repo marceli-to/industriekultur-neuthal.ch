@@ -14,10 +14,37 @@
       {{ partial:components/blocks/editor :editor="shop_teaser_text" }}
     {{ /if }}
 
-    {{ partial:layout/grid class="relative md:gap-y-20" }}
-      
+    {{ if articles }}
 
-    {{ /partial:layout/grid }}
+      {{ partial:layout/grid class="sm:grid sm:grid-cols-12 sm:gap-20 mt-20 lg:mt-40" }}
+
+        {{ articles }}
+          <div class="sm:col-span-6 md:col-span-3">
+
+            {{ if article_image }}  
+              {{ partial:media/image 
+                wrapperClass="bg-white aspect-[16/10] flex items-center justify-center py-5 lg:py-15 mb-10 lg:mb-20"
+                class="w-full h-auto"
+                preset="focal-16-9"
+                sizes="['lg', 'md']"
+                :image="article_image" }}
+            {{ /if }}
+
+           {{ partial:components/headings/h3 class="mb-5" }}
+              {{ article_title }}
+            {{ /partial:components/headings/h3 }}
+
+            {{ if article_description }}
+              {{ article_description }}
+            {{ /if }}
+
+          </div>
+
+        {{ /articles }}
+
+      {{ /partial:layout/grid }}
+
+    {{ /if }}
 
   {{ /partial:layout/inner }}
 {{ /partial:layout/outer }}
