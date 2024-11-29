@@ -1,11 +1,12 @@
 header[data-header] {
-  /* @apply lg:transition-all duration-300; */
-  transition: height 100ms ease-in-out;
+  transition: height 150ms ease-in-out;
   will-change: height;
 }
 
 header[data-header].is-shrinked {
-  @apply lg:h-96
+  @apply lg:h-96;
+  transition: height 150ms ease-in-out;
+  will-change: height;
 }
 
 /* header[data-header].is-shrinked [data-logo] {
