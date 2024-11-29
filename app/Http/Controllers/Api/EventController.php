@@ -27,9 +27,11 @@ class EventController extends Controller
     $data = [
       'title' => $event->title,
       'event_id' => $event->id,
+      'date' => $event->event_date->format('d.m.Y'),
       'name' => $request->input('name'),
       'firstname' => $request->input('firstname'),
       'email' => $request->input('email'),
+      'number_of_people' => $request->input('number_of_people'),
     ];
 
     $entry = Entry::make()
@@ -89,6 +91,7 @@ class EventController extends Controller
       'name' => 'required',
       'firstname' => 'required',
       'email' => 'required|email|regex:/^[^\s@]+@[^\s@]+\.[^\s@]+$/',
+      'number_of_people' => 'required|numeric|min:1',
     ];
 
     // Set validation messages
@@ -98,6 +101,9 @@ class EventController extends Controller
       'email.required' => 'E-Mail-Adresse ist erforderlich',
       'email.email' => 'E-Mail-Adresse muss gültig sein',
       'email.regex' => 'E-Mail-Adresse muss gültig sein',
+      'number_of_people.required' => 'Anzahl der Personen ist erforderlich',
+      'number_of_people.numeric' => 'Anzahl der Personen muss eine Zahl sein',
+      'number_of_people.min' => 'Anzahl der Personen muss mindestens 1 sein',
     ];
     
     return [

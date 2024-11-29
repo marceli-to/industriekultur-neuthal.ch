@@ -15,7 +15,7 @@
         v-model="form.firstname" 
         :error="errors.firstname"
         @update:error="errors.firstname = $event"
-        placeholder="Vorname"
+        placeholder="Vorname *"
       />
     </form-group>
     <form-group>
@@ -23,7 +23,7 @@
         v-model="form.name" 
         :error="errors.name"
         @update:error="errors.name = $event"
-        placeholder="Name"
+        placeholder="Name *"
       />
     </form-group>
     <form-group>
@@ -32,7 +32,17 @@
         v-model="form.email" 
         :error="errors.email"
         @update:error="errors.email = $event"
-        placeholder="E-Mail"
+        placeholder="E-Mail *"
+      />
+    </form-group>
+
+    <form-group>
+      <form-text-field 
+        type="text"
+        v-model="form.number_of_people" 
+        :error="errors.number_of_people"
+        @update:error="errors.number_of_people = $event"
+        placeholder="Anzahl Personen *"
       />
     </form-group>
 
@@ -77,12 +87,22 @@ const form = ref({
   name: null  ,
   firstname: null,
   email: null,
+  number_of_people: null,
 });
 
 const errors = ref({
   name: '',
   firstname: '',
   email: '',
+  number_of_people: '',
+});
+
+// Watch number_of_people for non-numeric values
+watch(() => form.value.number_of_people, (newValue) => {
+  if (newValue === null || newValue === '') return;
+  if (isNaN(newValue)) {
+    form.value.number_of_people = '0';
+  }
 });
 
 async function submitForm() {
@@ -105,12 +125,14 @@ function handleSuccess() {
     name: null,
     firstname: null,
     email: null,
+    number_of_people: null,
   };
   
   errors.value = {
     name: '',
     firstname: '',
     email: '',
+    number_of_people: '',
   };
   
   isSubmitting.value = false;

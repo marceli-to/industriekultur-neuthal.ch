@@ -5,7 +5,7 @@
   
   /* State */
   let lastScrollY = window.scrollY;
-  const threshold = 250;
+  const threshold = 350;
 
   /* Methods */
   const shrink = () => {
