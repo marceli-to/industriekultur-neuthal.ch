@@ -1,6 +1,15 @@
 title: Bild
 fields:
   -
+    import: theme_selector
+  -
+    import: anchor
+  -
+    handle: has_border
+    field:
+      type: toggle
+      display: 'Rahmen?'
+  -
     handle: image
     field:
       max_files: 1

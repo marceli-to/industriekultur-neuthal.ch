@@ -83,6 +83,13 @@ tabs:
                       fields:
                         -
                           import: two_columns_text_infobox
+                    single_image:
+                      display: Einzelbild
+                      instructions: 'Einzelbild hinzufügen'
+                      icon: media-image-picture-orientation
+                      fields:
+                        -
+                          import: image
                 special_elements:
                   display: Spezialelemente
                   icon: addon-boxes-stack
