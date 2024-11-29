@@ -115,6 +115,20 @@ tabs:
                       fields:
                         -
                           import: anchor
+                    opening_hours_pricing:
+                      display: Öffnungszeiten/Preise
+                      instructions: 'Öffnungszeiten/Preise  hinzufügen'
+                      icon: dashboard-layout-3
+                      fields:
+                        -
+                          import: opening_hours_pricing
+                    impressions:
+                      display: 'Impressionen (Bilder)'
+                      instructions: 'Impressionen (Bilder) hinzufügen'
+                      icon: media-image-picture-gallery
+                      fields:
+                        -
+                          import: impressions
   seo:
     display: SEO
     sections:

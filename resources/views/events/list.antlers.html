@@ -1,5 +1,8 @@
 {{ partial:layout/outer }}
   {{ partial:layout/inner }}
+    {{ if anchor_name }}
+      {{ partial:components/blocks/anchor }}
+    {{ /if }}
     {{ if teaser_title }} 
       {{ partial:components/headings/h2 class="mb-15 lg:mb-25"  }}
         {{ teaser_title }}

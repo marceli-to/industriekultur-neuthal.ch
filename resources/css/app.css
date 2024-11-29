@@ -43,8 +43,12 @@ table td {
 }
 
 /* Headings */
-h1, h2, h3 {
+h1, h2 {
   @apply font-calibre-bold font-bold;
+}
+
+h3 {
+  @apply font-calibre-semi font-semibold mb-5 text-sm lg:text-md;
 }
 
 .wavy-border {

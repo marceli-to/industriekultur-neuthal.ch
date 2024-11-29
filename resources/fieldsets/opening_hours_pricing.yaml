@@ -1,0 +1,190 @@
+title: Öffnungszeiten/Preise
+fields:
+  -
+    import: theme_selector
+  -
+    import: anchor
+  -
+    handle: opening_hours_pricing_title
+    field:
+      type: text
+      display: Titel
+  -
+    handle: section_opening_hours
+    field:
+      type: section
+      display: Öffnungszeiten
+  -
+    handle: opening_hours_title
+    field:
+      type: text
+      display: Titel
+  -
+    handle: opening_hours
+    field:
+      buttons:
+        - h3
+        - bold
+        - unorderedlist
+        - removeformat
+        - anchor
+        - nobr
+      toolbar_mode: floating
+      remove_empty_nodes: true
+      link_collections:
+        - pages
+        - events
+      container: assets
+      type: bard
+      display: Öffnungszeiten
+  -
+    handle: section_pricing
+    field:
+      type: section
+      display: Preise
+  -
+    handle: pricing_title
+    field:
+      type: text
+      display: Titel
+  -
+    handle: pricing
+    field:
+      collapse: true
+      type: replicator
+      display: Preise
+      sets:
+        elements:
+          display: Elemente
+          instructions: 'Elemente hinzufügen'
+          icon: addon-boxes-stack
+          sets:
+            price_items:
+              display: Preise
+              instructions: 'Preise hinzufügen'
+              icon: layout-display-split-quarters
+              fields:
+                -
+                  handle: label
+                  field:
+                    type: text
+                    display: Label
+                -
+                  handle: description
+                  field:
+                    type: text
+                    display: Beschreibung
+  -
+    handle: hint
+    field:
+      type: textarea
+      display: Hinweis
+  -
+    handle: section_guided_tours
+    field:
+      type: section
+      display: Kurzführungen
+  -
+    handle: title_guided_tours
+    field:
+      type: text
+      display: Titel
+  -
+    handle: informations_guided_tours
+    field:
+      collapse: true
+      type: replicator
+      display: 'Informationen Kurzführungen'
+      sets:
+        elements:
+          display: Elemente
+          instructions: 'Elemente hinzufügen'
+          icon: addon-boxes-stack
+          sets:
+            informations:
+              display: Informationen
+              instructions: 'Informationen hinzufügen'
+              icon: layout-display-split-quarters
+              fields:
+                -
+                  handle: label
+                  field:
+                    type: text
+                    display: Label
+                -
+                  handle: description
+                  field:
+                    type: text
+                    display: Beschreibung
+  -
+    handle: hint_guided_tours
+    field:
+      type: textarea
+      display: Hinweis
+  -
+    handle: section_group_guided_tours
+    field:
+      type: section
+      display: Gruppenführungen
+  -
+    handle: title_group_guided_tours
+    field:
+      type: text
+      display: Titel
+  -
+    handle: group_tours
+    field:
+      buttons:
+        - h3
+        - bold
+        - unorderedlist
+        - removeformat
+        - anchor
+        - nobr
+      toolbar_mode: floating
+      remove_empty_nodes: true
+      link_collections:
+        - pages
+        - events
+      container: assets
+      type: bard
+      display: Gruppenführungen
+      sets:
+        link:
+          display: Link
+          instructions: 'Link hinzufügen'
+          icon: link
+          sets:
+            link:
+              display: Link
+              instructions: 'Link hinzufügen'
+              icon: link
+              fields:
+                -
+                  handle: links
+                  field:
+                    type: replicator
+                    display: Links
+                    sets:
+                      neue_setgruppe:
+                        display: 'Neue Setgruppe'
+                        sets:
+                          link:
+                            display: Link
+                            instructions: 'Link hinzufügen'
+                            icon: link
+                            fields:
+                              -
+                                handle: link_url
+                                field:
+                                  collections:
+                                    - pages
+                                    - events
+                                  container: assets
+                                  type: link
+                                  display: Link
+                              -
+                                handle: link_text
+                                field:
+                                  type: text
+                                  display: Linktext

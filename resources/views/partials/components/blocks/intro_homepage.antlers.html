@@ -22,7 +22,7 @@
     {{ /partial:layout/grid }}
 
     {{ if teaser_exhibition }}
-      <div class="wavy-border bg-mint px-25 lg:px-45 pt-30 lg:pt-35 mt-30 md:mt-45 lg:mt-60 ">
+      <div class="wavy-border theme-mint px-25 lg:px-45 pt-30 lg:pt-35 mt-30 md:mt-45 lg:mt-60 ">
         {{ partial:layout/grid }}
           <div class="md:col-span-6 pb-20 lg:pb-35">
             {{ if teaser_title }}
@@ -31,7 +31,7 @@
               {{ /partial:components/headings/h2 }}
             {{ /if }}
             {{ if teaser_subtitle }}
-              {{ partial:components/headings/h3 class="text-forest text-pretty mb-10 lg:mb-25"}}
+              {{ partial:components/headings/h3 class="!text-forest text-pretty mb-10 lg:mb-25"}}
                 {{ teaser_subtitle }}
               {{ /partial:components/headings/h3 }}
             {{ /if }}

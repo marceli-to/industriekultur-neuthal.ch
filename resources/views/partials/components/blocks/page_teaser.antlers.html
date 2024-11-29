@@ -1,6 +1,16 @@
 {{ partial:layout/outer }}
   {{ partial:layout/inner }}
-    {{ partial:layout/grid class="relative {{ teaser_columns == 4 ? 'md:gap-y-20 lg:gap-y-0' : '' }}" }}
+    {{ if anchor_name }}
+      {{ partial:components/blocks/anchor }}
+    {{ /if }}
+
+    {{ if page_teaser_title }}
+      {{ partial:components/headings/h2 class="mb-10 lg:mb-20" }}
+        {{ page_teaser_title }}
+      {{ /partial:components/headings/h2 }}
+    {{ /if }}
+
+    {{ partial:layout/grid class="relative md:gap-y-20 {{ teaser_columns == 4 ? 'md:gap-y-20 lg:gap-y-0' : '' }}" }}
       {{ teasers }}
 
         {{ if teaser_type == 'image_title_text' }}
@@ -44,7 +54,7 @@
                   preset="focal-16-10"
                   sizes="['lg', 'md']"
                   :image="teaser_image" }}
-                <h3 class="mt-10 md:mt-0 md:absolute md:top-15 md:left-15 lg:bottom-20 lg:left-20 z-10 text-md md:opacity-0 group-hover:opacity-100 transition-opacity">
+                <h3 class="!text-white mt-10 md:mt-0 md:absolute md:top-15 md:left-15 lg:bottom-20 lg:left-20 z-10 text-md md:opacity-0 group-hover:opacity-100 transition-opacity">
                   {{ teaser_title }}
                 </h3>
                 <div class="md:leading-none flex items-center space-x-5 md:absolute md:bottom-15 md:left-15 lg:bottom-20 lg:left-20 z-10 text-sm md:opacity-0 group-hover:opacity-100 transition-opacity">

@@ -5,5 +5,3 @@ fields:
     field:
       type: text
       display: Ankername
-      validate:
-        - required

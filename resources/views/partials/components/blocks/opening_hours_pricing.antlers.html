@@ -1,0 +1,92 @@
+{{ partial:layout/outer }}
+  {{ partial:layout/inner }}
+    {{ if anchor_name }}
+      {{ partial:components/blocks/anchor }}
+    {{ /if }}
+    {{ partial:components/headings/h2 class="mb-15 lg:mb-25" }}
+      {{ opening_hours_pricing_title }}
+    {{ /partial:components/headings/h2 }}
+    <div class="opening-hours-pricing">
+      {{ partial:layout/grid class="!gap-y-20 md:!gap-y-0" }}
+
+        <div class="md:col-span-6 flex flex-col gap-y-20">
+
+          <div>
+            {{ partial:components/headings/h3 }}
+              {{ opening_hours_title }}
+            {{ /partial:components/headings/h3 }}
+            {{ opening_hours }}
+          </div>
+
+          <div>
+            {{ partial:components/headings/h3 }}
+              {{ pricing_title }}
+            {{ /partial:components/headings/h3 }}
+
+            {{ if pricing }}
+              <table>
+              {{ pricing }}
+                <tr>
+                  <td class="font-calibre-bold font-bold pr-10 lg:pr-15">{{ label }}</td>
+                  <td>{{ description }}</td>
+                </tr>
+              {{ /pricing }}
+              </table>
+            {{ /if }}
+            {{ if hint }}
+              <p class="mt-20 lg:mt-30">{{ hint }}</p>
+            {{ /if }}
+          </div>
+
+        </div>
+
+        <div class="md:col-span-6 flex flex-col gap-y-20">
+
+          <div>
+            {{ partial:components/headings/h3 }}
+              {{ title_guided_tours }}
+            {{ /partial:components/headings/h3 }}
+
+            {{ if informations_guided_tours }}
+              <table>
+              {{ informations_guided_tours }}
+                <tr>
+                  <td class="font-calibre-bold font-bold pr-10 lg:pr-15">{{ label }}</td>
+                  <td>{{ description }}</td>
+                </tr>
+              {{ /informations_guided_tours }}
+              </table>
+            {{ /if }}
+
+            {{ if hint_guided_tours }}
+              <p class="mt-20 lg:mt-30">{{ hint_guided_tours }}</p>
+            {{ /if }}
+          </div>
+
+          <div>
+            {{ partial:components/headings/h3 }}
+              {{ title_group_guided_tours }}
+            {{ /partial:components/headings/h3 }}
+
+            {{ group_tours }}
+
+              {{ if type == 'text' }}
+                {{ text }}
+              {{ /if }}
+
+              {{ if type == 'link' }}
+                <div class="mt-10 md:mt-20 flex space-x-20">
+                  {{ links }}
+                    {{ partial:components/buttons/secondary label="{{ link_text ?? 'Mehr erfahren' }}" url="{{ link_url }}" }}
+                  {{ /links }}
+                </div>
+              {{ /if }}
+            {{ /group_tours }}
+          </div>
+
+        </div>
+
+      {{ /partial:layout/grid }}
+    </div>
+  {{ /partial:layout/inner }}
+{{ /partial:layout/outer }}

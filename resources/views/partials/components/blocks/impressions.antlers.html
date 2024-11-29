@@ -1,0 +1,13 @@
+{{ partial:layout/outer }}
+<div class="grid grid-cols-12">
+  {{ images }}
+    <div class="col-span-3">
+      {{ partial:media/image 
+        class="w-full h-auto aspect-square"
+        preset="focal-square"
+        sizes="['lg', 'md']"
+        :image="url" }}
+    </div>
+  {{ /images }}
+</div>
+{{ /partial:layout/outer }}

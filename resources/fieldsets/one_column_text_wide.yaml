@@ -3,6 +3,8 @@ fields:
   -
     import: theme_selector
   -
+    import: anchor
+  -
     handle: title
     field:
       type: text

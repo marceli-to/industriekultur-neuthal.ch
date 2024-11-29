@@ -3,6 +3,8 @@ fields:
   -
     import: theme_selector
   -
+    import: anchor
+  -
     handle: teaser_columns
     field:
       options:
@@ -34,6 +36,11 @@ fields:
       instructions: 'Teaser mit Bild/Titel/Text oder Bild/Titel (Mouseover)'
       width: 50
       instructions_position: below
+  -
+    handle: page_teaser_title
+    field:
+      type: text
+      display: Titel
   -
     handle: teasers
     field:
