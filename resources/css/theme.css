@@ -2,10 +2,6 @@
   @apply bg-midnight;
 }
 
-.theme-midnight * {
-  @apply text-white;
-}
-
 .theme-forest {
   @apply bg-forest;
 }
@@ -90,9 +86,12 @@
   @apply bg-white;
 }
 
-.theme-white h2, 
-.theme-white h3 {
+.theme-white h2 {
   @apply text-black;
+}
+
+.theme-white h3 {
+  @apply text-ember;
 }
 
 .theme-midnight + .theme-midnight,

@@ -48,16 +48,23 @@
               <a 
                 href="{{ l:teaser_link_url }}"
                 title="{{ l:teaser_link_text ?? 'Mehr erfahren' }}"
-                class="md:text-white relative block group after:content-[''] after:absolute after:inset-0 after:z-5 after:bg-black/50 after:opacity-0 after:transition-opacity md:hover:after:opacity-100">
+                class="md:text-white relative block group after:content-[''] after:absolute after:inset-0 after:z-5 after:bg-black/30 after:opacity-0 after:transition-opacity md:hover:after:opacity-100">
                 {{ partial:media/image 
                   class="w-full h-auto"
                   preset="focal-16-10"
                   sizes="['lg', 'md']"
                   :image="teaser_image" }}
-                <h3 class="md:!text-white mt-10 md:mt-0 md:absolute md:top-15 md:left-15 {{ teaser_columns == 3 ? 'lg:top-25 lg:left-25' : 'lg:top-20 lg:left-20'}} z-10 text-md md:opacity-0 group-hover:opacity-100 transition-opacity">
+                {{# <h3 class="md:!text-white mt-10 md:mt-0 md:absolute md:top-15 md:left-15 {{ teaser_columns == 3 ? 'lg:top-25 lg:left-25' : 'lg:top-20 lg:left-20'}} z-10 text-md md:opacity-0 group-hover:opacity-100 transition-opacity">
                   {{ teaser_title }}
                 </h3>
                 <div class="md:leading-none flex items-center space-x-5 md:absolute md:bottom-15 md:left-15 {{ teaser_columns == 3 ? 'lg:bottom-25 lg:left-25' : 'lg:bottom-20 lg:left-20'}} z-10 text-sm md:opacity-0 group-hover:opacity-100 transition-opacity">
+                  {{ partial:icons/chevrons/right-small-light class="block w-7 h-auto md:text-white -mt-5" }}
+                  <span class="block">{{ l:teaser_link_text ?? 'Mehr erfahren' }}</span>
+                </div> #}}
+                <h3 class="md:!text-white mt-10 md:mt-0 md:absolute md:top-15 md:left-15 {{ teaser_columns == 3 ? 'lg:top-25 lg:left-25' : 'lg:top-20 lg:left-20'}} z-10 text-md">
+                  {{ teaser_title }}
+                </h3>
+                <div class="md:leading-none flex items-center space-x-5 md:absolute md:bottom-15 md:left-15 {{ teaser_columns == 3 ? 'lg:bottom-25 lg:left-25' : 'lg:bottom-20 lg:left-20'}} z-10 text-sm">
                   {{ partial:icons/chevrons/right-small-light class="block w-7 h-auto md:text-white -mt-5" }}
                   <span class="block">{{ l:teaser_link_text ?? 'Mehr erfahren' }}</span>
                 </div>
