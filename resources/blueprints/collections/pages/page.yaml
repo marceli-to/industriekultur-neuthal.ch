@@ -90,6 +90,13 @@ tabs:
                       fields:
                         -
                           import: image
+                    three_columns_text_image_info:
+                      display: 'Inhalt dreispaltig (Text, Bild, Info)'
+                      instructions: 'Inhalt dreispaltig (Text, Bild, Infobox) hinzufügen'
+                      icon: text-formatting-wrap-image-left
+                      fields:
+                        -
+                          import: three_columns_text_image_info
                 special_elements:
                   display: Spezialelemente
                   icon: addon-boxes-stack

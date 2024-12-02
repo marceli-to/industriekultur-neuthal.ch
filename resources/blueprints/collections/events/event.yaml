@@ -71,7 +71,7 @@ tabs:
                         -
                           handle: description
                           field:
-                            type: text
+                            type: textarea
                             display: Beschreibung
   media:
     display: Medien

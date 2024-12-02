@@ -1,0 +1,73 @@
+{{ partial:layout/outer }}
+
+  {{ partial:layout/inner }}
+
+    {{ if anchor_name }}
+      {{ partial:components/blocks/anchor }}
+    {{ /if }}
+
+    {{ partial:layout/grid }}
+
+      {{ if title || subitle || lead || editor }}
+        <article class="text-pretty md:col-span-6 lg:col-span-4 order-1">
+
+          {{ if title }}
+            {{ partial:components/headings/h2 class="{{ !subtitle ? 'mb-15 lg:mb-25' : 'mb-5 lg:mb-10' }}"  }}
+              {{ title }}
+            {{ /partial:components/headings/h2 }}
+          {{ /if }}
+
+          {{ if subtitle }}
+            {{ partial:components/headings/h3  }}
+              {{ subtitle }}
+            {{ /partial:components/headings/h3 }}
+          {{ /if }}
+
+          {{ if lead }}
+            {{ lead | nl2br }}
+          {{ /if }}
+
+          {{ if editor }}
+            {{ partial:components/blocks/editor }}
+          {{ /if }}
+
+        </article>
+      {{ /if }}
+
+      {{ if image }}
+        <div class="md:col-span-6 lg:col-span-4 flex items-center justify-center order-3 md:order-2">
+          {{ partial:media/image 
+            class="w-full h-auto"
+            sizes="['lg', 'md']"
+            :image="image" }}
+        </div>
+      {{ /if }}
+
+      {{ if title_infobox || infos }}
+        <div class="md:col-span-6 lg:col-span-4 order-2 md:order-3">
+          <div class="wavy-border-xs bg-white py-30 px-20">
+            {{ if title_infobox }}
+              {{ partial:components/headings/h3 class="mb-5 lg:mb-10" }}
+                {{ title_infobox }}
+              {{ /partial:components/headings/h3 }}
+            {{ /if }}
+            {{ if infos }}
+              <table>
+              {{ infos }}
+                <tr>
+                  <td class="font-calibre-bold font-bold pr-10 lg:pr-15 py-5">{{ label }}</td>
+                  <td class="py-5">{{ description }}</td>
+                </tr>
+              {{ /infos }}
+              </table>
+            {{ /if }}
+          </div>
+        </div>
+      {{ /if }}
+
+
+    {{ /partial:layout/grid }}
+
+  {{ /partial:layout/inner }}
+
+{{ /partial:layout/outer }}
