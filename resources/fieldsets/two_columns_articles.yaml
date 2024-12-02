@@ -1,0 +1,69 @@
+title: 'Inhalt zweispaltig (Artikel mit Bild/Text)'
+fields:
+  -
+    import: theme_selector
+  -
+    import: anchor
+  -
+    handle: articles
+    field:
+      type: replicator
+      display: Artikel
+      sets:
+        articles:
+          display: Artikel
+          instructions: 'Artikel hinzufügen'
+          icon: text-formatting-image-top
+          sets:
+            article:
+              display: Artikel
+              instructions: 'Artikel hinzufügen'
+              icon: text-formatting-image-top
+              fields:
+                -
+                  handle: subtitle
+                  field:
+                    type: text
+                    display: Subtitel
+                -
+                  handle: title
+                  field:
+                    type: text
+                    display: Titel
+                -
+                  handle: image
+                  field:
+                    max_files: 1
+                    container: assets
+                    type: assets
+                    display: Bild
+                -
+                  handle: editor
+                  field:
+                    buttons:
+                      - h3
+                      - bold
+                      - unorderedlist
+                      - removeformat
+                      - anchor
+                      - nobr
+                    toolbar_mode: floating
+                    remove_empty_nodes: true
+                    link_collections:
+                      - pages
+                    container: assets
+                    type: bard
+                    display: Texteditor
+                    sets:
+                      elements:
+                        display: Elemente
+                        instructions: 'Elemente hinzufügen'
+                        icon: addon-boxes-stack
+                        sets:
+                          button:
+                            display: Button
+                            instructions: 'Button hinzufügen'
+                            icon: link
+                            fields:
+                              -
+                                import: button

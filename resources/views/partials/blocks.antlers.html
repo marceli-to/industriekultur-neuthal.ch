@@ -50,6 +50,10 @@
   {{ partial:components/blocks/two_columns_text_infobox }}
 {{ /if }}
 
+{{ if type == 'two_columns_articles' }}
+  {{ partial:components/blocks/two_columns_articles }}
+{{ /if }}
+
 {{ if type == 'anchor' }}
   {{ partial:components/blocks/anchor }}
 {{ /if }}

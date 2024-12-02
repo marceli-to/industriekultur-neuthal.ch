@@ -97,6 +97,13 @@ tabs:
                       fields:
                         -
                           import: three_columns_text_image_info
+                    two_columns_articles:
+                      display: 'Inhalt zweispaltig (Artikel mit Bild/Text)'
+                      instructions: 'Inhalt zweispaltig (Artikel mit Bild/Text) hinzufügen'
+                      icon: text-formatting-image-top
+                      fields:
+                        -
+                          import: two_columns_articles
                 special_elements:
                   display: Spezialelemente
                   icon: addon-boxes-stack
