@@ -1,0 +1,46 @@
+title: Spezialteaser
+fields:
+  -
+    import: theme_selector
+  -
+    handle: teaser_title
+    field:
+      type: text
+      display: Titel
+  -
+    handle: teaser_subtitle
+    field:
+      type: textarea
+      display: Subtitel
+  -
+    handle: teaser_text
+    field:
+      buttons:
+        - bold
+        - unorderedlist
+        - removeformat
+        - anchor
+        - nobr
+      toolbar_mode: floating
+      remove_empty_nodes: true
+      type: bard
+      display: Text
+  -
+    handle: teaser_image
+    field:
+      max_files: 1
+      container: assets
+      type: assets
+      display: Bild
+  -
+    handle: teaser_url
+    field:
+      collections:
+        - pages
+      type: link
+      display: Link
+  -
+    handle: teaser_link_text
+    field:
+      type: text
+      display: Linktext

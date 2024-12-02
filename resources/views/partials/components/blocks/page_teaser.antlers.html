@@ -23,9 +23,9 @@
                 sizes="['lg', 'md']"
                 :image="teaser_image" }}
             {{ /if }}
-            <h2 class="text-sm lg:text-md leading-[1.1] mb-5 lg:mb-10">
+            {{ partial:components/headings/h2 class="!text-sm lg:!text-md leading-[1.1] mb-5 lg:mb-10" }}
               {{ teaser_title }}
-            </h2>
+            {{ /partial:components/headings/h2 }}
             <div>
               {{ if teaser_text }}
                 {{ teaser_text }}

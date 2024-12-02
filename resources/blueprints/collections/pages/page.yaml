@@ -122,6 +122,13 @@ tabs:
                       fields:
                         -
                           import: video
+                    special_teaser:
+                      display: Spezialteaser
+                      instructions: 'Spezialteaser (z.b. Sonderausstellung) hinzufügen'
+                      icon: alert-alarm-bell
+                      fields:
+                        -
+                          import: special_teaser
                     event_teaser:
                       display: Veranstaltungsteaser
                       instructions: 'Veranstaltungsteaser hinzufügen'
@@ -129,6 +136,13 @@ tabs:
                       fields:
                         -
                           import: event_teaser
+                    shop_teaser:
+                      display: Shopteaser
+                      instructions: 'Shopteaser hinzufügen'
+                      icon: media-image-picture-gallery
+                      fields:
+                        -
+                          import: shop_teaser
                     anchor:
                       display: Anker
                       instructions: 'Ankerpunkt für Inhalte hinzufügen'
@@ -150,13 +164,6 @@ tabs:
                       fields:
                         -
                           import: impressions
-                    shop_teaser:
-                      display: Shopteaser
-                      instructions: 'Shopteaser hinzufügen'
-                      icon: media-image-picture-gallery
-                      fields:
-                        -
-                          import: shop_teaser
   seo:
     display: SEO
     sections:

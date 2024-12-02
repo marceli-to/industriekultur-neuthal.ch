@@ -6,22 +6,22 @@
       {{ partial:components/blocks/anchor }}
     {{ /if }}
 
+    {{ if title }}
+      {{ partial:components/headings/h2 class="{{ !subtitle ? 'mb-15 lg:mb-25' : '' }}"  }}
+        {{ title }}
+      {{ /partial:components/headings/h2 }}
+    {{ /if }}
+
+    {{ if subtitle }}
+      {{ partial:components/headings/h3 class="mb-15 lg:mb-25" }}
+        {{ subtitle }}
+      {{ /partial:components/headings/h3 }}
+    {{ /if }}
+
     {{ partial:layout/grid }}
 
-      {{ if title || subitle || lead || editor }}
+      {{ if lead || editor }}
         <article class="text-pretty md:col-span-6 lg:col-span-4 order-1">
-
-          {{ if title }}
-            {{ partial:components/headings/h2 class="{{ !subtitle ? 'mb-15 lg:mb-25' : 'mb-5 lg:mb-10' }}"  }}
-              {{ title }}
-            {{ /partial:components/headings/h2 }}
-          {{ /if }}
-
-          {{ if subtitle }}
-            {{ partial:components/headings/h3  }}
-              {{ subtitle }}
-            {{ /partial:components/headings/h3 }}
-          {{ /if }}
 
           {{ if lead }}
             {{ lead | nl2br }}

@@ -29,6 +29,7 @@ export default {
         'ember': '#ED6200',
         'peach': '#FDE3C1',
         'sky': '#C3E7F9',
+        'cloud': '#91969f',
         'blush': '#F4DFD9',
         'crimson': '#BB012E',
         'lemon': '#DFE896',

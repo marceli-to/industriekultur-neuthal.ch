@@ -1,0 +1,34 @@
+{{ partial:layout/outer  }}
+  {{ partial:layout/inner }}
+    <div class="wavy-border theme-mint px-25 lg:px-45 pt-30 lg:pt-35 ">
+      {{ partial:layout/grid }}
+        <div class="md:col-span-6 pb-20 lg:pb-35">
+          {{ if teaser_title }}
+            {{ partial:components/headings/h2 class="!text-forest"}}
+              {{ teaser_title }}
+            {{ /partial:components/headings/h2 }}
+          {{ /if }}
+          {{ if teaser_subtitle }}
+            {{ partial:components/headings/h3 class="!text-forest text-pretty mb-10 lg:mb-25"}}
+              {{ teaser_subtitle }}
+            {{ /partial:components/headings/h3 }}
+          {{ /if }}
+          <div class="text-pretty">
+            {{ teaser_text }}
+
+            {{ if teaser_url }}
+              <div class="mt-20 lg:mt-35">
+                {{ partial:components/buttons/secondary url="{{ teaser_url }}" label="{{ teaser_link_text ?? 'Mehr' }}" is_button="false" }}
+              </div>
+            {{ /if}}
+          </div>
+        </div>
+        {{ if teaser_image }}
+        <div class="md:col-span-6 md:flex md:justify-end md:w-full">
+          {{ partial:media/image class="w-full h-auto" wrapperClass="max-w-[90%]" :image="teaser_image" }}
+        </div>
+        {{ /if }}
+      {{ /partial:layout/grid }}
+    </div>
+  {{ /partial:layout/inner }}
+{{ /partial:layout/outer }}

@@ -7,8 +7,14 @@ fields:
       display: Hintergrund
       options:
         -
+          key: theme-white
+          value: Weiss
+        -
           key: theme-sky
           value: Hellblau
+        -
+          key: theme-cloud
+          value: Blau
         -
           key: theme-midnight
           value: Dunkelblau

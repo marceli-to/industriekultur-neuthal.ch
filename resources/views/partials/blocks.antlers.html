@@ -14,6 +14,10 @@
   {{ partial:components/blocks/intro_content }}
 {{ /if }}
 
+{{ if type == 'special_teaser' }}
+  {{ partial:components/blocks/special_teaser }}
+{{ /if }}
+
 {{ if type == 'page_teaser' }}
   {{ partial:components/blocks/page_teaser }}
 {{ /if }}
