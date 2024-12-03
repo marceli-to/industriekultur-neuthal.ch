@@ -2,7 +2,6 @@
   selector="data-gallery"
   hasNavigation="true" 
   hasPagination="true"
-  class="wavy-border"
   prevClass="left-30 md:left-50 text-white hover:text-lemon"
   nextClass="right-30 md:right-50 text-white hover:text-lemon" }}
   {{ images }}
@@ -11,7 +10,7 @@
         :image="url" 
         :sizes="['2xl', 'xl', 'lg']" 
         preset="focal-gallery-fullscreen"
-        class="w-full h-auto aspect-[16/7] md:aspect-[16/6] object-cover" }}
+        class="w-full h-auto aspect-[1180/420] object-cover" }}
     {{ /partial:components/swiper/slide }}
   {{ /images }}
 {{ /partial:components/swiper/wrapper }}
