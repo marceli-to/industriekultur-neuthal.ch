@@ -1,12 +1,9 @@
 header[data-header] {
-  transition: height 100ms ease-out;
-  will-change: height;
+  @apply transition-all duration-150;
 }
 
 header[data-header].is-shrinked {
   @apply lg:h-96;
-  transition: height 100ms ease-out;
-  will-change: height;
 }
 
 /* header[data-header].is-shrinked [data-logo] {

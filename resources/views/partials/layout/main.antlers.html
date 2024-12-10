@@ -1,3 +1,27 @@
-<main role="main" class="flex-1">
+<main role="main" class="flex-1 relative">
   {{ template_content }}
+  <style>
+    .path {
+      stroke-dasharray: 1500;
+      stroke-dashoffset: 1500;
+      animation: draw 4s ease infinite;
+    }
+    
+    @keyframes draw {
+      0% {
+        stroke-dashoffset: 1500;
+      }
+      50% {
+        stroke-dashoffset: 0;
+      }
+      100% {
+        stroke-dashoffset: 1500;
+      }
+    }
+  </style>
+  <div class="absolute -left-10 lg:-left-40 top-1/2 -translate-y-1/2 z-[50] w-64 lg:w-124">
+    <svg width="124" height="961" viewBox="0 0 124 961" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-72 lg:w-124">
+      <path class="path" d="M1 0C38.6667 21.6667 107.6 88.4 82 182C50 299 73.5 331 89.0001 347C128.66 387.94 137 319 89.0001 301C41.0001 283 40.8534 363.518 82 426C109 467 134 511 113 565C77.7513 655.64 60.0001 699 71.0001 729C82 759 113 760 89.0001 797C65.0001 834 34.0001 836 34.0001 961" stroke="black" stroke-width="3"/>
+    </svg>
+  </div>
 </main>
