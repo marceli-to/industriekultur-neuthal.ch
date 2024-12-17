@@ -8,6 +8,14 @@
       </div>
       <div class="md:col-span-6 lg:col-span-5 text-pretty relative">
         {{ text }}
+          {{ if type == 'text' }}
+            {{ text }}
+          {{ /if }}
+        
+          {{ if type == 'button' }}
+            {{ partial:components/buttons/secondary url="{{ button_url }}" label="{{ button_text }}" is_button="false" }}
+          {{ /if }}
+        {{ /text }}
       </div>
       {{ if splash_group_tour }}
         <a href="" title="Gruppenführungen ganzjährig" class="hidden md:block">

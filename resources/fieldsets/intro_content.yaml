@@ -21,6 +21,19 @@ fields:
       remove_empty_nodes: false
       type: bard
       display: Texteditor
+      sets:
+        elements:
+          display: Elemente
+          instructions: 'Elemente hinzufügen'
+          icon: addon-boxes-stack
+          sets:
+            button:
+              display: Button
+              instructions: 'Button hinzufügen'
+              icon: link
+              fields:
+                -
+                  import: button
       link_collections:
         - pages
       container: assets
