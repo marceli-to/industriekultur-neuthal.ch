@@ -164,6 +164,11 @@ tabs:
                       fields:
                         -
                           import: impressions
+                    timetable:
+                      display: 'ZVV Fahrplan'
+                      instructions: 'ZVV Fahrplan hinzufügen'
+                      icon: addon-boxes-stack
+                      fields: {  }
   seo:
     display: SEO
     sections:

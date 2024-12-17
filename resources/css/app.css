@@ -64,6 +64,10 @@ h3 {
   @apply font-calibre-regular font-normal leading-[1.25] text-sm bg-white !my-0 !text-black;
 }
 
+#zvv-connectionsearch-widget > div {
+  @apply !w-full;
+}
+
 #zvv-connectionsearch-widget [class^="Jp-attribution-"] {
   @apply flex-row space-x-10;
 }
@@ -82,7 +86,7 @@ h3 {
 }
 
 #zvv-connectionsearch-widget [class^="Jp-logoContainer"] {
-  @apply w-full;
+  @apply w-full justify-start;
 }
 
 #zvv-connectionsearch-widget [class^="Jp-container-"] svg {
@@ -109,4 +113,3 @@ h3 {
 #zvv-connectionsearch-widget .icon-ub-calendar {
 @apply justify-end
 }
-

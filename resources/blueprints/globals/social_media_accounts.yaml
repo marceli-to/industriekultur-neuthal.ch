@@ -17,12 +17,6 @@ tabs:
               display: Facebook
               localizable: true
           -
-            handle: linkedin
-            field:
-              type: text
-              display: LinkedIn
-              localizable: true
-          -
             handle: youtube
             field:
               type: text

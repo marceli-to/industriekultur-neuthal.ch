@@ -1,8 +1,8 @@
 <footer class="theme-white py-30 lg:py-40 border-t-2 border-black">
   {{ partial:layout/inner }}
     {{ partial:layout/grid }}
-      <div class="md:col-span-full lg:col-span-8">
-        <div class="flex flex-col gap-y-30 md:gap-y-0 lg:gap-x-30 xl:gap-x-60 md:flex-row justify-between lg:justify-start">
+      <div class="md:col-span-full lg:col-span-10">
+        <div class="flex flex-col gap-y-30 md:gap-y-0 lg:gap-x-60 xl:gap-x-120 md:flex-row justify-between lg:justify-start">
           <div>
             <h2>{{ contact_information:name }}<br>{{ contact_information:byline }}</h2>
             {{ if contact_information:address }}
@@ -35,14 +35,12 @@
           </div>
           <div>
             <h2>Abonnieren Sie uneren Newsletter<br>und bleiben Sie informiert!</h2>
-            <form class="mt-10 flex flex-col gap-y-15">
-              <div>
-                <input type="email" placeholder="Ihre E-Mail-Adresse" class="max-w-[280px]" />
-              </div>
-              <div>
-                {{ partial:components/buttons/secondary type="submit" label="Abonnieren" is_button="true" }}
-              </div>
-            </form>
+            {{ partial:components/buttons/secondary 
+              url="https://200d5590.sibforms.com/serve/MUIFAC6jX-61pU1LCqD_8ssjX5RSEfYMgQz_VShNKJTE63DuIEplPPwgShA13kwX7iAFwDClljDiGcAhQnyGovZO9jLN1bzgHajztkbA-Hy-s7dxTimlAK6YmnRAnJ5W6-ZPpqT4Z0TG2CfTjpWYzGMtzArfN01IkpocqcPWlH8x7zn7msTS9Wv0N3YnUNyUQVtZ7EeAqVT5Y4-A"
+              label="Newsletter Abonnieren" 
+              target="_blank"
+              is_button="false"
+              class="mt-10" }}
           </div>
         </div>
         <div class="mt-40">
@@ -53,28 +51,27 @@
               </div>
             {{ /quicklinks:links }}
           </div>
-          <nav class="mt-30 md:col-span-full">
-            <ul class="flex gap-x-15">
-              {{ nav:footer }}
-                <li>
-                  <a 
-                    href="{{ url }}" 
-                    title="{{ title }}" 
-                    target="{{ is_external ? '_blank' : '_self' }}"
-                    class="hover:underline underline-offset-2">
-                    {{ title }}
-                  </a>
-                </li>
-              {{ /nav:footer }}
-            </ul>
-          </nav>
         </div>
       </div>
-      <div class="md:col-span-6 lg:col-span-4">
-        <div class="aspect-video bg-neutral-200 flex items-center justify-center">
-          <script src=https://fpcdn.zvv.ch/cdn/v1/widget.min.js></script>
-          <div id="zvv-connectionsearch-widget" data-to="Museum Neuthal Textil- & Industriekultur, Im Neuthal 6, 8344 Bäretswil" data-tolat="47.359381" data-tolon="8.865405"></div>
+      <div class="md:mt-30 lg:mt-0 md:col-span-6 lg:col-span-2 lg:flex lg:flex-col lg:items-end">
+        <div>
+          {{ partial:components/blocks/socials }}
         </div>
+        <nav class="mt-20 lg:mt-0">
+          <ul class="flex lg:flex-col lg:gap-y-2 lg:mt-20 gap-x-15 lg:gap-x-0">
+            {{ nav:footer }}
+              <li>
+                <a 
+                  href="{{ url }}" 
+                  title="{{ title }}" 
+                  target="{{ is_external ? '_blank' : '_self' }}"
+                  class="block hover:underline underline-offset-2 lg:text-right">
+                  {{ title }}
+                </a>
+              </li>
+            {{ /nav:footer }}
+          </ul>
+        </nav>
       </div>
     {{ /partial:layout/grid }} 
   {{ /partial:layout/inner }}
