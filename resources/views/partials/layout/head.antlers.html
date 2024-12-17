@@ -25,6 +25,8 @@
 {{ vite src="resources/css/app.css" }}
 {{ livewire:styles }}
 </head>
+{{ partial:layout/debug }}
+
 {{ if debug }}
   {{ partial:layout/debug }}
 {{ /if }}

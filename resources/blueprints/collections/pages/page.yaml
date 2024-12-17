@@ -16,6 +16,38 @@ tabs:
               display: Titel
               localizable: true
           -
+            handle: animated_line_left
+            field:
+              options:
+                -
+                  key: line-left-1
+                  value: 'Linie 1'
+                -
+                  key: line-left-2
+                  value: 'Linie 2'
+                -
+                  key: line-left-3
+                  value: 'Linie 3'
+              type: select
+              display: 'Animierte Linie (Links)'
+              width: 50
+          -
+            handle: animated_line_right
+            field:
+              options:
+                -
+                  key: line-right-1
+                  value: 'Linie 1'
+                -
+                  key: line-right-2
+                  value: 'Linie 2'
+                -
+                  key: line-right-3
+                  value: 'Linie 3'
+              type: select
+              display: 'Animierte Linie (Rechts)'
+              width: 50
+          -
             handle: page_blocks
             field:
               type: replicator

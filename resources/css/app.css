@@ -113,3 +113,22 @@ h3 {
 #zvv-connectionsearch-widget .icon-ub-calendar {
 @apply justify-end
 }
+
+/* Animated lines */
+@keyframes drawLine {
+  0% {
+    stroke-dashoffset: 1500;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 1500;
+  }
+}
+
+.animated-line-path {
+  stroke-dasharray: 1500;
+  stroke-dashoffset: 1500;
+  animation: drawLine 4s ease infinite;
+}
