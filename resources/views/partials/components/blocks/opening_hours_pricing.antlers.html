@@ -34,7 +34,17 @@
               </table>
             {{ /if }}
             {{ if hint }}
-              <p class="mt-20 lg:mt-30">{{ hint }}</p>
+              <div class="mt-20 lg:mt-30">
+                {{ hint }}
+                  {{ if type == 'text' }}
+                    {{ text }}
+                  {{ /if }}
+                
+                  {{ if type == 'button' }}
+                    {{ partial:components/buttons/secondary url="{{ button_url }}" label="{{ button_text }}" is_button="false" }}
+                  {{ /if }}
+                {{ /hint }}
+              </div>
             {{ /if }}
           </div>
 
@@ -58,9 +68,20 @@
               </table>
             {{ /if }}
 
-            {{ if hint_guided_tours }}
-              <p class="mt-20 lg:mt-30">{{ hint_guided_tours }}</p>
-            {{ /if }}
+            <div class="mt-20 lg:mt-30">
+              {{ hint_guided_tours }}
+              
+                {{ if type == 'text' }}
+                  {{ text }}
+                {{ /if }}
+              
+                {{ if type == 'button' }}
+                  {{ partial:components/buttons/secondary url="{{ button_url }}" label="{{ button_text }}" is_button="false" }}
+                {{ /if }}
+
+              {{ /hint_guided_tours }}
+            </div>
+
           </div>
 
           <div>

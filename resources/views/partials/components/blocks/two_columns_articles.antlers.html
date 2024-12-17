@@ -6,6 +6,12 @@
       {{ partial:components/blocks/anchor }}
     {{ /if }}
 
+    {{ if article_title }}
+      {{ partial:components/headings/h2 class="mb-15 lg:mb-25"  }}
+        {{ article_title }}
+      {{ /partial:components/headings/h2 }}
+    {{ /if }}    
+
     {{ partial:layout/grid }}
 
     {{ articles }}

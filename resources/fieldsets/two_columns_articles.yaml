@@ -5,6 +5,11 @@ fields:
   -
     import: anchor
   -
+    handle: article_title
+    field:
+      type: text
+      display: Titel
+  -
     handle: articles
     field:
       type: replicator
