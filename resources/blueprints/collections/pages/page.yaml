@@ -76,6 +76,13 @@ tabs:
                       fields:
                         -
                           import: three_columns_lead_text_image
+                    three_columns_text_text_image:
+                      display: 'Inhalt dreispaltig (Text, Text, Bild)'
+                      instructions: 'Inhalt dreispaltig (Text, Text, Bild) hinzufügen'
+                      icon: text-formatting-image-left
+                      fields:
+                        -
+                          import: three_columns_text_text_image
                     two_columns_text_infobox:
                       display: 'Inhalt zweispaltig (Text, Infobox)'
                       instructions: 'Inhalt zweispaltig (Text, Infobox) hinzufügen'
