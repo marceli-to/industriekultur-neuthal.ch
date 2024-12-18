@@ -91,5 +91,8 @@ h3 {
 .animated-line-path {
   stroke-dasharray: 1500;
   stroke-dashoffset: 1500;
-  animation: drawLine 2s ease forwards;
+}
+
+[data-observe].is-visible .animated-line-path {
+  animation: drawLine 1s .5s ease-in-out forwards;
 }
