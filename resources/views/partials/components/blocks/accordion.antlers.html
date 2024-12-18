@@ -19,16 +19,20 @@
 
           {{ partial:layout/grid class="!gap-y-15 md:!gap-y-0" }}
 
-            {{ if editor_left }}
+            {{ if editor }}
               <article class="text-pretty md:col-span-6">
-                {{ partial:components/blocks/editor :editor="editor_left" }}
+                {{ partial:components/blocks/editor }}
               </article>
             {{ /if }}
             
-            {{ if editor_right }}
-              <article class="text-pretty md:col-span-6">
-                {{ partial:components/blocks/editor :editor="editor_right" }}
-              </article>
+            {{ if image }}
+              <div class="{{ wide ? 'md:col-span-6 lg:col-span-4' : 'md:col-span-6' }} {{ mirrored ? 'md:order-1' : ''}}">
+                {{ partial:media/image 
+                  class="w-full h-auto"
+                  preset="focal-16-10"
+                  sizes="['lg', 'md']"
+                  :image="image" }}
+              </div>
             {{ /if }}
 
           {{ /partial:layout/grid }}

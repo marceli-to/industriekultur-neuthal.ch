@@ -3,7 +3,7 @@
   class="border-b border-black relative mb-15 lg:mb-25 scroll-mt-180">
   <button 
     type="button" 
-    class=" w-full pb-10 text-left"
+    class=" w-full pb-10 lg:pb-15 text-left"
     @click="selected !== {{ index }} ? selected = {{ index }} : selected = null;">
     <div class="flex items-center justify-between">
       <div class="uppercase font-calibre-semi font-semibold text-sm lg:text-base leading-[1.1] !text-black">
@@ -21,7 +21,7 @@
     class="relative overflow-hidden max-h-0"
     x-ref="container{{ index }}" 
     x-bind:style="selected == '{{ index }}' ? 'max-height: ' + $refs.container{{ index }}.scrollHeight + 'px;' : ''">
-      <div class="mb-10">
+      <div class="mb-10 pb-10 lg:pb-20">
         {{ slot }}
       </div>
   </div>

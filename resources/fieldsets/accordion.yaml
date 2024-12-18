@@ -29,12 +29,11 @@ fields:
                     type: text
                     display: Titel
                 -
-                  handle: editor_left
+                  handle: editor
                   field:
                     remove_empty_nodes: true
                     type: bard
-                    display: 'Texteditor (Links)'
-                    width: 50
+                    display: Texteditor
                     buttons:
                       - h3
                       - bold
@@ -60,33 +59,9 @@ fields:
                               -
                                 import: button
                 -
-                  handle: editor_right
+                  handle: image
                   field:
-                    remove_empty_nodes: true
-                    type: bard
-                    display: 'Texteditor (Rechts)'
-                    width: 50
-                    buttons:
-                      - h3
-                      - bold
-                      - unorderedlist
-                      - removeformat
-                      - anchor
-                      - nobr
-                    toolbar_mode: floating
-                    link_collections:
-                      - pages
+                    max_files: 1
                     container: assets
-                    sets:
-                      button:
-                        display: Button
-                        instructions: 'Button hinzufügen'
-                        icon: link
-                        sets:
-                          button:
-                            display: Button
-                            instructions: 'Button hinzufügen'
-                            icon: link
-                            fields:
-                              -
-                                import: button
+                    type: assets
+                    display: Bild
