@@ -71,3 +71,8 @@ fields:
               fields:
                 -
                   import: button
+            timetable:
+              display: 'ZVV Fahrplan'
+              instructions: 'ZVV Fahrplan hinzufügen'
+              icon: addon-boxes-stack
+              fields: {  }

@@ -114,6 +114,17 @@ h3 {
 @apply justify-end
 }
 
+#zvv-connectionsearch-widget ul,
+#zvv-connectionsearch-widget li {
+  @apply block !list-none !bg-none;
+}
+
+#zvv-connectionsearch-widget form,
+#zvv-connectionsearch-widget form > div {
+  @apply block !w-full;
+}
+
+
 /* Animated lines */
 @keyframes drawLine {
   0% {

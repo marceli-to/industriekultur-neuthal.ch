@@ -83,5 +83,9 @@
 {{ /if }}
 
 {{ if type == 'timetable' }}
-  {{ partial:components/blocks/timetable }}
+  {{ partial:layout/outer }}
+    {{ partial:layout/inner }}
+      {{ partial:components/blocks/timetable }}
+    {{ /partial:layout/inner }}
+  {{ /partial:layout/outer }}
 {{ /if }}

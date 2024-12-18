@@ -6,4 +6,8 @@
   {{ if type == 'button' }}
     {{ partial:components/buttons/secondary url="{{ button_url }}" label="{{ button_text }}" is_button="true" }}
   {{ /if }}
+
+  {{ if type == 'timetable' }}
+    {{ partial:components/blocks/timetable }}
+  {{ /if }}
 {{ /editor }}
