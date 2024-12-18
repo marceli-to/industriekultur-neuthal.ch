@@ -16,7 +16,7 @@
       {{ accordion_row }}
 
         {{ partial:components/accordion/item }}
-          {{ partial:layout/grid }}
+          {{ partial:layout/grid class="!gap-y-20 md:!gap-y-0" }}
             {{ if editor_left }}
               <article class="text-pretty md:col-span-6">
                 {{ partial:components/blocks/editor :editor="editor_left" }}
