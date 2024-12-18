@@ -1,0 +1,92 @@
+title: Akkordeon
+fields:
+  -
+    import: theme_selector
+  -
+    import: anchor
+  -
+    handle: accordion_title
+    field:
+      type: text
+      display: Title
+  -
+    handle: accordion_row
+    field:
+      type: replicator
+      display: Zeile
+      sets:
+        neue_setgruppe:
+          display: 'Neue Setgruppe'
+          sets:
+            accordion_row:
+              display: Zeile
+              instructions: 'Zeile hinzufügen'
+              icon: align-object-center
+              fields:
+                -
+                  handle: accordion_row_title
+                  field:
+                    type: text
+                    display: Titel
+                -
+                  handle: editor_left
+                  field:
+                    remove_empty_nodes: true
+                    type: bard
+                    display: 'Texteditor (Links)'
+                    width: 50
+                    buttons:
+                      - h3
+                      - bold
+                      - unorderedlist
+                      - removeformat
+                      - anchor
+                      - nobr
+                    toolbar_mode: floating
+                    link_collections:
+                      - pages
+                    container: assets
+                    sets:
+                      button:
+                        display: Button
+                        instructions: 'Button hinzufügen'
+                        icon: link
+                        sets:
+                          button:
+                            display: Button
+                            instructions: 'Button hinzufügen'
+                            icon: link
+                            fields:
+                              -
+                                import: button
+                -
+                  handle: editor_right
+                  field:
+                    remove_empty_nodes: true
+                    type: bard
+                    display: 'Texteditor (Rechts)'
+                    width: 50
+                    buttons:
+                      - h3
+                      - bold
+                      - unorderedlist
+                      - removeformat
+                      - anchor
+                      - nobr
+                    toolbar_mode: floating
+                    link_collections:
+                      - pages
+                    container: assets
+                    sets:
+                      button:
+                        display: Button
+                        instructions: 'Button hinzufügen'
+                        icon: link
+                        sets:
+                          button:
+                            display: Button
+                            instructions: 'Button hinzufügen'
+                            icon: link
+                            fields:
+                              -
+                                import: button

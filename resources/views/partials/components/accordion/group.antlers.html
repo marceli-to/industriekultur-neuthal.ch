@@ -1,0 +1,63 @@
+
+{{ partial:layout/inner has_reveal="true" }}
+  
+  <h2 class="mb-20 lg:mb-40">{{ title }}</h2>  
+
+  {{ partial:components/accordion/wrapper }}
+
+    {{ item }}
+
+      {{ partial:components/accordion/item :title="title" }}
+
+      {{ if subtitle }}
+
+          <h3 class="mb-15 lg:mb-30">
+            {{ subtitle }}
+          </h3>
+
+      {{ /if }}
+
+        <article class="sm:grid sm:grid-cols-12 sm:gap-x-20">
+
+          {{ if text_left }}
+
+            <div class="mb-20 sm:mb-0 sm:col-span-6">
+              {{ text_left }}
+                {{ partial:components/editor/single }}
+              {{ /text_left }}
+            </div>
+
+          {{ /if }}
+
+          {{ if text_right }}
+
+            <div class="mb-20 sm:mb-0 sm:col-span-6">
+              {{ text_right }}
+                {{ partial:components/editor/single }}
+              {{ /text_right }}
+            </div>
+
+          {{ /if }}
+
+          {{ if file }}
+
+            <div class="sm:col-span-full mt-15 lg:mt-30">
+              {{ partial:partials/components/buttons/primary 
+                  type="outline" 
+                  button_text="Stellenbeschreibung (PDF)" 
+                  :button_link="file:url"
+                  target="_blank"
+                  class="px-15 lg:px-20" }}
+            </div>
+            
+          {{ /if }}
+
+        </article>
+
+      {{ /partial:components/accordion/item }}
+
+    {{ /item }}
+
+  {{ /partial:components/accordion/wrapper }}
+
+{{ /partial:layout/inner }}

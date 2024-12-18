@@ -89,3 +89,7 @@
     {{ /partial:layout/inner }}
   {{ /partial:layout/outer }}
 {{ /if }}
+
+{{ if type == 'accordion' }}
+  {{ partial:components/blocks/accordion }}
+{{ /if }}

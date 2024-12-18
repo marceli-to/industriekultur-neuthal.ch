@@ -1,0 +1,29 @@
+<div 
+  data-accordion-index="{{ index }}" 
+  class="border-b border-black relative mb-15 lg:mb-25 scroll-mt-180">
+  <button 
+    type="button" 
+    class=" w-full pb-10 text-left"
+    @click="selected !== {{ index }} ? selected = {{ index }} : selected = null;">
+    <div class="flex items-center justify-between">
+      <div class="uppercase font-calibre-semi font-semibold text-sm lg:text-base leading-[1.1] !text-black">
+        {{ accordion_row_title }}
+      </div>
+      <template x-if="selected !== {{ index }}">
+        {{ partial:icons/chevrons/down-small class="accordeon-chevron w-8 h-auto shrink-0" }}
+      </template>
+      <template x-if="selected === {{ index }}">
+        {{ partial:icons/chevrons/up-small class="accordeon-chevron w-8 h-auto shrink-0" }}
+      </template>
+    </div>
+  </button>
+  <div 
+    class="relative overflow-hidden max-h-0"
+    x-ref="container{{ index }}" 
+    x-bind:style="selected == '{{ index }}' ? 'max-height: ' + $refs.container{{ index }}.scrollHeight + 'px;' : ''">
+      <div class="mb-10">
+        {{ slot }}
+      </div>
+  </div>
+</div>
+

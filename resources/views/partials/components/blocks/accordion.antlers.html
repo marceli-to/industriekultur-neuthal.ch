@@ -1,0 +1,38 @@
+{{ partial:layout/outer }}
+  {{ partial:layout/inner }}
+
+    {{ if anchor_name }}
+      {{ partial:components/blocks/anchor }}
+    {{ /if }}
+
+    {{ if accordion_title }}
+      {{ partial:components/headings/h2 class="mb-15 lg:mb-25"  }}
+        {{ accordion_title }}
+      {{ /partial:components/headings/h2 }}
+    {{ /if }}
+
+    {{ partial:components/accordion/wrapper }}
+
+      {{ accordion_row }}
+
+        {{ partial:components/accordion/item }}
+          {{ partial:layout/grid }}
+            {{ if editor_left }}
+              <article class="text-pretty md:col-span-6">
+                {{ partial:components/blocks/editor :editor="editor_left" }}
+              </article>
+            {{ /if }}
+            {{ if editor_right }}
+              <article class="text-pretty md:col-span-6">
+                {{ partial:components/blocks/editor :editor="editor_right" }}
+              </article>
+            {{ /if }}
+          {{ /partial:layout/grid }}
+        {{ /partial:components/accordion/item }}
+
+      {{ /accordion_row }}
+
+    {{ /partial:components/accordion/wrapper }}
+
+  {{ /partial:layout/inner }}
+{{ /partial:layout/outer }}

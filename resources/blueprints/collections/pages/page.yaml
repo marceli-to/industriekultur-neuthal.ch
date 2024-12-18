@@ -80,6 +80,13 @@ tabs:
                       fields:
                         -
                           import: page_teaser
+                    one_column_text_wide:
+                      display: 'Inhalt einspaltig (nur Text)'
+                      instructions: 'Inhalt einspaltig (nur Text) hinzufügen'
+                      icon: text-formatting-initial-letter
+                      fields:
+                        -
+                          import: one_column_text_wide
                     two_columns_text_image:
                       display: 'Inhalt zweispaltig (Text, Bild)'
                       instructions: 'Inhalt mit 2 Spalten (Text, Bild) hinzufügen'
@@ -94,13 +101,20 @@ tabs:
                       fields:
                         -
                           import: two_columns_text_only
-                    one_column_text_wide:
-                      display: 'Inhalt einspaltig (nur Text)'
-                      instructions: 'Inhalt einspaltig (nur Text) hinzufügen'
-                      icon: text-formatting-initial-letter
+                    two_columns_articles:
+                      display: 'Inhalt zweispaltig (Artikel mit Bild/Text)'
+                      instructions: 'Inhalt zweispaltig (Artikel mit Bild/Text) hinzufügen'
+                      icon: text-formatting-image-top
                       fields:
                         -
-                          import: one_column_text_wide
+                          import: two_columns_articles
+                    two_columns_text_infobox:
+                      display: 'Inhalt zweispaltig (Text, Infobox)'
+                      instructions: 'Inhalt zweispaltig (Text, Infobox) hinzufügen'
+                      icon: text-formatting-image-right
+                      fields:
+                        -
+                          import: two_columns_text_infobox
                     three_columns_lead_text_image:
                       display: 'Inhalt dreispaltig (Lead, Text, Bild)'
                       instructions: 'Inhalt dreispaltig (Lead, Text, Bild) hinzufügen'
@@ -115,20 +129,6 @@ tabs:
                       fields:
                         -
                           import: three_columns_text_text_image
-                    two_columns_text_infobox:
-                      display: 'Inhalt zweispaltig (Text, Infobox)'
-                      instructions: 'Inhalt zweispaltig (Text, Infobox) hinzufügen'
-                      icon: text-formatting-image-right
-                      fields:
-                        -
-                          import: two_columns_text_infobox
-                    single_image:
-                      display: Einzelbild
-                      instructions: 'Einzelbild hinzufügen'
-                      icon: media-image-picture-orientation
-                      fields:
-                        -
-                          import: image
                     three_columns_text_image_info:
                       display: 'Inhalt dreispaltig (Text, Bild, Info)'
                       instructions: 'Inhalt dreispaltig (Text, Bild, Infobox) hinzufügen'
@@ -136,13 +136,20 @@ tabs:
                       fields:
                         -
                           import: three_columns_text_image_info
-                    two_columns_articles:
-                      display: 'Inhalt zweispaltig (Artikel mit Bild/Text)'
-                      instructions: 'Inhalt zweispaltig (Artikel mit Bild/Text) hinzufügen'
-                      icon: text-formatting-image-top
+                    single_image:
+                      display: Einzelbild
+                      instructions: 'Einzelbild hinzufügen'
+                      icon: media-image-picture-orientation
                       fields:
                         -
-                          import: two_columns_articles
+                          import: image
+                    accordion:
+                      display: Akkordeon
+                      instructions: 'Akkordeon hinzufüge'
+                      icon: form-drop-down-menu
+                      fields:
+                        -
+                          import: accordion
                 special_elements:
                   display: Spezialelemente
                   icon: addon-boxes-stack
