@@ -72,3 +72,10 @@ fields:
                             fields:
                               -
                                 import: button
+                          embed_code:
+                            display: Einbettungscode
+                            instructions: 'Einbettungscode für externe Inhalte'
+                            icon: addon-boxes-stack
+                            fields:
+                              -
+                                import: embed_code

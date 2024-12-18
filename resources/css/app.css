@@ -51,6 +51,25 @@ h3 {
   @apply font-calibre-semi font-semibold mb-5 text-sm lg:text-md;
 }
 
+/* Helpers */
+.ratio-16-9 {
+  @apply aspect-[16/9];
+}
+
+.ratio-16-10 {
+  @apply aspect-[16/10];
+}
+
+.ratio-4-3 {
+  @apply aspect-[4/3];
+}
+
+.ratio-1-1 {
+  @apply aspect-square;
+}
+
+
+/* Wavy border */
 .wavy-border {
   @apply border-[0.15rem] border-black rounded-[45px_55px_60px_25px_/_25px_35px_20px_55px] lg:rounded-[75px_90px_90px_35px_/_35px_55px_25px_75px];
 }

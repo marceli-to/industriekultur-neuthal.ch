@@ -45,6 +45,13 @@ fields:
               fields:
                 -
                   import: button
+            embed_code:
+              display: Einbettungscode
+              instructions: 'Einbettungscode für externe Inhalte'
+              icon: addon-boxes-stack
+              fields:
+                -
+                  import: embed_code
   -
     handle: editor_right
     field:
@@ -75,6 +82,13 @@ fields:
               fields:
                 -
                   import: button
+            embed_code:
+              display: Einbettungscode
+              instructions: 'Einbettungscode für externe Inhalte'
+              icon: addon-boxes-stack
+              fields:
+                -
+                  import: embed_code
   -
     handle: image
     field:

@@ -1,0 +1,7 @@
+title: Einbettungscode
+fields:
+  -
+    handle: code
+    field:
+      type: textarea
+      display: Code
