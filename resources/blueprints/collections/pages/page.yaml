@@ -16,38 +16,6 @@ tabs:
               display: Titel
               localizable: true
           -
-            handle: animated_line_left
-            field:
-              options:
-                -
-                  key: line-left-1
-                  value: 'Linie 1'
-                -
-                  key: line-left-2
-                  value: 'Linie 2'
-                -
-                  key: line-left-3
-                  value: 'Linie 3'
-              type: select
-              display: 'Animierte Linie (Links)'
-              width: 50
-          -
-            handle: animated_line_right
-            field:
-              options:
-                -
-                  key: line-right-1
-                  value: 'Linie 1'
-                -
-                  key: line-right-2
-                  value: 'Linie 2'
-                -
-                  key: line-right-3
-                  value: 'Linie 3'
-              type: select
-              display: 'Animierte Linie (Rechts)'
-              width: 50
-          -
             handle: page_blocks
             field:
               type: replicator
@@ -215,6 +183,96 @@ tabs:
                       instructions: 'ZVV Fahrplan hinzufügen'
                       icon: addon-boxes-stack
                       fields: {  }
+  grafic_elements:
+    display: 'Grafische Elemente'
+    sections:
+      -
+        display: 'Animierte Linien'
+        fields:
+          -
+            handle: animated_line_left
+            field:
+              options:
+                -
+                  key: line-left-1
+                  value: 'Linie 1'
+                -
+                  key: line-left-2
+                  value: 'Linie 2'
+                -
+                  key: line-left-3
+                  value: 'Linie 3'
+                -
+                  key: line-left-4
+                  value: 'Linie 4'
+                -
+                  key: line-left-5
+                  value: 'Linie 5'
+                -
+                  key: line-left-6
+                  value: 'Linie 6'
+              type: select
+              display: 'Animierte Linie (Links)'
+              width: 50
+          -
+            handle: animated_line_right
+            field:
+              options:
+                -
+                  key: line-right-1
+                  value: 'Linie 1'
+                -
+                  key: line-right-2
+                  value: 'Linie 2'
+                -
+                  key: line-right-3
+                  value: 'Linie 3'
+                -
+                  key: line-right-4
+                  value: 'Linie 4'
+                -
+                  key: line-right-5
+                  value: 'Linie 5'
+                -
+                  key: line-right-6
+                  value: 'Linie 6'
+              type: select
+              display: 'Animierte Linie (Rechts)'
+              width: 50
+          -
+            handle: line_position_left
+            field:
+              options:
+                -
+                  key: top
+                  value: Oben
+                -
+                  key: center
+                  value: Mitte
+                -
+                  key: bottom
+                  value: Unten
+              default: center
+              type: select
+              display: 'Position Linie'
+              width: 50
+          -
+            handle: line_position_right
+            field:
+              options:
+                -
+                  key: top
+                  value: Oben
+                -
+                  key: center
+                  value: Mitte
+                -
+                  key: bottom
+                  value: Unten
+              default: center
+              type: select
+              display: 'Position Linie'
+              width: 50
   seo:
     display: SEO
     sections:

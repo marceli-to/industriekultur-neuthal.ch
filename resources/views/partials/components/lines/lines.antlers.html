@@ -1,35 +1,72 @@
 {{ if animated_line_left == 'line-left-1' }}
-  <div class="hidden lg:block absolute top-200 -left-20 z-[50] w-140" data-observe>
+  <div class="hidden lg:block absolute line-position-{{ line_position_left }} -left-20 z-[50] w-140" data-observe>
     {{ partial:components/lines/left-1 }}
   </div>
 {{ /if }}
 
 {{ if animated_line_left == 'line-left-2' }}
-  <div class="hidden lg:block absolute top-200 -left-20 z-[50] w-125" data-observe>
+  <div class="hidden lg:block absolute line-position-{{ line_position_left }} -left-20 z-[50] w-125" data-observe>
     {{ partial:components/lines/left-2 }}
   </div>
 {{ /if }}
 
 {{ if animated_line_left == 'line-left-3' }}
-  <div class="hidden lg:block absolute top-200 -left-5 z-[50] w-99" data-observe>
+  <div class="hidden lg:block absolute line-position-{{ line_position_left }} -left-5 z-[50] w-99" data-observe>
     {{ partial:components/lines/left-3 }}
   </div>
 {{ /if }}
 
+{{ if animated_line_left == 'line-left-4' }}
+  <div class="hidden lg:block absolute line-position-{{ line_position_left }} -left-20 z-[50] w-96" data-observe>
+    {{ partial:components/lines/left-4 }}
+  </div>
+{{ /if }}
+
+{{ if animated_line_left == 'line-left-5' }}
+  <div class="hidden lg:block absolute line-position-{{ line_position_left }} -left-20 z-[50] w-128" data-observe>
+    {{ partial:components/lines/left-5 }}
+  </div>
+{{ /if }}
+
+{{ if animated_line_left == 'line-left-6' }}
+  <div class="hidden lg:block absolute line-position-{{ line_position_left }} -left-5 z-[50] w-133" data-observe>
+    {{ partial:components/lines/left-6 }}
+  </div>
+{{ /if }}
+
+
 {{ if animated_line_right == 'line-right-1' }}
-  <div class="hidden lg:block absolute top-200 -right-20 z-[50] w-96" data-observe>
+  <div class="hidden lg:block absolute line-position-{{ line_position_right }} -right-20 z-[50] w-96" data-observe>
     {{ partial:components/lines/right-1 }}
   </div>
 {{ /if }}
 
 {{ if animated_line_right == 'line-right-2' }}
-  <div class="hidden lg:block absolute top-[100vh] -right-20 z-[50] w-128" data-observe>
+  <div class="hidden lg:block absolute line-position-{{ line_position_right }} -right-20 z-[50] w-128" data-observe>
     {{ partial:components/lines/right-2 }}
   </div>
 {{ /if }}
 
 {{ if animated_line_right == 'line-right-3' }}
-  <div class="hidden lg:block absolute top-200 -right-5 z-[50] w-133" data-observe>
+  <div class="hidden lg:block absolute line-position-{{ line_position_right }} -right-5 z-[50] w-133" data-observe>
     {{ partial:components/lines/right-3 }}
+  </div>
+{{ /if }}
+
+{{ if animated_line_right == 'line-right-4' }}
+  <div class="hidden lg:block absolute line-position-{{ line_position_right }} -right-20 z-[50] w-140" data-observe>
+    {{ partial:components/lines/right-4 }}
+  </div>
+{{ /if }}
+
+{{ if animated_line_right == 'line-right-5' }}
+  <div class="hidden lg:block absolute line-position-{{ line_position_right }} -right-20 z-[50] w-125" data-observe>
+    {{ partial:components/lines/right-5 }}
+  </div>
+{{ /if }}
+
+{{ if animated_line_right == 'line-right-6' }}
+  <div class="hidden lg:block absolute line-position-{{ line_position_right }} -right-5 z-[50] w-99" data-observe>
+    {{ partial:components/lines/right-6 }}
   </div>
 {{ /if }}

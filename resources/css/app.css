@@ -96,3 +96,15 @@ h3 {
 [data-observe].is-visible .animated-line-path {
   animation: drawLine 1s .5s ease-in-out forwards;
 }
+
+.line-position-top {
+  @apply top-[200px]
+}
+
+.line-position-center {
+  @apply top-[50%] -translate-y-1/2
+}
+
+.line-position-bottom {
+  @apply bottom-0
+}
