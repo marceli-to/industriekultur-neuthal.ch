@@ -2,6 +2,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\EventController;
+use App\Http\Controllers\Api\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +16,4 @@ use App\Http\Controllers\Api\EventController;
 */
 
 Route::post('/event/register', [EventController::class, 'register']);
+Route::post('/contact/submission', [ContactController::class, 'submission']);

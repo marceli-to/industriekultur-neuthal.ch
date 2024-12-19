@@ -1,11 +1,11 @@
 <?php
-namespace App\Notifications;
+namespace App\Notifications\Events;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class UserEventRegistration extends Notification
+class UserConfirmation extends Notification
 {
   use Queueable;
 
@@ -43,7 +43,7 @@ class UserEventRegistration extends Notification
       ->from(env('MAIL_FROM_ADDRESS'))
       ->replyTo(env('MAIL_REPLY_TO_ADDRESS'))
       ->subject('Anmeldung ' . $this->data['title'])
-      ->markdown('notifications.event.user-registration', ['data' => $this->data]);
+      ->markdown('notifications.event.user-confirmation', ['data' => $this->data]);
   }
 
   /**

@@ -7,4 +7,5 @@ import './modules/shrinking-header';
 import './modules/flyout-menu';
 import './modules/slideshow';
 import './modules/observer';
-import './forms/event/app.js';
+import './forms/event/app';
+import './forms/contact/app';

@@ -17,5 +17,6 @@
 return [
   'Anmeldungen' => [
     'Veranstaltungen' => 'event_registrations',
+    'Kontaktformular' => 'contact_submissions'
   ],
 ];

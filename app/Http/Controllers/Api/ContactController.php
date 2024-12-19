@@ -4,45 +4,36 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Statamic\Facades\Entry;
 use Illuminate\Support\Facades\Notification;
-use App\Notifications\UserConfirmation;
-use App\Notifications\OwnerInformation;
+use App\Notifications\Contact\OwnerInformation;
 use Illuminate\Support\Facades\Validator;
 
-class EventController extends Controller
+class ContactController extends Controller
 {
-  public function register(Request $request)
+  public function submission(Request $request)
   {
-    $event = Entry::find($request->input('event_id'));
-
-    $validationResult = $this->validateRequest($request, $event);
+    $validationResult = $this->validateRequest($request);
 
     if ($validationResult !== TRUE)
     {
       return $validationResult;
     }
 
-    $slug = $event->title . ' ' . $request->input('firstname') . ' ' . $request->input('name');
+    $slug = $request->input('firstname') . '-' . $request->input('name') . '-' . $request->input('email');
 
     // build data
     $data = [
-      'title' => $event->title,
-      'event_id' => $event->id,
-      'date' => $event->event_date->format('d.m.Y'),
+      'date_submission' => date('d.m.Y', time()),
+      'title' => $request->input('firstname') . ' ' . $request->input('name') . ', ' . $request->input('email'),
       'name' => $request->input('name'),
       'firstname' => $request->input('firstname'),
       'email' => $request->input('email'),
-      'number_of_people' => $request->input('number_of_people'),
     ];
 
     $entry = Entry::make()
-      ->collection('event_registrations')
+      ->collection('contact_submissions')
       ->slug($slug)
       ->data($data)
       ->save();
-    
-    Notification::route('mail', $request->input('email'))
-      ->notify(new UserConfirmation($data)
-    );
 
     Notification::route('mail', env('MAIL_TO'))
       ->notify(new OwnerInformation($data)
@@ -51,9 +42,9 @@ class EventController extends Controller
     return response()->json(['message' => 'Store successful']);
   }
 
-  protected function validateRequest(Request $request, $event)
+  protected function validateRequest(Request $request)
   {
-    $validationRules = $this->getValidationRules($event);
+    $validationRules = $this->getValidationRules();
 
     $validator = Validator::make(
       $request->all(),
@@ -68,15 +59,7 @@ class EventController extends Controller
 
       foreach ($errors->messages() as $field => $messages)
       {
-        if (strpos($field, 'additional_individuals.') === 0) {
-          $parts = explode('.', $field);
-          $index = $parts[1];
-          $subfield = $parts[2];
-          $formattedErrors['additional_individuals'][$index][$subfield] = $messages[0];
-        } 
-        else {
-          $formattedErrors[$field] = $messages[0];
-        }
+        $formattedErrors[$field] = $messages[0];
       }
 
       return response()->json(['errors' => $formattedErrors], 422);
@@ -85,13 +68,12 @@ class EventController extends Controller
     return TRUE;
   }
 
-  protected function getValidationRules($event)
+  protected function getValidationRules()
   {
     $validationRules = [
       'name' => 'required',
       'firstname' => 'required',
       'email' => 'required|email|regex:/^[^\s@]+@[^\s@]+\.[^\s@]+$/',
-      'number_of_people' => 'required|numeric|min:1',
     ];
 
     // Set validation messages
@@ -101,9 +83,6 @@ class EventController extends Controller
       'email.required' => 'E-Mail-Adresse ist erforderlich',
       'email.email' => 'E-Mail-Adresse muss gültig sein',
       'email.regex' => 'E-Mail-Adresse muss gültig sein',
-      'number_of_people.required' => 'Anzahl der Personen ist erforderlich',
-      'number_of_people.numeric' => 'Anzahl der Personen muss eine Zahl sein',
-      'number_of_people.min' => 'Anzahl der Personen muss mindestens 1 sein',
     ];
     
     return [

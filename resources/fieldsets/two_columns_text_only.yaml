@@ -47,6 +47,13 @@ fields:
               fields:
                 -
                   import: embed_code
+            contact_form:
+              display: Kontaktformular
+              instructions: 'Kontaktformular hinzufügen'
+              icon: mail-chat-bubble-text
+              fields:
+                -
+                  import: contact_form
   -
     handle: editor_right
     field:
@@ -85,6 +92,13 @@ fields:
               fields:
                 -
                   import: embed_code
+            contact_form:
+              display: Kontaktformular
+              instructions: 'Kontaktformular hinzufügen'
+              icon: mail-chat-bubble-text
+              fields:
+                -
+                  import: contact_form
             timetable:
               display: 'ZVV Fahrplan'
               instructions: 'ZVV Fahrplan hinzufügen'

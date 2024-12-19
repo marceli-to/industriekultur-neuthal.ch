@@ -1,13 +1,11 @@
 <?php
-
-namespace App\Notifications;
-
+namespace App\Notifications\Contact;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class OwnerEventRegistration extends Notification
+class OwnerInformation extends Notification
 {
     use Queueable;
 
@@ -28,8 +26,8 @@ class OwnerEventRegistration extends Notification
       return (new MailMessage)
         ->from(env('MAIL_FROM_ADDRESS'))
         ->replyTo(env('MAIL_REPLY_TO_ADDRESS'))
-        ->subject('Neue Anmeldung: ' . $this->data['title'])
-        ->markdown('notifications.event.owner-registration', ['data' => $this->data]);
+        ->subject('Kontaktanfrage')
+        ->markdown('notifications.contact.owner-information', ['data' => $this->data]);
     }
 
     public function toArray($notifiable)
