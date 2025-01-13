@@ -8,7 +8,7 @@
         {{ teaser_title }}
       {{ /partial:components/headings/h2 }}
     {{ /if }}
-    {{ collection:events as="events" sort="event_date:asc" filter="date:is_future" }}
+    {{ collection:events as="events" sort="event_date:asc" filter="event_date:is_future" }}
       {{ if events }}
         {{ events }}
           {{ if event_date | modify_date("+1 day") | is_future }}
