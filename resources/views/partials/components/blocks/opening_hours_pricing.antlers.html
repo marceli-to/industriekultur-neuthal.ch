@@ -43,6 +43,11 @@
                   {{ if type == 'button' }}
                     {{ partial:components/buttons/secondary url="{{ button_url }}" label="{{ button_text }}" is_button="false" }}
                   {{ /if }}
+
+                  {{ if type == 'spacer' }}
+                    {{ partial:components/blocks/spacer }}
+                  {{ /if }}
+
                 {{ /hint }}
               </div>
             {{ /if }}

@@ -21,6 +21,9 @@ fields:
       remove_empty_nodes: false
       type: bard
       display: Texteditor
+      link_collections:
+        - pages
+      container: assets
       sets:
         elements:
           display: Elemente
@@ -34,6 +37,8 @@ fields:
               fields:
                 -
                   import: button
-      link_collections:
-        - pages
-      container: assets
+            spacer:
+              display: Abstandhalter
+              instructions: 'Abstandhalter hinzufügen'
+              icon: arrows-fit-to-height
+              fields: {  }

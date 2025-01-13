@@ -27,11 +27,23 @@
 
       {{ if image }}
         <div class="md:col-span-6 lg:col-span-4 {{ mirrored ? 'md:order-1' : ''}}">
-          {{ partial:media/image 
-            class="w-full h-auto"
-            preset="focal-16-10"
-            sizes="['lg', 'md']"
-            :image="image" }}
+          {{ if link }}
+            <a 
+              href="{{ link }}"
+              target="{{ link | is_external_url ? '_blank' : '_self' }}">
+              {{ partial:media/image 
+                class="w-full h-auto"
+                preset="focal-16-10"
+                sizes="['lg', 'md']"
+                :image="image" }}
+            </a>
+          {{ else }}
+            {{ partial:media/image 
+              class="w-full h-auto"
+              preset="focal-16-10"
+              sizes="['lg', 'md']"
+              :image="image" }}
+          {{ /if }}
         </div>
       {{ /if }}
     {{ /partial:layout/grid }}

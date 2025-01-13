@@ -43,6 +43,15 @@ fields:
                     type: assets
                     display: Bild
                 -
+                  handle: link
+                  field:
+                    collections:
+                      - pages
+                    container: assets
+                    type: link
+                    display: Link
+                    instructions: 'Bild verlinken'
+                -
                   handle: editor
                   field:
                     buttons:
@@ -72,6 +81,11 @@ fields:
                             fields:
                               -
                                 import: button
+                          spacer:
+                            display: Abstandhalter
+                            instructions: 'Abstandhalter hinzufügen'
+                            icon: arrows-fit-to-height
+                            fields: {  }
                           embed_code:
                             display: Einbettungscode
                             instructions: 'Einbettungscode für externe Inhalte'

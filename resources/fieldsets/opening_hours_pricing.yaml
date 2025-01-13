@@ -104,6 +104,11 @@ fields:
               fields:
                 -
                   import: button
+            spacer:
+              display: Abstandhalter
+              instructions: 'Abstandhalter hinzufügen'
+              icon: arrows-fit-to-height
+              fields: {  }
   -
     handle: section_guided_tours
     field:

@@ -1,7 +1,7 @@
-<li>
+<li class="">
   <a 
     href="{{ !children ? url : 'javascript:;' }}" 
-    class="flex items-center uppercase font-calibre-semi font-semiboldbold tracking-wider pt-6 pb-0 leading-none border-b-2 border-black {{ is_current || is_parent ? 'font-calibre-semi font-semiboldbold' : '' }}"
+    class="flex items-center uppercase font-calibre-semi font-semiboldbold !text-base tracking-wider pt-6 pb-0 leading-none border-b-2 border-black {{ is_current || is_parent ? 'font-calibre-semi font-semiboldbold' : '' }}"
     target="{{ is_external ? '_blank' : '_self' }}"
     title="{{ title }}">
     {{ title }}
@@ -15,7 +15,7 @@
           <span class="flex justify-between items-center border-b border-black">
             <a 
               href="{{ url }}" 
-              class="block pt-11 pb-6 {{ is_current || is_parent ? 'font-calibre-semi font-semiboldbold' : '' }}"
+              class="block pt-11 pb-6 !text-base {{ is_current || is_parent ? 'font-calibre-semi font-semiboldbold' : '' }}"
               target="{{ is_external ? '_blank' : '_self' }}"
               title="{{ title }}">
               <span>{{ title }}</span>
@@ -45,7 +45,7 @@
                       @click="has_menu = false"
                     {{ /if }}
                     href="{{ url }}"
-                    class="block pt-12 pb-6 border-black {{ !last ? 'border-b' : '' }} {{ is_current || is_parent ? 'font-calibre-semi font-semiboldbold' : '' }}"
+                    class="block pt-12 pb-6 !text-base border-black {{ !last ? 'border-b' : '' }} {{ is_current || is_parent ? 'font-calibre-semi font-semiboldbold' : '' }}"
                     target="{{ is_external ? '_blank' : '_self' }}"
                     title="{{ title }}">
                     {{ title }}

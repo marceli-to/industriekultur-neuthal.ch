@@ -45,6 +45,11 @@ fields:
               fields:
                 -
                   import: button
+            spacer:
+              display: Abstandhalter
+              instructions: 'Abstandhalter hinzufügen'
+              icon: arrows-fit-to-height
+              fields: {  }
             embed_code:
               display: Einbettungscode
               instructions: 'Einbettungscode für externe Inhalte'
@@ -96,3 +101,52 @@ fields:
                   field:
                     type: textarea
                     display: Beschreibung
+  -
+    handle: texteditor_infobox
+    field:
+      buttons:
+        - h3
+        - bold
+        - unorderedlist
+        - removeformat
+        - anchor
+        - nobr
+      toolbar_mode: floating
+      remove_empty_nodes: true
+      link_collections:
+        - pages
+      container: assets
+      type: bard
+      display: 'Texteditor Infobox'
+      sets:
+        elements:
+          display: Elemente
+          instructions: 'Elemente hinzufügen'
+          icon: addon-boxes-stack
+          sets:
+            button:
+              display: Button
+              instructions: 'Button hinzufügen'
+              icon: link
+              fields:
+                -
+                  import: button
+            spacer:
+              display: Abstandhalter
+              instructions: 'Abstandhalter hinzufügen'
+              icon: arrows-fit-to-height
+              fields: {  }
+            embed_code:
+              display: Einbettungscode
+              instructions: 'Einbettungscode für externe Inhalte'
+              icon: addon-boxes-stack
+              fields:
+                -
+                  import: embed_code
+            contact_form:
+              display: Kontaktformular
+              instructions: 'Kontaktformular hinzufügen'
+              icon: mail-chat-bubble-text
+              fields:
+                -
+                  import: contact_form

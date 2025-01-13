@@ -29,11 +29,16 @@
               {{ infos }}
                 <tr>
                   <td class="font-calibre-bold font-bold pr-10 lg:pr-15 py-5">{{ label }}</td>
-                  <td class="py-5">{{ description }}</td>
+                  <td class="py-5">{{ description | nl2br }}</td>
                 </tr>
               {{ /infos }}
               </table>
             {{ /if }}
+
+            {{ if texteditor_infobox }}
+              {{ partial:components/blocks/editor :editor="texteditor_infobox" }}
+            {{ /if }}
+
           </div>
         </div>
       {{ /if }}

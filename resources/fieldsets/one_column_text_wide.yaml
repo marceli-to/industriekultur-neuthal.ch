@@ -39,6 +39,11 @@ fields:
               fields:
                 -
                   import: button
+            spacer:
+              display: Abstandhalter
+              instructions: 'Abstandhalter hinzufügen'
+              icon: arrows-fit-to-height
+              fields: {  }
             embed_code:
               display: Einbettungscode
               instructions: 'Einbettungscode für externe Inhalte'

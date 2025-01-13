@@ -1,6 +1,6 @@
 {{ class = 'bg-white text-black border border-black hover:bg-black hover:text-white transition-colors leading-none min-h-25 rounded-md px-15 inline-flex items-center justify-center pt-5 {{ class }}'}}
 {{ if is_button }}
-  <button class="{{ class }}">
+  <button class="{{ class }}" role="button">
     {{ label }}
   </button>
 {{ else }}
@@ -8,6 +8,7 @@
     href="{{ url }}" 
     class="{{ class }}"
     target="{{ target ?? '_self' }}"
+    role="button"
     title="{{ label }}">
     {{ label }}
   </a>
