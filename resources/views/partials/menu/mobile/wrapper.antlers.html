@@ -7,10 +7,17 @@
   x-transition:leave="transition ease-in duration-200"
   x-transition:leave-start="opacity-100"
   x-transition:leave-end="opacity-0"
+  x-data="{ atBottom: false }" 
+  x-init="$el.addEventListener('scroll', () => { atBottom = ($el.scrollTop + $el.clientHeight) >= $el.scrollHeight - 10 })"
   class="bg-white h-dvh overflow-y-auto fixed z-10 top-0 left-0 w-full pt-80 pb-40 pl-20 pr-25 {{ class }}">
   <ul class="flex flex-col space-y-30">
     {{ nav:main }}
       {{ partial:menu/mobile/item }}
     {{ /nav:main }}
   </ul>
+  <div 
+  class="fixed bottom-30 right-20 size-24" 
+  x-show="!atBottom">
+    {{ partial:icons/chevrons/down-menu class="w-full h-auto" }}
+  </div>
 </nav>
