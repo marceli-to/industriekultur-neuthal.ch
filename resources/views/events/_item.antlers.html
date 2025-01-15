@@ -15,8 +15,13 @@
       <p class="font-calibre-semi font-semibold text-pretty max-w-prose">
         {{ subtitle }}
       </p>
+      {{ partial:components/buttons/secondary 
+        url="{{ url }}" 
+        label="{{ has_register_form ? 'Details und Anmeldung' : 'Informationen' }}"
+        is_button="false"
+        class="sm:hidden" }}
     </div>
-    <div class="lg:pt-25">
+    <div class="lg:pt-25 hidden sm:block">
       {{ partial:components/buttons/secondary 
         url="{{ url }}" 
         label="{{ has_register_form ? 'Details und Anmeldung' : 'Informationen' }}"
