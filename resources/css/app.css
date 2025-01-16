@@ -17,7 +17,11 @@ main p:not(:last-child) {
 }
 
 main a:not([role="button"]) {
-  @apply underline underline-offset-2 hover:no-underline
+  @apply no-underline hover:underline hover:underline-offset-2 
+}
+
+main a[role="button"] + main a[role="button"] {
+  @apply ml-20
 }
 
 main ul {

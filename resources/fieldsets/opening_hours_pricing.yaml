@@ -37,6 +37,17 @@ fields:
       container: assets
       type: bard
       display: Öffnungszeiten
+      sets:
+        elements:
+          display: Elemente
+          instructions: 'Elemente hinzufügen'
+          icon: addon-boxes-stack
+          sets:
+            spacer:
+              display: Abstandhalter
+              instructions: 'Abstandhalter hinzufügen'
+              icon: arrows-fit-to-height
+              fields: {  }
   -
     handle: section_pricing
     field:
@@ -176,6 +187,11 @@ fields:
               fields:
                 -
                   import: button
+            spacer:
+              display: Abstandhalter
+              instructions: 'Abstandhalter hinzufügen'
+              icon: arrows-fit-to-height
+              fields: {  }
   -
     handle: section_group_guided_tours
     field:
@@ -243,3 +259,8 @@ fields:
                                 field:
                                   type: text
                                   display: Linktext
+            spacer:
+              display: Abstandhalter
+              instructions: 'Abstandhalter hinzufügen'
+              icon: arrows-fit-to-height
+              fields: {  }

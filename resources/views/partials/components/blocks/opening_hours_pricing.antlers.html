@@ -16,6 +16,13 @@
               {{ opening_hours_title }}
             {{ /partial:components/headings/h3 }}
             {{ opening_hours }}
+              {{ if type == 'text' }}
+                {{ text }}
+              {{ /if }}
+              {{ if type == 'spacer' }}
+                {{ partial:components/blocks/spacer }}
+              {{ /if }}
+            {{ /opening_hours }}
           </div>
 
           <div>
@@ -79,6 +86,10 @@
                 {{ if type == 'text' }}
                   {{ text }}
                 {{ /if }}
+
+                {{ if type == 'spacer' }}
+                  {{ partial:components/blocks/spacer }}
+                {{ /if }}
               
                 {{ if type == 'button' }}
                   {{ partial:components/buttons/secondary url="{{ button_url }}" label="{{ button_text }}" is_button="false" }}
@@ -98,6 +109,10 @@
 
               {{ if type == 'text' }}
                 {{ text }}
+              {{ /if }}
+
+              {{ if type == 'spacer' }}
+                {{ partial:components/blocks/spacer }}
               {{ /if }}
 
               {{ if type == 'link' }}
