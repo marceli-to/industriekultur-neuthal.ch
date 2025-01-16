@@ -24,6 +24,11 @@
                 {{ title_infobox }}
               {{ /partial:components/headings/h3 }}
             {{ /if }}
+
+            {{ if texteditor_infobox && position_editor == 'before' }}
+              {{ partial:components/blocks/editor :editor="texteditor_infobox" }}
+            {{ /if }}
+
             {{ if infos }}
               <table>
               {{ infos }}
@@ -35,7 +40,7 @@
               </table>
             {{ /if }}
 
-            {{ if texteditor_infobox }}
+            {{ if texteditor_infobox && position_editor == 'after' }}
               {{ partial:components/blocks/editor :editor="texteditor_infobox" }}
             {{ /if }}
 

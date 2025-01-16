@@ -132,7 +132,7 @@ fields:
         - pages
       container: assets
       type: bard
-      display: 'Texteditor Infobox'
+      display: Texteditor
       sets:
         elements:
           display: Elemente
@@ -165,3 +165,16 @@ fields:
               fields:
                 -
                   import: contact_form
+  -
+    handle: position_editor
+    field:
+      options:
+        -
+          key: before
+          value: 'vor Infos'
+        -
+          key: after
+          value: 'nach Infos'
+      default: after
+      type: select
+      display: 'Position Texteditor'
