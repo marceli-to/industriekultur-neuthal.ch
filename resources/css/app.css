@@ -21,7 +21,7 @@ main a:not([role="button"]) {
 }
 
 [role="button"] + [role="button"] {
-  @apply ml-20
+  @apply sm:ml-20 mb-10 sm:mb-0
 }
 
 main ul {
