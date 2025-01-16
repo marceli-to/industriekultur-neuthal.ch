@@ -20,8 +20,8 @@ main a:not([role="button"]) {
   @apply no-underline hover:underline hover:underline-offset-2 
 }
 
-[role="button"] + [role="button"] {
-  @apply sm:ml-20 mb-10 sm:mb-0
+a[role="button"] {
+  @apply mr-20 mb-10 sm:mb-0
 }
 
 main ul {
