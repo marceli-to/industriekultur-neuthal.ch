@@ -153,7 +153,7 @@ return [
           'md-focal-gallery-fullscreen-webp' => ['w' => 768, 'h' => 336, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
           'lg-focal-gallery-fullscreen-webp' => ['w' => 1280, 'h' => 480, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
           'xl-focal-gallery-fullscreen-webp' => ['w' => 1440, 'h' => 540, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
-          '2xl-focal-gallery-fullscreen' => ['w' => 1800, 'h' => 675, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
+          '2xl-focal-gallery-fullscreen-webp' => ['w' => 1800, 'h' => 675, 'q' => 90, 'fit' => 'crop_focal', 'fm' => 'webp'],
           'md-focal-gallery-fullscreen' => ['w' => 768, 'h' => 336, 'q' => 90, 'fit' => 'crop_focal'],
           'lg-focal-gallery-fullscreen' => ['w' => 1280, 'h' => 480, 'q' => 90, 'fit' => 'crop_focal'],
           'xl-focal-gallery-fullscreen' => ['w' => 1440, 'h' => 540, 'q' => 90, 'fit' => 'crop_focal'],
