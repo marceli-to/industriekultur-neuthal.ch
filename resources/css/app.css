@@ -75,15 +75,15 @@ h3 {
 }
 
 .grid-logo-3-cols {
-  @apply md:grid md:grid-cols-3 md:gap-20 lg:gap-30;
+  @apply md:grid md:grid-cols-3 md:gap-10 lg:gap-20;
 }
 
 .grid-logo-4-cols {
-  @apply md:grid md:grid-cols-4 md:gap-20 lg:gap-30;
+  @apply md:grid md:grid-cols-4 md:gap-10 lg:gap-20;
 }
 
 .grid-logo-5-cols {
-  @apply md:grid md:grid-cols-5 md:gap-20 lg:gap-30;
+  @apply md:grid md:grid-cols-5 md:gap-10 lg:gap-20;
 }
 
 
