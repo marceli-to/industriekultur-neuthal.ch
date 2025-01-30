@@ -44,7 +44,7 @@ tabs:
           -
             handle: newsletter
             field:
-              type: text
+              type: toggle
               display: Newsletter
   sidebar:
     display: Sidebar

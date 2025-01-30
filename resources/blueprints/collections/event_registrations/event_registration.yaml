@@ -12,26 +12,100 @@ tabs:
               validate:
                 - required
           -
-            handle: name
+            handle: salutation
             field:
               type: text
-              display: Name
+              display: Anrede
           -
             handle: firstname
             field:
               type: text
               display: Vorname
           -
+            handle: name
+            field:
+              type: text
+              display: Name
+          -
             handle: email
             field:
               type: text
               display: E-Mail
           -
-            handle: number_of_people
+            handle: phone
             field:
-              input_type: number
+              type: text
+              display: Telefon
+          -
+            handle: street
+            field:
+              type: text
+              display: 'Strasse, Nr.'
+          -
+            handle: zip
+            field:
+              type: text
+              display: PLZ
+          -
+            handle: location
+            field:
+              type: text
+              display: Ort
+          -
+            handle: number_people
+            field:
               type: text
               display: 'Anzahl Personen'
+          -
+            handle: number_adults
+            field:
+              type: text
+              display: 'Anzahl Erwachsene'
+          -
+            handle: number_teenagers
+            field:
+              type: text
+              display: 'Anzahl Jugendliche'
+          -
+            handle: number_kids
+            field:
+              type: text
+              display: 'Anzahl Kinder'
+          -
+            handle: cost_adults
+            field:
+              type: text
+              display: 'Kosten Erwachsene'
+          -
+            handle: cost_teenagers
+            field:
+              type: text
+              display: 'Kosten Jugendliche'
+          -
+            handle: cost_kids
+            field:
+              type: text
+              display: 'Kosten Kinder'
+          -
+            handle: cost_total
+            field:
+              type: text
+              display: 'Kosten Total'
+          -
+            handle: state
+            field:
+              options:
+                -
+                  key: waitinglist
+                  value: Warteliste
+                -
+                  key: paid
+                  value: Bezahlt
+                -
+                  key: cancelled
+                  value: Storniert
+              type: select
+              display: Status
   sidebar:
     display: Sidebar
     sections:

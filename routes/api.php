@@ -17,6 +17,7 @@ use App\Http\Controllers\Api\ParticipantController;
 */
 
 Route::post('/event/register', [EventController::class, 'register']);
+Route::get('/event/{eventId}', [EventController::class, 'get']);
 Route::post('/contact/submission', [ContactController::class, 'submission']);
 Route::post('/patron/submission', [PatronController::class, 'submission']);
 Route::post('/participant/submission', [ParticipantController::class, 'submission']);

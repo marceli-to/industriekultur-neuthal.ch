@@ -86,10 +86,11 @@ tabs:
               container: assets
               type: assets
               display: Bild
-  sidebar:
-    display: Sidebar
+  registration_form:
+    display: Anmeldung
     sections:
       -
+        display: Anmeldung
         fields:
           -
             handle: has_register_form
@@ -97,6 +98,267 @@ tabs:
               type: toggle
               display: 'Anmeldung?'
               instructions: 'Um das Anmeldeformular anzuzeigen, muss dies aktiviert werden.'
+          -
+            handle: form_fields
+            field:
+              type: section
+              display: Formularfelder
+          -
+            handle: has_salutation
+            field:
+              type: toggle
+              display: 'Feld "Anrede"'
+              width: 66
+              default: true
+          -
+            handle: requires_salutation
+            field:
+              type: toggle
+              display: Pflichtfeld
+              width: 33
+              if:
+                has_salutation: 'equals true'
+          -
+            handle: has_firstname
+            field:
+              type: toggle
+              display: 'Feld "Vorname"'
+              width: 66
+              default: true
+          -
+            handle: requires_firstname
+            field:
+              type: toggle
+              display: Pflichtfeld
+              width: 33
+              if:
+                has_firstname: 'equals true'
+          -
+            handle: has_name
+            field:
+              type: toggle
+              display: 'Feld "Name"'
+              width: 66
+              default: true
+          -
+            handle: requires_name
+            field:
+              type: toggle
+              display: Pflichtfeld
+              width: 33
+              if:
+                has_name: 'equals true'
+          -
+            handle: has_email
+            field:
+              type: toggle
+              display: 'Feld "E-Mail"'
+              width: 66
+              default: true
+          -
+            handle: requires_email
+            field:
+              type: toggle
+              display: Pflichtfeld
+              width: 33
+              if:
+                has_email: 'equals true'
+          -
+            handle: has_phone
+            field:
+              type: toggle
+              display: 'Feld "Telefon"'
+              width: 66
+              default: true
+          -
+            handle: requires_phone
+            field:
+              type: toggle
+              display: Pflichtfeld
+              width: 33
+              if:
+                has_phone: 'equals true'
+          -
+            handle: has_street
+            field:
+              type: toggle
+              display: 'Feld "Strasse, Nr."'
+              width: 66
+              default: true
+          -
+            handle: requires_street
+            field:
+              type: toggle
+              display: Pflichtfeld
+              width: 33
+              if:
+                has_street: 'equals true'
+          -
+            handle: has_zip
+            field:
+              type: toggle
+              display: 'Feld "PLZ"'
+              width: 66
+              default: true
+          -
+            handle: requires_zip
+            field:
+              type: toggle
+              display: Pflichtfeld
+              width: 33
+              if:
+                has_zip: 'equals true'
+          -
+            handle: has_location
+            field:
+              type: toggle
+              display: 'Feld "Ort"'
+              width: 66
+              default: true
+          -
+            handle: requires_location
+            field:
+              type: toggle
+              display: Pflichtfeld
+              width: 33
+              if:
+                has_location: 'equals true'
+          -
+            handle: has_number_people
+            field:
+              type: toggle
+              display: 'Feld "Anzahl Personen"'
+              width: 66
+              default: true
+          -
+            handle: requires_number_people
+            field:
+              type: toggle
+              display: Pflichtfeld
+              width: 33
+              if:
+                has_number_people: 'equals true'
+          -
+            handle: has_number_adults
+            field:
+              type: toggle
+              display: 'Feld "Anzahl Erwachsene"'
+              width: 66
+              default: true
+          -
+            handle: requires_number_adults
+            field:
+              type: toggle
+              display: Pflichtfeld
+              width: 33
+              if:
+                has_number_adults: 'equals true'
+          -
+            handle: has_number_teenagers
+            field:
+              type: toggle
+              display: 'Feld "Anzahl Jugendliche"'
+              width: 66
+              default: true
+          -
+            handle: requires_number_teenagers
+            field:
+              type: toggle
+              display: Pflichtfeld
+              width: 33
+              if:
+                has_number_teenagers: 'equals true'
+          -
+            handle: has_number_kids
+            field:
+              type: toggle
+              display: 'Feld "Anzahl Kinder"'
+              width: 66
+              default: true
+          -
+            handle: requires_number_kids
+            field:
+              type: toggle
+              display: Pflichtfeld
+              width: 33
+              if:
+                has_number_kids: 'equals true'
+          -
+            handle: has_remarks
+            field:
+              default: true
+              type: toggle
+              display: 'Feld "Bemerkungen"'
+              width: 66
+          -
+            handle: requires_remarks
+            field:
+              type: toggle
+              display: Pflichtfeld
+              width: 33
+              if:
+                has_remarks: 'equals true'
+          -
+            handle: settings
+            field:
+              type: section
+              display: Einstellungen
+          -
+            handle: cost_adults
+            field:
+              type: text
+              display: 'Preis Erwachsene'
+          -
+            handle: cost_teenagers
+            field:
+              type: text
+              display: 'Preis Jugendliche'
+          -
+            handle: cost_kids
+            field:
+              type: text
+              display: 'Preis Kinder'
+          -
+            handle: number_open_seats
+            field:
+              type: text
+              display: 'Anzahl freie Plätze'
+          -
+            handle: invoice
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: 'EZS / QR Rechnung'
+              folder: veranstaltung
+          -
+            handle: bestaetigung
+            field:
+              type: section
+              display: Bestätigung
+          -
+            handle: text_email
+            field:
+              default: |-
+                Wir bitten Sie, mind. 15 Minuten vor Beginn der Führung im Besucherzentrum ein Eintrittsticket zu kaufen.
+
+                Sie erhalten keine weitere Bestätigung von uns.
+
+                Freundliche Grüsse
+
+                Museum Neuthal Textil- & Industriekultur
+
+                Im Neuthal 6
+                8344 Bäretswil
+                T direkt: +41 52 397 10 20
+                www.neuthal-industriekultur.ch
+              type: textarea
+              display: 'Text E-Mail'
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
           -
             handle: slug
             field:
