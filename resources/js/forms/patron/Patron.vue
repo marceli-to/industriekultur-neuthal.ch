@@ -12,6 +12,12 @@
   <form @submit.prevent="submitForm" class="space-y-10 lg:space-y-25">
     <form-group>
       <form-text-field 
+        v-model="form.salutation" 
+        placeholder="Anrede"
+      />
+    </form-group>
+    <form-group>
+      <form-text-field 
         v-model="form.firstname" 
         :error="errors.firstname"
         @update:error="errors.firstname = $event"
@@ -24,6 +30,30 @@
         :error="errors.name"
         @update:error="errors.name = $event"
         placeholder="Name *"
+      />
+    </form-group>
+    <form-group>
+      <form-text-field 
+        v-model="form.street" 
+        :error="errors.street"
+        @update:error="errors.street = $event"
+        placeholder="Strasse/Nr. *"
+      />
+    </form-group>
+    <form-group>
+      <form-text-field 
+        v-model="form.zip" 
+        :error="errors.zip"
+        @update:error="errors.zip = $event"
+        placeholder="PLZ *"
+      />
+    </form-group>
+    <form-group>
+      <form-text-field 
+        v-model="form.location" 
+        :error="errors.location"
+        @update:error="errors.location = $event"
+        placeholder="Ort *"
       />
     </form-group>
     <form-group>
@@ -47,9 +77,7 @@
       <form-textarea-field
         v-model="form.message"
         :error="errors.message"
-        @update:error="errors.message = $event"
-        placeholder="Nachricht *">
-
+        placeholder="Bemerkungen">
       </form-textarea-field>
     </form-group>
     <form-group class="!mt-35">
@@ -81,16 +109,25 @@ const formSuccess = ref(false);
 const formError = ref(false);
 
 const form = ref({
+  salutation: null,
   name: null,
   firstname: null,
+  street: null,
+  location: null,
+  zip: null,
   phone: null,
   email: null,
   message: null,
 });
 
 const errors = ref({
+  salutation: '',
   name: '',
   firstname: '',
+  street: '',
+  location: '',
+  zip: '',
+  phone: '',
   email: '',
   message: '',
 });
@@ -100,7 +137,7 @@ async function submitForm() {
   formSuccess.value = false;
   formError.value = false;
   try {
-    const response = await axios.post('/api/contact/submission', {
+    const response = await axios.post('/api/patron/submission', {
       ...form.value
     });
     handleSuccess();
@@ -111,16 +148,24 @@ async function submitForm() {
 
 function handleSuccess() {
   form.value = {
+    salutation: null,
     name: null,
     firstname: null,
+    street: null,
+    location: null,
+    zip: null,
     email: null,
     message: null,
     phone: null
   };
   
   errors.value = {
+    salutation: '',
     name: '',
     firstname: '',
+    street: '',
+    location: '',
+    zip: '',
     email: '',
     message: '',
     phone: '',

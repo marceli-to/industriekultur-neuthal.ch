@@ -17,6 +17,8 @@
 return [
   'Anmeldungen' => [
     'Veranstaltungen' => 'event_registrations',
-    'Kontaktformular' => 'contact_submissions'
+    'Kontaktformular' => 'contact_submissions',
+    'Gönnerformular' => 'patron_submissions',
+    'Mitmachformular' => 'participant_submissions'
   ],
 ];

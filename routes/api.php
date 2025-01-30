@@ -3,7 +3,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\EventController;
 use App\Http\Controllers\Api\ContactController;
-
+use App\Http\Controllers\Api\PatronController;
+use App\Http\Controllers\Api\ParticipantController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +18,5 @@ use App\Http\Controllers\Api\ContactController;
 
 Route::post('/event/register', [EventController::class, 'register']);
 Route::post('/contact/submission', [ContactController::class, 'submission']);
+Route::post('/patron/submission', [PatronController::class, 'submission']);
+Route::post('/participant/submission', [ParticipantController::class, 'submission']);

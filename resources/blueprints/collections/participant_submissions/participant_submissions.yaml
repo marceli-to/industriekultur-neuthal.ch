@@ -17,6 +17,11 @@ tabs:
               validate:
                 - required
           -
+            handle: salutation
+            field:
+              type: text
+              display: Anrede
+          -
             handle: firstname
             field:
               type: text
@@ -57,8 +62,8 @@ tabs:
             field:
               type: entries
               collections:
-                - contact_submissions
+                - participant_submissions
               max_items: 1
               listable: false
               localizable: true
-title: Kontaktformular
+title: Mitmachformular

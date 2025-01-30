@@ -1,6 +1,10 @@
 <x-mail::message>
   <div class="text-base">
-    Anfrage Museum Neuthal
+    Guten Tag<br><br>Besten Dank für Ihre Kontaktaufnahme.<br><br>Wir werden uns so bald wie möglich bei Ihnen melden.<br><br>Freundliche Grüsse<br><br>Museum Neuthal Textil- & Industriekultur<br><br>Im Neuthal 6<br>8344 Bäretswil<br>T direkt: +41 52 397 10 20<br>www.neuthal-industriekultur.ch
+  </div>
+  <br>
+  <div class="text-base">
+    <strong>Ihre Angaben</strong><br>
   </div>
   <br>
   @if ($data['firstname'])
@@ -32,13 +36,10 @@
     <br>
   @endif
   @if ($data['message'])
-    <div class="text-base">
+  <div class="text-base">
       <strong>Mitteilung</strong><br>
       {!! nl2br($data['message']) !!}
     </div>
     <br>
   @endif
-  <footer>
-    <br>Museum Neuthal<br>Textil- & Industriekultur<br>Im Neuthal 6<br>8344 Bäretswil
-  </footer>
 </x-mail::message>

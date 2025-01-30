@@ -9,3 +9,5 @@ import './modules/slideshow';
 import './modules/observer';
 import './forms/event/app';
 import './forms/contact/app';
+import './forms/patron/app';
+import './forms/participant/app';

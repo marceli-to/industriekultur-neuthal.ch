@@ -4,11 +4,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Statamic\Facades\Entry;
 use Illuminate\Support\Facades\Notification;
-use App\Notifications\Contact\OwnerInformation;
-use App\Notifications\Contact\UserConfirmation;
+use App\Notifications\Patron\OwnerInformation;
+use App\Notifications\Patron\UserConfirmation;
 use Illuminate\Support\Facades\Validator;
 
-class ContactController extends Controller
+class PatronController extends Controller
 {
   public function submission(Request $request)
   {
@@ -25,15 +25,19 @@ class ContactController extends Controller
     $data = [
       'date_submission' => date('d.m.Y', time()),
       'title' => $request->input('firstname') . ' ' . $request->input('name') . ', ' . $request->input('email'),
+      'salutation' => $request->input('salutation') ?? null,
       'name' => $request->input('name'),
       'firstname' => $request->input('firstname'),
+      'street' => $request->input('street'),
+      'zip' => $request->input('zip'),
+      'location' => $request->input('location'),
       'email' => $request->input('email'),
       'phone' => $request->input('phone') ?? null,
       'message' => $request->input('message'),
     ];
 
     $entry = Entry::make()
-      ->collection('contact_submissions')
+      ->collection('patron_submissions')
       ->slug($slug)
       ->data($data)
       ->save();
@@ -80,7 +84,9 @@ class ContactController extends Controller
     $validationRules = [
       'name' => 'required',
       'firstname' => 'required',
-      'message' => 'required',
+      'street' => 'required',
+      'zip' => 'required',
+      'location' => 'required',
       'email' => 'required|email|regex:/^[^\s@]+@[^\s@]+\.[^\s@]+$/',
     ];
 
@@ -88,7 +94,9 @@ class ContactController extends Controller
     $validationMessages = [
       'name.required' => 'Name ist erforderlich',
       'firstname.required' => 'Vorname ist erforderlich',
-      'message.required' => 'Nachricht ist erforderlich',
+      'street.required' => 'Strasse ist erforderlich',
+      'zip.required' => 'PLZ ist erforderlich',
+      'location.required' => 'Ort ist erforderlich',
       'email.required' => 'E-Mail-Adresse ist erforderlich',
       'email.email' => 'E-Mail-Adresse muss gültig sein',
       'email.regex' => 'E-Mail-Adresse muss gültig sein',

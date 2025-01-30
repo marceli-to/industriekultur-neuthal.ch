@@ -72,6 +72,20 @@ fields:
               fields:
                 -
                   import: contact_form
+            patron_form:
+              display: Gönnerformular
+              instructions: 'Gönnerformular hinzufügen'
+              icon: mail-chat-bubble-text
+              fields:
+                -
+                  import: patron_form
+            participant_form:
+              display: Mitmachformular
+              instructions: 'Mitmachformular hinzufügen'
+              icon: mail-chat-bubble-text
+              fields:
+                -
+                  import: participant_form
   -
     handle: image
     field:

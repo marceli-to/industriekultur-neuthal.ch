@@ -1,5 +1,5 @@
 <?php
-namespace App\Notifications\Contact;
+namespace App\Notifications\Patron;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -26,8 +26,8 @@ class OwnerInformation extends Notification
       return (new MailMessage)
         ->from(env('MAIL_FROM_ADDRESS'))
         ->replyTo(env('MAIL_REPLY_TO_ADDRESS'))
-        ->subject('Anfrage Museum Neuthal')
-        ->markdown('notifications.contact.owner-information', ['data' => $this->data]);
+        ->subject('Anmeldung Gönner')
+        ->markdown('notifications.patron.owner-information', ['data' => $this->data]);
     }
 
     public function toArray($notifiable)

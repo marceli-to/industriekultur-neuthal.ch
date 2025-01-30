@@ -1,8 +1,15 @@
 <x-mail::message>
   <div class="text-base">
-    Anfrage Museum Neuthal
+    Interesse an Freiwilligenarbeit
   </div>
   <br>
+  @if ($data['salutation'])
+    <div class="text-base">
+      <strong>Anrede</strong><br>
+      {{ $data['salutation'] }}
+    </div>
+    <br>
+  @endif
   @if ($data['firstname'])
     <div class="text-base">
       <strong>Vorname</strong><br>
@@ -14,6 +21,27 @@
     <div class="text-base">
       <strong>Name</strong><br>
       {{ $data['name'] }}
+    </div>
+    <br>
+  @endif
+  @if ($data['street'])
+    <div class="text-base">
+      <strong>Strasse/Nr.</strong><br>
+      {{ $data['street'] }}
+    </div>
+    <br>
+  @endif
+  @if ($data['zip'])
+    <div class="text-base">
+      <strong>PLZ</strong><br>
+      {{ $data['zip'] }}
+    </div>
+    <br>
+  @endif
+  @if ($data['location'])
+    <div class="text-base">
+      <strong>Ort</strong><br>
+      {{ $data['location'] }}
     </div>
     <br>
   @endif
@@ -33,7 +61,7 @@
   @endif
   @if ($data['message'])
     <div class="text-base">
-      <strong>Mitteilung</strong><br>
+      <strong>Bemerkungen</strong><br>
       {!! nl2br($data['message']) !!}
     </div>
     <br>

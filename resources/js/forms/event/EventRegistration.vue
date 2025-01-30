@@ -84,7 +84,7 @@ const formError = ref(false);
 
 const form = ref({
   event_id: props.eventId,
-  name: null  ,
+  name: null,
   firstname: null,
   email: null,
   number_of_people: null,

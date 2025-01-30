@@ -2,6 +2,7 @@
   <div class="relative">
     <textarea
       :value="modelValue"
+      :placeholder="placeholder"
       @input="$emit('update:modelValue', $event.target.value)"
       @focus="$emit('update:error', '')"
       :class="[
@@ -20,6 +21,10 @@ const props = defineProps({
     default: ''
   },
   error: {
+    type: String,
+    default: ''
+  },
+  placeholder: {
     type: String,
     default: ''
   }

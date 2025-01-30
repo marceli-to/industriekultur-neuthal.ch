@@ -20,6 +20,14 @@
     {{ partial:components/blocks/contact_form }}
   {{ /if }}
 
+  {{ if type == 'patron_form' }}
+    {{ partial:components/blocks/patron_form }}
+  {{ /if }}
+
+  {{ if type == 'participant_form' }}
+    {{ partial:components/blocks/participant_form }}
+  {{ /if }}
+
   {{ if type == 'spacer' }}
     {{ partial:components/blocks/spacer }}
   {{ /if }}
