@@ -74,6 +74,20 @@ h3 {
   @apply aspect-square;
 }
 
+.grid-logo-3-cols {
+  @apply md:grid md:grid-cols-3 md:gap-20 lg:gap-30;
+}
+
+.grid-logo-4-cols {
+  @apply md:grid md:grid-cols-4 md:gap-20 lg:gap-30;
+}
+
+.grid-logo-5-cols {
+  @apply md:grid md:grid-cols-5 md:gap-20 lg:gap-30;
+}
+
+
+
 /* Wavy border */
 .wavy-border {
   @apply border-[0.15rem] border-black rounded-[45px_55px_60px_25px_/_25px_35px_20px_55px] lg:rounded-[75px_90px_90px_35px_/_35px_55px_25px_75px];

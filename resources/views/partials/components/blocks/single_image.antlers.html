@@ -5,9 +5,8 @@
     {{ /if }}
     {{ if image }}
       {{ partial:media/image 
-        class="w-full h-auto aspect-[16/8] {{ has_border ? 'wavy-border' : '' }}"
-        preset="focal-16-9"
-        sizes="['lg', 'md']"
+        class="w-full h-auto {{ has_border ? 'wavy-border' : '' }}"
+        :sizes="['xl','lg', 'md']"
         :image="image" }}
     {{ /if }}
   {{ /partial:layout/inner }}

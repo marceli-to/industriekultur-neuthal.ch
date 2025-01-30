@@ -1,0 +1,41 @@
+{{ partial:layout/outer }}
+  {{ partial:layout/inner }}
+    {{ if anchor_name }}
+      {{ partial:components/blocks/anchor }}
+    {{ /if }}
+    {{ if title }}
+      {{ partial:components/headings/h2 class="mb-15 lg:mb-25"  }}
+        {{ title }}
+      {{ /partial:components/headings/h2 }}
+    {{ /if }}
+    {{ partial:layout/grid }}
+      {{ if editor }}
+        <article class="text-pretty md:col-span-full lg:col-span-8">
+          {{ partial:components/blocks/editor  }}
+
+          {{ if logos }}
+            <div class="mt-15 lg:mt-25">
+              <div class="grid-logo-{{ grid_logo }}">
+                {{ logos }}
+                  {{ if link_logo  }}
+                    <a 
+                      href="{{ link_logo }}"
+                      class="md:col-span-1"
+                      target="{{ link_logo | is_external_url ? '_blank' : '_self' }}"
+                      title="{{ title_logo ?? '' }}">
+                      <img src="{{ image_logo }}" width="400" height="250" title="{{ title_logo ?? '' }}" />
+                    </a>
+                  {{ else }}
+                    <figure class="md:col-span-1">
+                      <img src="{{ image_logo }}" width="400" height="250" class="w-full h-auto aspect-[16/10]" title="{{ title_logo ?? '' }}" />
+                    </figure>
+                  {{ /if }}
+                {{ /logos }}
+              </div>
+            </div>
+          {{  /if }}
+        </article>
+      {{ /if }}
+    {{ /partial:layout/grid }}
+  {{ /partial:layout/inner }}
+{{ /partial:layout/outer }}

@@ -1,0 +1,110 @@
+title: 'Inhalt einspaltig (Text/Logo 2/3)'
+fields:
+  -
+    import: theme_selector
+  -
+    import: anchor
+  -
+    handle: title
+    field:
+      type: text
+      display: Titel
+  -
+    handle: editor
+    field:
+      buttons:
+        - h3
+        - bold
+        - unorderedlist
+        - removeformat
+        - anchor
+        - nobr
+      toolbar_mode: floating
+      remove_empty_nodes: true
+      link_collections:
+        - pages
+      container: assets
+      type: bard
+      display: Texteditor
+      sets:
+        elements:
+          display: Elemente
+          instructions: 'Elemente hinzufügen'
+          icon: addon-boxes-stack
+          sets:
+            button:
+              display: Button
+              instructions: 'Button hinzufügen'
+              icon: link
+              fields:
+                -
+                  import: button
+            spacer:
+              display: Abstandhalter
+              instructions: 'Abstandhalter hinzufügen'
+              icon: arrows-fit-to-height
+              fields: {  }
+            embed_code:
+              display: Einbettungscode
+              instructions: 'Einbettungscode für externe Inhalte'
+              icon: addon-boxes-stack
+              fields:
+                -
+                  import: embed_code
+            contact_form:
+              display: Kontaktformular
+              instructions: 'Kontaktformular hinzufügen'
+              icon: mail-chat-bubble-text
+              fields:
+                -
+                  import: contact_form
+  -
+    handle: logos
+    field:
+      type: replicator
+      display: Logos
+      sets:
+        neue_setgruppe:
+          display: 'Neue Setgruppe'
+          sets:
+            logo:
+              display: Logo
+              instructions: 'Logo hinzufügen'
+              icon: media-image-picture-orientation
+              fields:
+                -
+                  handle: title_logo
+                  field:
+                    type: text
+                    display: Titel
+                -
+                  handle: image_logo
+                  field:
+                    max_files: 1
+                    container: assets
+                    type: assets
+                    display: Logo
+                -
+                  handle: link_logo
+                  field:
+                    collections:
+                      - pages
+                    container: assets
+                    type: link
+                    display: Link
+  -
+    handle: grid_logo
+    field:
+      options:
+        -
+          key: 3-cols
+          value: '3 Spalten'
+        -
+          key: 4-cols
+          value: '4 Spalten'
+        -
+          key: 5-cols
+          value: '5 Spalten'
+      default: 4-cols
+      type: select
+      display: 'Logo Raster'

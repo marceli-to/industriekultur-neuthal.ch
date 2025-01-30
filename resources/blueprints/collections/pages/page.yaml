@@ -55,6 +55,13 @@ tabs:
                       fields:
                         -
                           import: one_column_text_wide
+                    one_column_text_logo:
+                      display: 'Inhalt einspaltig (Text/Logos)'
+                      instructions: 'Inhalt einspaltig (Text/Logos) hinzufügen'
+                      icon: text-formatting-initial-letter
+                      fields:
+                        -
+                          import: one_column_text_logo
                     two_columns_text_image:
                       display: 'Inhalt zweispaltig (Text, Bild)'
                       instructions: 'Inhalt mit 2 Spalten (Text, Bild) hinzufügen'
