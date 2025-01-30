@@ -92,7 +92,7 @@
         v-model="form.privacy"
         :error="errors.privacy"
         @update:error="errors.privacy = $event"
-        id="privacy-participant""
+        id="privacy-participant"
         name="privacy"
         label="Ich habe die <a href='/datenschutz'>Datenschutzerklärung</a> gelesen und stimme dieser zu.*"
       />
