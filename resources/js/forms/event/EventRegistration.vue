@@ -23,6 +23,8 @@
         :error="errors.salutation"
         @update:error="errors.salutation = $event"
         :placeholder="requiresSalutation ? 'Anrede *' : 'Anrede'"
+        label="Anrede"
+        aria-label="Anrede"
       />
     </form-group>
     <form-group v-if="hasFirstname">
@@ -31,6 +33,8 @@
         :error="errors.firstname"
         @update:error="errors.firstname = $event"
         :placeholder="requiresFirstname ? 'Vorname *' : 'Vorname'"
+        label="Vorname"
+        aria-label="Vorname"
       />
     </form-group>
     <form-group v-if="hasName">
@@ -39,6 +43,8 @@
         :error="errors.name"
         @update:error="errors.name = $event"
         :placeholder="requiresName ? 'Name *' : 'Name'"
+        label="Name"
+        aria-label="Name"
       />
     </form-group>
     <form-group v-if="hasEmail">
@@ -48,6 +54,8 @@
         :error="errors.email"
         @update:error="errors.email = $event"
         :placeholder="requiresEmail ? 'E-Mail *' : 'E-Mail'"
+        label="E-Mail"
+        aria-label="E-Mail"
       />
     </form-group>
     <form-group v-if="hasPhone">
@@ -57,6 +65,8 @@
         :error="errors.phone"
         @update:error="errors.phone = $event"
         :placeholder="requiresPhone ? 'Telefon *' : 'Telefon'"
+        label="Telefon"
+        aria-label="Telefon"
       />
     </form-group>
     <form-group v-if="hasStreet">
@@ -66,6 +76,8 @@
         :error="errors.street"
         @update:error="errors.street = $event"
         :placeholder="requiresStreet ? 'Strasse/Nr. *' : 'Strasse/Nr.'"
+        label="Strasse/Nr."
+        aria-label="Strasse/Nr."
       />
     </form-group>
     <form-group v-if="hasZip">
@@ -75,6 +87,8 @@
         :error="errors.zip"
         @update:error="errors.zip = $event"
         :placeholder="requiresZip ? 'PLZ *' : 'PLZ'"
+        label="PLZ"
+        aria-label="PLZ"
       />
     </form-group>
     <form-group v-if="hasLocation">
@@ -84,6 +98,8 @@
         :error="errors.location"
         @update:error="errors.location = $event"
         :placeholder="requiresLocation ? 'Ort *' : 'Ort'"
+        label="Ort"
+        aria-label="Ort"
       />
     </form-group>
     <form-group v-if="hasNumberAdults">
@@ -92,6 +108,8 @@
         :error="errors.number_adults"
         @update:error="errors.number_adults = $event"
         :placeholder="requiresNumberAdults ? 'Anzahl Erwachsene *' : 'Anzahl Erwachsene'"
+        label="Anzahl Erwachsene"
+        aria-label="Anzahl Erwachsene"
       />
     </form-group>
     <form-group v-if="hasNumberTeenagers">
@@ -101,6 +119,8 @@
         :error="errors.number_teenagers"
         @update:error="errors.number_teenagers = $event"
         :placeholder="requiresNumberTeenagers ? 'Anzahl Jugendliche *' : 'Anzahl Jugendliche'"
+        label="Anzahl Jugendliche"
+        aria-label="Anzahl Jugendliche"
       />
     </form-group>
     <form-group v-if="hasNumberKids">
@@ -109,6 +129,8 @@
         :error="errors.number_kids"
         @update:error="errors.number_kids = $event"
         :placeholder="requiresNumberKids ? 'Anzahl Kinder *' : 'Anzahl Kinder'"
+        label="Anzahl Kinder"
+        aria-label="Anzahl Kinder"
       />
     </form-group>
 
@@ -116,8 +138,10 @@
       <form-textarea-field
         v-model="form.remarks"
         :error="errors.remarks"
-        placeholder="Bemerkungen">
-      </form-textarea-field>
+        placeholder="Bemerkungen"
+        label="Bemerkungen"
+        aria-label="Bemerkungen"
+      />
     </form-group>
     <form-group class="!mt-35">
       <form-button 
