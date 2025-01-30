@@ -54,7 +54,7 @@
     <form-group class="gap-y-10 flex flex-col">
       <form-checkbox
         v-model="form.newsletter"
-        id="newsletter"
+        id="newsletter-contact"
         name="newsletter"
         label="Ja, ich möchte mich für den Newsletter anmelden"
       />
@@ -62,7 +62,7 @@
         v-model="form.privacy"
         :error="errors.privacy"
         @update:error="errors.privacy = $event"
-        id="privacy"
+        id="privacy-contact"
         name="privacy"
         label="Ich habe die <a href='/datenschutz'>Datenschutzerklärung</a> gelesen und stimme dieser zu.*"
       />
