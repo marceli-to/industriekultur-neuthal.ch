@@ -4,8 +4,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Statamic\Facades\Entry;
 use Illuminate\Support\Facades\Notification;
-use App\Notifications\UserConfirmation;
-use App\Notifications\OwnerInformation;
+use App\Notifications\Event\UserConfirmation;
+use App\Notifications\Event\OwnerInformation;
 use Illuminate\Support\Facades\Validator;
 
 class EventController extends Controller
@@ -13,8 +13,10 @@ class EventController extends Controller
   public function get($eventId)
   {
     $event = Entry::find($eventId, 'de');
+    
     return response()->json([
       'title' => $event->title,
+      'has_open_seats' => $this->hasOpenSeats($event),
       'has_salutation' => $event->has_salutation,
       'requires_salutation' => $event->requires_salutation,
       'has_name' => $event->has_name,
@@ -33,8 +35,6 @@ class EventController extends Controller
       'requires_location' => $event->requires_location,
       'has_remarks' => $event->has_remarks,
       'requires_remarks' => $event->requires_remarks,
-      'has_number_people' => $event->has_number_people,
-      'requires_number_people' => $event->requires_number_people,
       'has_number_adults' => $event->has_number_adults,
       'requires_number_adults' => $event->requires_number_adults,
       'has_number_teenagers' => $event->has_number_teenagers,
@@ -62,19 +62,43 @@ class EventController extends Controller
       'title' => $event->title,
       'event_id' => $event->id,
       'date' => $event->event_date->format('d.m.Y'),
-      'name' => $request->input('name'),
-      'firstname' => $request->input('firstname'),
-      'email' => $request->input('email'),
-      'number_of_people' => $request->input('number_of_people'),
+      'salutation' => $request->input('salutation') ?? null,
+      'name' => $request->input('name') ?? null,
+      'firstname' => $request->input('firstname') ?? null,
+      'email' => $request->input('email') ?? null,
+      'phone' => $request->input('phone') ?? null,
+      'street' => $request->input('street') ?? null,
+      'zip' => $request->input('zip') ?? null,
+      'location' => $request->input('location') ?? null,
+      'number_people' => $request->input('number_people') ?? null,
+      'number_adults' => $request->input('number_adults') ?? null,
+      'number_teenagers' => $request->input('number_teenagers') ?? null,
+      'number_kids' => $request->input('number_kids') ?? null,
+      'cost_adults' => $request->input('number_adults') && $event->chargeable ? $event->cost_adults * $request->input('number_adults') : null,
+      'cost_teenagers' => $request->input('number_teenagers') && $event->chargeable ? $event->cost_teenagers * $request->input('number_teenagers') : null,
+      'cost_kids' => $request->input('number_kids') && $event->chargeable ? $event->cost_kids * $request->input('number_kids') : null,
+      'remarks' => $request->input('remarks') ?? null,
+      'state' => !$this->hasOpenSeats($event) ? 'waitinglist' : null,
     ];
+
+    // Set total cost if chargeable
+    if ($event->chargeable)
+    {
+      $data['cost_total'] = $data['cost_adults'] + $data['cost_teenagers'] + $data['cost_kids'];
+    }
+
+    // Add 'invoice' to $data
+    $data['invoice'] = $event->invoice;
 
     $entry = Entry::make()
       ->collection('event_registrations')
       ->slug($slug)
       ->data($data)
       ->save();
-    
-    
+
+    // Add 'text_email' to $data
+    $data['text_user_confirmation_email'] = $event->text_email;
+
     Notification::route('mail', $request->input('email'))
       ->notify(new UserConfirmation($data)
     );
@@ -146,10 +170,6 @@ class EventController extends Controller
       $validationRules['location'] = 'required';
     }
 
-    if ($event->has_number_people && $event->requires_number_people) {
-      $validationRules['number_people'] = 'required|integer|min:1';
-    }
-
     if ($event->has_number_adults && $event->requires_number_adults) {
       $validationRules['number_adults'] = 'required|integer|min:1';
     }
@@ -161,6 +181,9 @@ class EventController extends Controller
     if ($event->has_number_kids && $event->requires_number_kids) {
       $validationRules['number_kids'] = 'required|integer|min:1';
     }
+
+    // always required
+    $validationRules['number_people'] = 'required|integer|min:1';
 
     if ($event->has_number_adults) {
       // only if is submitted
@@ -184,11 +207,11 @@ class EventController extends Controller
       'salutation.required' => 'Anrede ist erforderlich',
       'name.required' => 'Name ist erforderlich',
       'firstname.required' => 'Vorname ist erforderlich',
-      'email.required' => 'E-Mail-Adresse ist erforderlich',
-      'email.email' => 'E-Mail-Adresse muss gültig sein',
-      'email.regex' => 'E-Mail-Adresse muss gültig sein',
+      'email.required' => 'E-Mail ist erforderlich',
+      'email.email' => 'E-Mail muss gültig sein',
+      'email.regex' => 'E-Mail muss gültig sein',
       'phone.required' => 'Telefon ist erforderlich',
-      'street.required' => 'Straße ist erforderlich',
+      'street.required' => 'Strasse ist erforderlich',
       'zip.required' => 'PLZ ist erforderlich',
       'location.required' => 'Ort ist erforderlich',
       'number_people.required' => 'Anzahl Personen ist erforderlich',
@@ -210,5 +233,15 @@ class EventController extends Controller
       'rules' => $validationRules,
       'messages' => $validationMessages,
     ];
+  }
+
+  protected function hasOpenSeats($event)
+  {
+    $registrations = Entry::query()
+      ->where('collection', 'event_registrations')
+      ->where('event_id', $event->id)
+      ->get();
+    $openSeats = $event->number_open_seats - $registrations->sum('number_people');
+    return $openSeats > 0 ? true : false;
   }
 }

@@ -1,6 +1,10 @@
 <x-mail::message>
   <div class="text-base">
-    Guten Tag<br><br>Vielen Dank für Ihre Anmeldung.
+    {!! nl2br($data['text_user_confirmation_email']) !!}
+  </div>
+  <br><br>
+  <div class="text-base">
+    <strong>Ihre Angaben</strong><br>
   </div>
   <br>
   <div class="text-base">
@@ -34,15 +38,60 @@
     </div>
     <br>
   @endif
-  @if ($data['number_of_people'])
+  @if ($data['phone'])
     <div class="text-base">
-      <strong>Anzahl Personen</strong><br>
-      {{ $data['number_of_people'] }}
+      <strong>Telefon</strong><br>
+      {{ $data['phone'] }}
     </div>
     <br>
   @endif
-  
-  <footer>
-    <br>Museum Neuthal<br>Textil- & Industriekultur<br>Im Neuthal 6<br>8344 Bäretswil
-  </footer>
+  @if ($data['street'])
+    <div class="text-base">
+      <strong>Strasse/Nr.</strong><br>
+      {{ $data['street'] }}
+    </div>
+    <br>
+  @endif
+  @if ($data['zip'])
+    <div class="text-base">
+      <strong>Postleitzahl</strong><br>
+      {{ $data['zip'] }}
+    </div>
+    <br>
+  @endif
+  @if ($data['location'])
+    <div class="text-base">
+      <strong>Ort</strong><br>
+      {{ $data['location'] }}
+    </div>
+    <br>
+  @endif
+  @if ($data['number_adults'])
+    <div class="text-base">
+      <strong>Anzahl Erwachsene</strong><br>
+      {{ $data['number_adults'] }}
+    </div>
+    <br>
+  @endif
+  @if ($data['number_teenagers'])
+    <div class="text-base">
+      <strong>Anzahl Jugendliche</strong><br>
+      {{ $data['number_teenagers'] }}
+    </div>
+    <br>
+  @endif
+  @if ($data['number_kids'])
+    <div class="text-base">
+      <strong>Anzahl Kinder</strong><br>
+      {{ $data['number_kids'] }}
+    </div>
+    <br>
+  @endif
+  @if (isset($data['cost_total']))
+    <div class="text-base">
+      <strong>Kosten</strong><br>
+      CHF {{ number_format($data['cost_total'], 2, '.', '') }}
+    </div>
+    <br>
+  @endif
 </x-mail::message>

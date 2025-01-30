@@ -9,6 +9,10 @@
       Bitte überprüfen Sie die eingegebenen Daten.
     </error-alert>
   </template>
+  <template v-if="!hasOpenSeats">
+    <p class="text-crimson">
+      <strong>Zur Zeit ist das Limit für diese Veranstaltung erreicht. Sie können sich aber dennoch auf die Warteliste setzen lassen.</strong></p>
+  </template>
   <form 
     @submit.prevent="submitForm" 
     class="space-y-10 lg:space-y-25"
@@ -82,14 +86,6 @@
         :placeholder="requiresLocation ? 'Ort *' : 'Ort'"
       />
     </form-group>
-    <form-group v-if="hasNumberPeople">
-      <form-text-field
-        v-model="form.number_people"
-        :error="errors.number_people"
-        @update:error="errors.number_people = $event"
-        :placeholder="requiresNumberPeople ? 'Anzahl Personen *' : 'Anzahl Personen'"
-      />
-    </form-group>
     <form-group v-if="hasNumberAdults">
       <form-text-field
         v-model="form.number_adults"
@@ -155,6 +151,7 @@ const isLoaded = ref(false);
 const formSuccess = ref(false);
 const formError = ref(false);
 
+const hasOpenSeats = ref(false);
 const hasSalutation = ref(false);
 const requiresSalutation = ref(false);
 const hasName = ref(false);
@@ -173,8 +170,6 @@ const hasLocation = ref(false);
 const requiresLocation = ref(false);
 const hasRemarks = ref(false);
 const requiresRemarks = ref(false);
-const hasNumberPeople = ref(false);
-const requiresNumberPeople = ref(false);
 const hasNumberAdults = ref(false);
 const requiresNumberAdults = ref(false);
 const hasNumberTeenagers = ref(false);
@@ -207,13 +202,6 @@ const errors = ref({
 });
 
 // Watch for non-numeric values
-watch(() => form.value.number_people, (newValue) => {
-  if (newValue === null || newValue === '') return;
-  if (isNaN(newValue)) {
-    form.value.number_people = '0';
-  }
-});
-
 watch(() => form.value.number_adults, (newValue) => {
   if (newValue === null || newValue === '') return;
   if (isNaN(newValue)) {
@@ -239,6 +227,7 @@ onMounted(async () => {
   try {
     const response = await axios.get(`/api/event/${props.eventId}`);
     isLoaded.value = true;
+    hasOpenSeats.value = response.data.has_open_seats;
     hasSalutation.value = response.data.has_salutation;
     requiresSalutation.value = response.data.requires_salutation;
     hasName.value = response.data.has_name;
@@ -257,8 +246,6 @@ onMounted(async () => {
     requiresLocation.value = response.data.requires_location;
     hasRemarks.value = response.data.has_remarks;
     requiresRemarks.value = response.data.requires_remarks;
-    hasNumberPeople.value = response.data.has_number_people;
-    requiresNumberPeople.value = response.data.requires_number_people;
     hasNumberAdults.value = response.data.has_number_adults;
     requiresNumberAdults.value = response.data.requires_number_adults;
     hasNumberTeenagers.value = response.data.has_number_teenagers;
@@ -275,6 +262,8 @@ async function submitForm() {
   isSubmitting.value = true;
   formSuccess.value = false;
   formError.value = false;
+
+  form.value.number_people = Number(form.value.number_adults || 0) + Number(form.value.number_teenagers || 0) + Number(form.value.number_kids || 0);
   try {
     const response = await axios.post('/api/event/register', {
       ...form.value
@@ -297,7 +286,6 @@ function handleSuccess() {
     zip: null,
     location: null,
     remarks: null,
-    number_people: null,
     number_adults: null,
     number_teenagers: null,
     number_kids: null,
@@ -313,7 +301,6 @@ function handleSuccess() {
     zip: '',
     location: '',
     remarks: '',
-    number_people: '',
     number_adults: '',
     number_teenagers: '',
     number_kids: '',

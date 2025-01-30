@@ -1,5 +1,5 @@
 <?php
-namespace App\Notifications\Events;
+namespace App\Notifications\Event;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -39,11 +39,17 @@ class UserConfirmation extends Notification
    */
   public function toMail($notifiable)
   {
-    return (new MailMessage)
+    $message = (new MailMessage)
       ->from(env('MAIL_FROM_ADDRESS'))
       ->replyTo(env('MAIL_REPLY_TO_ADDRESS'))
       ->subject('Anmeldung ' . $this->data['title'])
       ->markdown('notifications.event.user-confirmation', ['data' => $this->data]);
+
+    if (!is_null($this->data['invoice'])) {
+      $message->attach(public_path($this->data['invoice']));
+    }
+
+    return $message;
   }
 
   /**

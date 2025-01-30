@@ -99,9 +99,9 @@ class PatronController extends Controller
       'street.required' => 'Strasse ist erforderlich',
       'zip.required' => 'PLZ ist erforderlich',
       'location.required' => 'Ort ist erforderlich',
-      'email.required' => 'E-Mail-Adresse ist erforderlich',
-      'email.email' => 'E-Mail-Adresse muss gültig sein',
-      'email.regex' => 'E-Mail-Adresse muss gültig sein',
+      'email.required' => 'E-Mail ist erforderlich',
+      'email.email' => 'E-Mail muss gültig sein',
+      'email.regex' => 'E-Mail muss gültig sein',
       'privacy.accepted' => 'Die Datenschutzbestimmungen müssen akzeptiert werden',
     ];
     

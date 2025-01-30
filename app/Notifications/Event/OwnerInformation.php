@@ -1,5 +1,5 @@
 <?php
-namespace App\Notifications\Events;
+namespace App\Notifications\Event;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;

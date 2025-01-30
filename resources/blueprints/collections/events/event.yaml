@@ -133,6 +133,7 @@ tabs:
               width: 33
               if:
                 has_firstname: 'equals true'
+              default: true
           -
             handle: has_name
             field:
@@ -148,6 +149,7 @@ tabs:
               width: 33
               if:
                 has_name: 'equals true'
+              default: true
           -
             handle: has_email
             field:
@@ -163,6 +165,7 @@ tabs:
               width: 33
               if:
                 has_email: 'equals true'
+              default: true
           -
             handle: has_phone
             field:
@@ -304,25 +307,37 @@ tabs:
               type: section
               display: Einstellungen
           -
+            handle: number_open_seats
+            field:
+              type: text
+              display: 'Anzahl freie Plätze'
+          -
+            handle: chargeable
+            field:
+              default: true
+              type: toggle
+              display: 'Kostenpflichtig?'
+          -
             handle: cost_adults
             field:
               type: text
               display: 'Preis Erwachsene'
+              if:
+                chargeable: 'equals true'
           -
             handle: cost_teenagers
             field:
               type: text
               display: 'Preis Jugendliche'
+              if:
+                chargeable: 'equals true'
           -
             handle: cost_kids
             field:
               type: text
               display: 'Preis Kinder'
-          -
-            handle: number_open_seats
-            field:
-              type: text
-              display: 'Anzahl freie Plätze'
+              if:
+                chargeable: 'equals true'
           -
             handle: invoice
             field:
@@ -331,11 +346,13 @@ tabs:
               type: assets
               display: 'EZS / QR Rechnung'
               folder: veranstaltung
+              if:
+                chargeable: 'equals true'
           -
-            handle: bestaetigung
+            handle: email_text
             field:
               type: section
-              display: Bestätigung
+              display: 'E-Mail Texte'
           -
             handle: text_email
             field:
@@ -353,7 +370,7 @@ tabs:
                 T direkt: +41 52 397 10 20
                 www.neuthal-industriekultur.ch
               type: textarea
-              display: 'Text E-Mail'
+              display: 'Bestätigungs E-Mail'
   sidebar:
     display: Sidebar
     sections:

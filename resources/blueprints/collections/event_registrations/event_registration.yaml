@@ -106,6 +106,7 @@ tabs:
                   value: Storniert
               type: select
               display: Status
+              clearable: true
   sidebar:
     display: Sidebar
     sections:
