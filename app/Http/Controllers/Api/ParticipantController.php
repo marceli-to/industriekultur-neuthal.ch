@@ -34,10 +34,11 @@ class ParticipantController extends Controller
       'email' => $request->input('email'),
       'phone' => $request->input('phone') ?? null,
       'message' => $request->input('message'),
+      'newsletter' => $request->input('newsletter'),
     ];
 
     $entry = Entry::make()
-      ->collection('patron_submissions')
+      ->collection('participant_submissions')
       ->slug($slug)
       ->data($data)
       ->save();
@@ -88,6 +89,7 @@ class ParticipantController extends Controller
       'zip' => 'required',
       'location' => 'required',
       'email' => 'required|email|regex:/^[^\s@]+@[^\s@]+\.[^\s@]+$/',
+      'privacy' => 'accepted',
     ];
 
     // Set validation messages
@@ -100,6 +102,7 @@ class ParticipantController extends Controller
       'email.required' => 'E-Mail-Adresse ist erforderlich',
       'email.email' => 'E-Mail-Adresse muss gültig sein',
       'email.regex' => 'E-Mail-Adresse muss gültig sein',
+      'privacy.accepted' => 'Die Datenschutzbestimmungen müssen akzeptiert werden',
     ];
     
     return [

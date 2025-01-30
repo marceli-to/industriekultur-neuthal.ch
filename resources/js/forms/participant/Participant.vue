@@ -61,7 +61,7 @@
         v-model="form.phone" 
         :error="errors.phone"
         @update:error="errors.phone = $event"
-        placeholder="Telefon *"
+        placeholder="Telefon"
       />
     </form-group>
     <form-group>
@@ -73,12 +73,29 @@
         placeholder="E-Mail *"
       />
     </form-group>
+
     <form-group>
       <form-textarea-field
         v-model="form.message"
         :error="errors.message"
         placeholder="Bemerkungen">
       </form-textarea-field>
+    </form-group>
+    <form-group class="gap-y-10 flex flex-col">
+      <form-checkbox
+        v-model="form.newsletter"
+        id="newsletter"
+        name="newsletter"
+        label="Ja, ich möchte mich für den Newsletter anmelden"
+      />
+      <form-checkbox
+        v-model="form.privacy"
+        :error="errors.privacy"
+        @update:error="errors.privacy = $event"
+        id="privacy"
+        name="privacy"
+        label="Ich habe die <a href='/datenschutz'>Datenschutzerklärung</a> gelesen und stimme dieser zu.*"
+      />
     </form-group>
     <form-group class="!mt-35">
       <form-button 
@@ -96,11 +113,8 @@ import axios from 'axios';
 import FormGroup from '@/forms/components/fields/group.vue';
 import FormTextField from '@/forms/components/fields/text.vue';
 import FormTextareaField from '@/forms/components/fields/textarea.vue';
-import FormLabel from '@/forms/components/fields/label.vue';
+import FormCheckbox from '@/forms/components/fields/checkbox.vue';
 import FormButton from '@/forms/components/fields/button.vue';
-import FormSelectField from '@/forms/components/fields/select.vue';
-import FormRadioField from '@/forms/components/fields/radio.vue';
-import Error from '@/forms/components/fields/error.vue';
 import SuccessAlert from '@/forms/components/alerts/success.vue';
 import ErrorAlert from '@/forms/components/alerts/error.vue';
 
@@ -118,6 +132,8 @@ const form = ref({
   phone: null,
   email: null,
   message: null,
+  newsletter: 'yes',
+  privacy: null
 });
 
 const errors = ref({
@@ -130,6 +146,7 @@ const errors = ref({
   phone: '',
   email: '',
   message: '',
+  privacy: '',
 });
 
 async function submitForm() {
@@ -156,7 +173,9 @@ function handleSuccess() {
     zip: null,
     email: null,
     message: null,
-    phone: null
+    phone: null,
+    newsletter: 'yes',
+    privacy: null
   };
   
   errors.value = {
@@ -169,6 +188,8 @@ function handleSuccess() {
     email: '',
     message: '',
     phone: '',
+    newsletter: '',
+    privacy: '',
   };
   
   isSubmitting.value = false;

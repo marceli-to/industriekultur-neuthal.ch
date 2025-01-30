@@ -38,6 +38,11 @@
     </div>
     <br>
   @endif
+  <div class="text-base">
+    <strong>Newsletter</strong><br>
+    {{ $data['newsletter'] ? 'Ja' : 'Nein' }}
+  </div>
+  <br>
   <footer>
     <br>Museum Neuthal<br>Textil- & Industriekultur<br>Im Neuthal 6<br>8344 Bäretswil
   </footer>

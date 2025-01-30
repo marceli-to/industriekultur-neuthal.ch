@@ -61,13 +61,7 @@ import { ref, watch } from 'vue';
 import axios from 'axios';
 import FormGroup from '@/forms/components/fields/group.vue';
 import FormTextField from '@/forms/components/fields/text.vue';
-import FormTextareaField from '@/forms/components/fields/textarea.vue';
-import FormLabel from '@/forms/components/fields/label.vue';
 import FormButton from '@/forms/components/fields/button.vue';
-import FormSelectField from '@/forms/components/fields/select.vue';
-import FormRadioField from '@/forms/components/fields/radio.vue';
-import FormToc from '@/forms/components/fields/toc.vue';
-import Error from '@/forms/components/fields/error.vue';
 import SuccessAlert from '@/forms/components/alerts/success.vue';
 import ErrorAlert from '@/forms/components/alerts/error.vue';
 

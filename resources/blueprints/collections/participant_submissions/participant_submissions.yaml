@@ -46,6 +46,11 @@ tabs:
             field:
               type: textarea
               display: Mitteilung
+          -
+            handle: newsletter
+            field:
+              type: toggle
+              display: Newsletter
   sidebar:
     display: Sidebar
     sections:

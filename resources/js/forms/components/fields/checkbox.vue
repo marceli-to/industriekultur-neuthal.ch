@@ -1,21 +1,28 @@
 <template>
-  <div :class="['checkboxes flex gap-x-15', classes]">
-    <input 
-      :id="id" 
-      :name="name" 
-      :value="value" 
-      :checked="checked" 
-      :disabled="disabled" 
-      :required="required" 
-      type="checkbox" 
-      @change="handleChange"
-    />
-    <label :for="id">{{ label }}</label>
+  <div :class="['checkboxes relative', classes]">
+    <Error :error="error" class="!relative !mb-10" />
+    <div class="flex gap-x-10">
+      <input 
+        :id="id" 
+        :name="name" 
+        :value="modelValue" 
+        :checked="checked" 
+        :disabled="disabled" 
+        :required="required" 
+        type="checkbox" 
+        @change="handleChange"
+        :class="[
+          { '!border-crimson': error },
+        ]"
+      />
+      <label :for="id" v-html="label"></label>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { computed } from 'vue';
+import Error from './error.vue';
 
 const props = defineProps({
   id: {
@@ -23,10 +30,6 @@ const props = defineProps({
     required: true,
   },
   name: {
-    type: String,
-    required: true,
-  },
-  value: {
     type: String,
     required: true,
   },
@@ -50,13 +53,20 @@ const props = defineProps({
     type: [String, Array, Object],
     default: '',
   },
+  error: {
+    type: String,
+    default: '',
+  },
 });
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits(['update:modelValue', 'update:error']);
 
 const checked = computed(() => props.value === props.modelValue);
 
-const handleChange = (event) => {
+function handleChange(event) {
   emit('update:modelValue', event.target.checked);
-};
+  if (event.target.checked) {
+    emit('update:error', '');
+  }
+}
 </script>

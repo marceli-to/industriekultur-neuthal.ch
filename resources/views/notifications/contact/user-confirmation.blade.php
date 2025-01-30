@@ -42,4 +42,9 @@
     </div>
     <br>
   @endif
+  <div class="text-base">
+    <strong>Newsletter</strong><br>
+    {{ $data['newsletter'] ? 'Ja' : 'Nein' }}
+  </div>
+  <br>
 </x-mail::message>
