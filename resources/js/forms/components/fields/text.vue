@@ -7,10 +7,10 @@
       @focus="$emit('update:error', '')"
       :placeholder="placeholder"
       :class="[
-        { '!border-crimson': error },
+        { '!border-crimson placeholder:!text-crimson': error },
       ]"
     >
-    <Error :error="error" />
+    <!-- <Error :error="error" /> -->
   </div>
 </template>
 

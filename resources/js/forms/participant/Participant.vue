@@ -117,7 +117,9 @@ import FormCheckbox from '@/forms/components/fields/checkbox.vue';
 import FormButton from '@/forms/components/fields/button.vue';
 import SuccessAlert from '@/forms/components/alerts/success.vue';
 import ErrorAlert from '@/forms/components/alerts/error.vue';
+import { useFormScroll } from '@/composables/useFormScroll';
 
+const { scrollToForm } = useFormScroll();
 const isSubmitting = ref(false);
 const formSuccess = ref(false);
 const formError = ref(false);
@@ -194,6 +196,7 @@ function handleSuccess() {
   
   isSubmitting.value = false;
   formSuccess.value = true;
+  scrollToForm();
 }
 
 function handleError(error) {
@@ -205,5 +208,6 @@ function handleError(error) {
       errors.value[key] = error.response.data.errors[key];
     });
   }
+  scrollToForm();
 }
 </script>

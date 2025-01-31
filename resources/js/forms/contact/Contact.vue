@@ -15,7 +15,7 @@
         v-model="form.firstname" 
         :error="errors.firstname"
         @update:error="errors.firstname = $event"
-        placeholder="Vorname *"
+        :placeholder="errors.firstname ? errors.firstname : 'Vorname *'"
       />
     </form-group>
     <form-group>
@@ -23,7 +23,7 @@
         v-model="form.name" 
         :error="errors.name"
         @update:error="errors.name = $event"
-        placeholder="Name *"
+        :placeholder="errors.name ? errors.name : 'Name *'"
       />
     </form-group>
     <form-group>
@@ -40,7 +40,7 @@
         v-model="form.email" 
         :error="errors.email"
         @update:error="errors.email = $event"
-        placeholder="E-Mail *"
+        :placeholder="errors.email ? errors.email : 'E-Mail *'"
       />
     </form-group>
     <form-group>
@@ -48,8 +48,8 @@
         v-model="form.message"
         :error="errors.message"
         @update:error="errors.message = $event"
-        placeholder="Nachricht *">
-      </form-textarea-field>
+        :placeholder="errors.message ? errors.message : 'Nachricht *'"
+      />
     </form-group>
     <form-group class="gap-y-10 flex flex-col">
       <form-checkbox
@@ -87,7 +87,9 @@ import FormButton from '@/forms/components/fields/button.vue';
 import FormCheckbox from '@/forms/components/fields/checkbox.vue';
 import SuccessAlert from '@/forms/components/alerts/success.vue';
 import ErrorAlert from '@/forms/components/alerts/error.vue';
+import { useFormScroll } from '@/composables/useFormScroll';
 
+const { scrollToForm } = useFormScroll();
 const isSubmitting = ref(false);
 const formSuccess = ref(false);
 const formError = ref(false);
@@ -153,6 +155,7 @@ function handleSuccess() {
   
   isSubmitting.value = false;
   formSuccess.value = true;
+  scrollToForm();
 }
 
 function handleError(error) {
@@ -164,5 +167,6 @@ function handleError(error) {
       errors.value[key] = error.response.data.errors[key];
     });
   }
+  scrollToForm();
 }
 </script>

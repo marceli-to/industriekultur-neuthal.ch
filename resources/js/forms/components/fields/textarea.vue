@@ -6,10 +6,11 @@
       @input="$emit('update:modelValue', $event.target.value)"
       @focus="$emit('update:error', '')"
       :class="[
-        { '!border-crimson': error },
+        { '!border-crimson placeholder:!text-crimson': error },
+        'placeholder:text-black/50'
       ]">
     </textarea>
-    <Error :error="error" />
+    <!-- <Error :error="error" /> -->
   </div>
 </template>
 

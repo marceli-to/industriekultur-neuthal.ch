@@ -11,6 +11,7 @@
         :required="required" 
         type="checkbox" 
         @change="handleChange"
+        class="-mt-2"
         :class="[
           { '!border-crimson': error },
         ]"

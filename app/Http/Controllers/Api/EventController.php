@@ -36,11 +36,8 @@ class EventController extends Controller
       'has_remarks' => $event->has_remarks,
       'requires_remarks' => $event->requires_remarks,
       'has_number_adults' => $event->has_number_adults,
-      'requires_number_adults' => $event->requires_number_adults,
       'has_number_teenagers' => $event->has_number_teenagers,
-      'requires_number_teenagers' => $event->requires_number_teenagers,
       'has_number_kids' => $event->has_number_kids,
-      'requires_number_kids' => $event->requires_number_kids,
     ]);
   }
 
@@ -170,37 +167,25 @@ class EventController extends Controller
       $validationRules['location'] = 'required';
     }
 
-    if ($event->has_number_adults && $event->requires_number_adults) {
-      $validationRules['number_adults'] = 'required|integer|min:1';
-    }
-
-    if ($event->has_number_teenagers && $event->requires_number_teenagers) {
-      $validationRules['number_teenagers'] = 'required|integer|min:1';
-    }
-
-    if ($event->has_number_kids && $event->requires_number_kids) {
-      $validationRules['number_kids'] = 'required|integer|min:1';
-    }
-
-    // always required
-    $validationRules['number_people'] = 'required|integer|min:1';
-
     if ($event->has_number_adults) {
-      // only if is submitted
-      $validationRules['number_adults'] = 'nullable|integer|min:1';
+      $validationRules['number_adults'] = 'nullable|required_without_all:number_teenagers,number_kids|integer|min:1';
     }
 
     if ($event->has_number_teenagers) {
-      $validationRules['number_teenagers'] = 'nullable|integer|min:1';
+      $validationRules['number_teenagers'] = 'nullable|required_without_all:number_adults,number_kids|integer|min:1';
     }
 
     if ($event->has_number_kids) {
-      $validationRules['number_kids'] = 'nullable|integer|min:1';
+      $validationRules['number_kids'] = 'nullable|required_without_all:number_adults,number_teenagers|integer|min:1';
     }
 
     if ($event->has_remarks && $event->requires_remarks) {
       $validationRules['remarks'] = 'required';
     }
+
+    // always required
+    $validationRules['number_people'] = 'required|integer|min:1';
+    $validationRules['privacy'] = 'accepted';
 
     // Set validation messages
     $validationMessages = [
@@ -217,16 +202,17 @@ class EventController extends Controller
       'number_people.required' => 'Anzahl Personen ist erforderlich',
       'number_people.integer' => 'Anzahl Personen muss eine Zahl sein',
       'number_people.min' => 'Anzahl Personen muss mindestens 1 sein',
-      'number_adults.required' => 'Anzahl Erwachsene ist erforderlich',
+      'number_adults.required_without_all' => 'Anzahl Erwachsene, Jugendliche oder Kinder ist erforderlich',
       'number_adults.integer' => 'Anzahl Erwachsene muss eine Zahl sein',
       'number_adults.min' => 'Anzahl Erwachsene muss mindestens 1 sein',
-      'number_teenagers.required' => 'Anzahl Jugendliche ist erforderlich',
+      'number_teenagers.required_without_all' => 'Anzahl Erwachsene, Jugendliche oder Kinder ist erforderlich',
       'number_teenagers.integer' => 'Anzahl Jugendliche muss eine Zahl sein',
       'number_teenagers.min' => 'Anzahl Jugendliche muss mindestens 1 sein',
-      'number_kids.required' => 'Anzahl Kinder ist erforderlich',
+      'number_kids.required_without_all' => 'Anzahl Erwachsene, Jugendliche oder Kinder ist erforderlich',
       'number_kids.integer' => 'Anzahl Kinder muss eine Zahl sein',
       'number_kids.min' => 'Anzahl Kinder muss mindestens 1 sein',
       'remarks.required' => 'Bemerkungen sind erforderlich',
+      'privacy.accepted' => 'Die Datenschutzbestimmungen müssen akzeptiert werden',
     ];
     
     return [

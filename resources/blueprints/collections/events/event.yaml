@@ -227,35 +227,12 @@ tabs:
               if:
                 has_location: 'equals true'
           -
-            handle: has_number_people
-            field:
-              type: toggle
-              display: 'Feld "Anzahl Personen"'
-              width: 66
-              default: true
-          -
-            handle: requires_number_people
-            field:
-              type: toggle
-              display: Pflichtfeld
-              width: 33
-              if:
-                has_number_people: 'equals true'
-          -
             handle: has_number_adults
             field:
               type: toggle
               display: 'Feld "Anzahl Erwachsene"'
               width: 66
               default: true
-          -
-            handle: requires_number_adults
-            field:
-              type: toggle
-              display: Pflichtfeld
-              width: 33
-              if:
-                has_number_adults: 'equals true'
           -
             handle: has_number_teenagers
             field:
@@ -264,28 +241,12 @@ tabs:
               width: 66
               default: true
           -
-            handle: requires_number_teenagers
-            field:
-              type: toggle
-              display: Pflichtfeld
-              width: 33
-              if:
-                has_number_teenagers: 'equals true'
-          -
             handle: has_number_kids
             field:
               type: toggle
               display: 'Feld "Anzahl Kinder"'
               width: 66
               default: true
-          -
-            handle: requires_number_kids
-            field:
-              type: toggle
-              display: Pflichtfeld
-              width: 33
-              if:
-                has_number_kids: 'equals true'
           -
             handle: has_remarks
             field:
