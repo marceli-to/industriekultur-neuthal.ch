@@ -5,7 +5,10 @@
     <span class="block">{{ event_date iso_format="YYYY" }}</span>
   </div>
   <div class="flex justify-between flex-1">
-    <div>
+    <a 
+      href="{{ url }}" 
+      title="{{ title }}"
+      class="!no-underline">
       <span class="block mb-2 lg:mb-5">
         {{ time_start | format="H.s" }}{{ if time_end }} – {{ time_end | format="H.s" }}{{ /if }} Uhr
       </span>
@@ -20,7 +23,7 @@
         label="{{ has_register_form ? 'Details und Anmeldung' : 'Informationen' }}"
         is_button="false"
         class="sm:hidden" }}
-    </div>
+    </a>
     <div class="lg:pt-25 hidden sm:block">
       {{ partial:components/buttons/secondary 
         url="{{ url }}" 
