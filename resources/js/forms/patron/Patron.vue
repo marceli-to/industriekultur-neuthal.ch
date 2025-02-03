@@ -99,7 +99,7 @@
     <form-group class="!mt-35">
       <form-button 
         type="submit" 
-        :label="'Abschicken'"
+        :label="'Absenden'"
         :disabled="isSubmitting"
         :submitting="isSubmitting"
       />
