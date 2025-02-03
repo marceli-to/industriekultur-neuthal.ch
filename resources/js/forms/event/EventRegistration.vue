@@ -158,7 +158,7 @@
         @update:error="errors.privacy = $event"
         id="privacy-contact"
         name="privacy"
-        label="Ich habe die <a href='/datenschutz'>Datenschutzerklärung</a> gelesen und stimme dieser zu.*"
+        label="Ich habe die <a href='/datenschutz' class='decoration-1'>Datenschutzerklärung</a> gelesen und stimme dieser zu.*"
       />
     </form-group>
     <form-group class="!mt-35">

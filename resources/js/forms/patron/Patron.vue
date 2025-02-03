@@ -10,76 +10,83 @@
     </error-alert>
   </template>
   <form @submit.prevent="submitForm" class="space-y-10 lg:space-y-25">
-    <form-group>
-      <form-text-field 
-        v-model="form.salutation" 
-        placeholder="Anrede"
-      />
-    </form-group>
-    <form-group>
-      <form-text-field 
-        v-model="form.firstname" 
-        :error="errors.firstname"
-        @update:error="errors.firstname = $event"
-        placeholder="Vorname *"
-      />
-    </form-group>
-    <form-group>
-      <form-text-field 
-        v-model="form.name" 
-        :error="errors.name"
-        @update:error="errors.name = $event"
-        placeholder="Name *"
-      />
-    </form-group>
-    <form-group>
-      <form-text-field 
-        v-model="form.street" 
-        :error="errors.street"
-        @update:error="errors.street = $event"
-        placeholder="Strasse/Nr. *"
-      />
-    </form-group>
-    <form-group>
-      <form-text-field 
-        v-model="form.zip" 
-        :error="errors.zip"
-        @update:error="errors.zip = $event"
-        placeholder="PLZ *"
-      />
-    </form-group>
-    <form-group>
-      <form-text-field 
-        v-model="form.location" 
-        :error="errors.location"
-        @update:error="errors.location = $event"
-        placeholder="Ort *"
-      />
-    </form-group>
-    <form-group>
-      <form-text-field 
-        v-model="form.phone" 
-        :error="errors.phone"
-        @update:error="errors.phone = $event"
-        placeholder="Telefon"
-      />
-    </form-group>
-    <form-group>
-      <form-text-field 
-        type="email"
-        v-model="form.email" 
-        :error="errors.email"
-        @update:error="errors.email = $event"
-        placeholder="E-Mail *"
-      />
-    </form-group>
-    <form-group>
-      <form-textarea-field
-        v-model="form.message"
-        :error="errors.message"
-        placeholder="Bemerkungen">
-      </form-textarea-field>
-    </form-group>
+    <div class="md:flex md:gap-20">
+      <div class="md:w-1/2 flex flex-col gap-20">
+        <form-group>
+          <form-text-field 
+            v-model="form.salutation" 
+            placeholder="Anrede"
+          />
+        </form-group>
+        <form-group>
+          <form-text-field 
+            v-model="form.firstname" 
+            :error="errors.firstname"
+            @update:error="errors.firstname = $event"
+            placeholder="Vorname *"
+          />
+        </form-group>
+        <form-group>
+          <form-text-field 
+            v-model="form.name" 
+            :error="errors.name"
+            @update:error="errors.name = $event"
+            placeholder="Name *"
+          />
+        </form-group>
+        <form-group>
+          <form-text-field 
+            v-model="form.street" 
+            :error="errors.street"
+            @update:error="errors.street = $event"
+            placeholder="Strasse/Nr. *"
+          />
+        </form-group>
+        <form-group>
+          <form-text-field 
+            v-model="form.zip" 
+            :error="errors.zip"
+            @update:error="errors.zip = $event"
+            placeholder="PLZ *"
+          />
+        </form-group>
+        <form-group>
+          <form-text-field 
+            v-model="form.location" 
+            :error="errors.location"
+            @update:error="errors.location = $event"
+            placeholder="Ort *"
+          />
+        </form-group>
+        <form-group>
+          <form-text-field 
+            v-model="form.phone" 
+            :error="errors.phone"
+            @update:error="errors.phone = $event"
+            placeholder="Telefon"
+          />
+        </form-group>
+        <form-group>
+          <form-text-field 
+            type="email"
+            v-model="form.email" 
+            :error="errors.email"
+            @update:error="errors.email = $event"
+            placeholder="E-Mail *"
+          />
+        </form-group>
+      </div>
+      <div class="md:w-1/2">
+        <form-group>
+          <form-textarea-field
+            v-model="form.message"
+            :error="errors.message"
+            placeholder="Bemerkungen">
+          </form-textarea-field>
+        </form-group>
+      </div>
+    </div>
+
     <form-group class="gap-y-10 flex flex-col">
       <form-checkbox
         v-model="form.newsletter"
@@ -93,7 +100,7 @@
         @update:error="errors.privacy = $event"
         id="privacy-patron"
         name="privacy"
-        label="Ich habe die <a href='/datenschutz'>Datenschutzerklärung</a> gelesen und stimme dieser zu.*"
+        label="Ich habe die <a href='/datenschutz' class='decoration-1'>Datenschutzerklärung</a> gelesen und stimme dieser zu.*"
       />
     </form-group>
     <form-group class="!mt-35">
