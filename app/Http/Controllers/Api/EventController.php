@@ -2,11 +2,12 @@
 namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Statamic\Facades\Entry;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Notification;
+use Statamic\Facades\Entry;
 use App\Notifications\Event\UserConfirmation;
 use App\Notifications\Event\OwnerInformation;
-use Illuminate\Support\Facades\Validator;
+use App\Actions\Newsletter\CreateSubscriber as CreateSubscriberAction;
 
 class EventController extends Controller
 {
@@ -103,6 +104,15 @@ class EventController extends Controller
     Notification::route('mail', env('MAIL_TO'))
       ->notify(new OwnerInformation($data)
     );
+
+    if ($request->input('newsletter'))
+    {
+      (new CreateSubscriberAction())->execute([
+        'email' => $data['email'],
+        'firstname' => $data['firstname'],
+        'name' => $data['name'],
+      ]);
+    }   
 
     return response()->json(['message' => 'Store successful']);
   }

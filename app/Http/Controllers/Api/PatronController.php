@@ -2,11 +2,12 @@
 namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Statamic\Facades\Entry;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Notification;
+use Statamic\Facades\Entry;
 use App\Notifications\Patron\OwnerInformation;
 use App\Notifications\Patron\UserConfirmation;
-use Illuminate\Support\Facades\Validator;
+use App\Actions\Newsletter\CreateSubscriber as CreateSubscriberAction;
 
 class PatronController extends Controller
 {
@@ -50,6 +51,15 @@ class PatronController extends Controller
     Notification::route('mail', $data['email'])
       ->notify(new UserConfirmation($data)
     );
+
+    if ($request->input('newsletter'))
+    {
+      (new CreateSubscriberAction())->execute([
+        'email' => $data['email'],
+        'firstname' => $data['firstname'],
+        'name' => $data['name'],
+      ]);
+    }
 
     return response()->json(['message' => 'Store successful']);
   }

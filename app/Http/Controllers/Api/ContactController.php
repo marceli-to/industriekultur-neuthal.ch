@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Notification;
 use App\Notifications\Contact\OwnerInformation;
 use App\Notifications\Contact\UserConfirmation;
 use Illuminate\Support\Facades\Validator;
+use App\Actions\Newsletter\CreateSubscriber as CreateSubscriberAction;
 
 class ContactController extends Controller
 {
@@ -33,6 +34,7 @@ class ContactController extends Controller
       'newsletter' => $request->input('newsletter'),
     ];
 
+
     $entry = Entry::make()
       ->collection('contact_submissions')
       ->slug($slug)
@@ -46,6 +48,15 @@ class ContactController extends Controller
     Notification::route('mail', $data['email'])
       ->notify(new UserConfirmation($data)
     );
+
+    if ($request->input('newsletter'))
+    {
+      (new CreateSubscriberAction())->execute([
+        'email' => $data['email'],
+        'firstname' => $data['firstname'],
+        'name' => $data['name'],
+      ]);
+    }
 
     return response()->json(['message' => 'Store successful']);
   }
