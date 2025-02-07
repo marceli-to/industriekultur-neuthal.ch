@@ -235,8 +235,8 @@ const form = ref({
   number_adults: null,
   number_teenagers: null,
   number_kids: null,
-  newsletter: 'yes',
-  privacy: null
+  newsletter: false,
+  privacy: false
 });
 
 const errors = ref({
@@ -347,8 +347,8 @@ function handleSuccess() {
     number_adults: null,
     number_teenagers: null,
     number_kids: null,
-    newsletter: 'yes',
-    privacy: null
+    newsletter: false,
+    privacy: false
   };
   
   errors.value = {

@@ -140,8 +140,8 @@ const form = ref({
   phone: null,
   email: null,
   message: null,
-  newsletter: 'yes',
-  privacy: null
+  newsletter: false,
+  privacy: false
 });
 
 const errors = ref({
@@ -182,8 +182,8 @@ function handleSuccess() {
     email: null,
     message: null,
     phone: null,
-    newsletter: 'yes',
-    privacy: null
+    newsletter: false,
+    privacy: false
   };
   
   errors.value = {

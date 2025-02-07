@@ -105,7 +105,7 @@ class EventController extends Controller
       ->notify(new OwnerInformation($data)
     );
 
-    if ($request->input('newsletter'))
+    if ($request->input('newsletter') && !app()->environment('local'))
     {
       (new CreateSubscriberAction())->execute([
         'email' => $data['email'],

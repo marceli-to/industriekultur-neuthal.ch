@@ -49,7 +49,7 @@ class ContactController extends Controller
       ->notify(new UserConfirmation($data)
     );
 
-    if ($request->input('newsletter'))
+    if ($request->input('newsletter') && !app()->environment('local'))
     {
       (new CreateSubscriberAction())->execute([
         'email' => $data['email'],

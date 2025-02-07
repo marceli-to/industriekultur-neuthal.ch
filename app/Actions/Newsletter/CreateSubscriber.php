@@ -10,6 +10,7 @@ class CreateSubscriber
 {
   public function execute(array $data): bool
   {
+
     if (!env('BREVO_API_KEY') || !env('BREVO_LIST_ID')) {
       throw new Exception('Brevo API key or List ID not configured in environment');
     }

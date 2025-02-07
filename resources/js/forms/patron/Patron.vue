@@ -140,8 +140,8 @@ const form = ref({
   phone: null,
   email: null,
   message: null,
-  privacy: null,
-  newsletter: 'yes'
+  privacy: false,
+  newsletter: false
 });
 
 const errors = ref({
@@ -173,32 +173,18 @@ async function submitForm() {
 
 function handleSuccess() {
   form.value = {
-    salutation: null,
-    name: null,
-    firstname: null,
-    street: null,
-    location: null,
-    zip: null,
-    email: null,
-    message: null,
-    phone: null,
-    privacy: null,
-    newsletter: 'yes'
-  };
-  
-  errors.value = {
     salutation: '',
     name: '',
     firstname: '',
     street: '',
     location: '',
     zip: '',
+    phone: '',
     email: '',
     message: '',
-    phone: '',
-    privacy: '',
+    privacy: false,
   };
-  
+  errors.value = {};
   isSubmitting.value = false;
   formSuccess.value = true;
   scrollToForm();

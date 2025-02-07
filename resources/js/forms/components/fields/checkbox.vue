@@ -62,7 +62,7 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue', 'update:error']);
 
-const checked = computed(() => props.value === props.modelValue);
+const checked = computed(() => props.modelValue);
 
 function handleChange(event) {
   emit('update:modelValue', event.target.checked);
