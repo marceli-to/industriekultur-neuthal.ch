@@ -92,7 +92,7 @@
         v-model="form.newsletter"
         id="newsletter-participant"
         name="newsletter"
-        label="Ja, ich möchte mich für den Newsletter anmelden"
+        label="Ja, ich möchte mich für den Newsletter anmelden."
       />
       <form-checkbox
         v-model="form.privacy"
