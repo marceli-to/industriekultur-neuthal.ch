@@ -45,21 +45,21 @@
           </div>
         {{ /if  }}
 
-        <div class="order-2 wavy-border-xs max-w-sm md:place-self-end bg-white py-15 px-15 md:col-span-5 lg:col-span-4">
-          {{ partial:components/headings/h3 class="mb-5 lg:mb-10 text-ember" }}
-            Informationen
-          {{ /partial:components/headings/h3 }}
-          {{ if informations }}
-            <table>
-            {{ informations }}
-              <tr>
-                <td class="font-calibre-bold font-bold pr-10 lg:pr-15 py-5">{{ label }}</td>
-                <td class="py-5">{{ description }}</td>
-              </tr>
-            {{ /informations }}
-            </table>
-          {{ /if }}
-        </div>
+        {{ if informations }}
+          <div class="order-2 wavy-border-xs max-w-sm md:place-self-end bg-white py-15 px-15 md:col-span-5 lg:col-span-4">
+            {{ partial:components/headings/h3 class="mb-5 lg:mb-10 text-ember" }}
+              Informationen
+            {{ /partial:components/headings/h3 }}
+              <table>
+              {{ informations }}
+                <tr>
+                  <td class="font-calibre-bold font-bold pr-10 lg:pr-15 py-5">{{ label }}</td>
+                  <td class="py-5">{{ description | nl2br }}</td>
+                </tr>
+              {{ /informations }}
+              </table>
+          </div>
+        {{ /if }}
 
       {{ /partial:layout/grid }}
 
