@@ -42,7 +42,7 @@ class UserConfirmation extends Notification
     return (new MailMessage)
       ->from(env('MAIL_FROM_ADDRESS'))
       ->replyTo(env('MAIL_REPLY_TO_ADDRESS'))
-      ->subject('Anfrage Museum Neuthal')
+      ->subject('Ihre Anfrage Museum Neuthal')
       ->markdown('notifications.contact.user-confirmation', ['data' => $this->data]);
   }
 
