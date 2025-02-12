@@ -4,7 +4,7 @@
     <span class="block text-base lg:text-md">{{ event_date iso_format="DD MMM" }}.</span>
     <span class="block">{{ event_date iso_format="YYYY" }}</span>
   </div>
-  <div class="flex justify-between flex-1">
+  <div class="flex justify-between flex-col md:flex-row md:flex-1">
     <a 
       href="{{ url }}" 
       title="{{ title }}"
@@ -18,16 +18,18 @@
       <p class="font-calibre-semi font-semibold text-pretty max-w-prose">
         {{ subtitle }}
       </p>
-      {{ partial:components/buttons/secondary 
-        url="{{ url }}" 
-        label="{{ has_register_form ? 'Details und Anmeldung' : 'Informationen' }}"
-        is_button="false"
-        class="sm:hidden" }}
     </a>
-    <div class="lg:pt-25 hidden sm:block">
+    <div class="mt-20 md:!hidden">
+    {{ partial:components/buttons/secondary 
+      url="{{ url }}" 
+      label="{{ has_register_form ? 'Details und Anmeldung' : 'Informationen' }}"
+      is_button="false" }}
+    </div>
+    <div class="lg:pt-25 hidden md:block md:shrink-0">
       {{ partial:components/buttons/secondary 
         url="{{ url }}" 
         label="{{ has_register_form ? 'Details und Anmeldung' : 'Informationen' }}"
+        class="!self-end"
         is_button="false" }}
     </div>
   </div>

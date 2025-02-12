@@ -8,14 +8,23 @@
         {{ teaser_title }}
       {{ /partial:components/headings/h2 }}
     {{ /if }}
-    {{ collection:events as="events" sort="event_date:asc" filter="event_date:is_future" }}
+    {{ collection:events as="events" sort="event_date:asc" query_scope="upcoming_scope" limit="{{ limit ? 3 : null }}" }}
       {{ if events }}
         {{ events }}
-          {{ if event_date | modify_date("+1 day") | is_future }}
-            {{ partial:events/item }}
-          {{ /if }}
+          {{ partial:events/item }}
         {{ /events }}
       {{ /if }}
     {{ /collection:events }}
+
+    {{ if limit }}
+      {{ collection:events as="all_upcoming_events" sort="event_date:asc" query_scope="upcoming_scope" }}
+        {{ if all_upcoming_events | count > 3 }}
+          <div class="flex justify-center mt-40">
+            {{ partial:components/buttons/secondary  label="Weitere Veranstaltungen anzeigen" url="/veranstaltungen" }}
+          </div>
+        {{ /if }}
+      {{ /collection:events }}
+    {{ /if }}
+    
   {{ /partial:layout/inner }}
 {{ /partial:layout/outer }}

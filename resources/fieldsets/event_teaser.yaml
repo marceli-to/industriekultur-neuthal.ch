@@ -11,3 +11,9 @@ fields:
       display: Titel
       instructions: 'Optionaler Titel (wird z.B. auf der Startseite benötigt)'
       instructions_position: below
+  -
+    handle: limit
+    field:
+      type: toggle
+      display: 'Anzeigelimit?'
+      instructions: 'Zeigt nur die nächsten 3 Veranstaltungen'
