@@ -14,7 +14,7 @@ class EventController extends Controller
   public function get($eventId)
   {
     $event = Entry::find($eventId, 'de');
-    
+   
     return response()->json([
       'title' => $event->title,
       'has_open_seats' => $this->hasOpenSeats($event),
@@ -36,6 +36,7 @@ class EventController extends Controller
       'requires_location' => $event->requires_location,
       'has_remarks' => $event->has_remarks,
       'requires_remarks' => $event->requires_remarks,
+      'has_number_people' => $event->has_number_people,
       'has_number_adults' => $event->has_number_adults,
       'has_number_teenagers' => $event->has_number_teenagers,
       'has_number_kids' => $event->has_number_kids,
@@ -72,6 +73,7 @@ class EventController extends Controller
       'number_adults' => $request->input('number_adults') ?? null,
       'number_teenagers' => $request->input('number_teenagers') ?? null,
       'number_kids' => $request->input('number_kids') ?? null,
+      'cost_people' => $request->input('number_people') && $event->chargeable ? $event->cost_people * $request->input('number_people') : null,
       'cost_adults' => $request->input('number_adults') && $event->chargeable ? $event->cost_adults * $request->input('number_adults') : null,
       'cost_teenagers' => $request->input('number_teenagers') && $event->chargeable ? $event->cost_teenagers * $request->input('number_teenagers') : null,
       'cost_kids' => $request->input('number_kids') && $event->chargeable ? $event->cost_kids * $request->input('number_kids') : null,
@@ -82,7 +84,21 @@ class EventController extends Controller
     // Set total cost if chargeable
     if ($event->chargeable)
     {
-      $data['cost_total'] = $data['cost_adults'] + $data['cost_teenagers'] + $data['cost_kids'];
+      if ($event->has_number_people) {
+        $data['cost_total'] = $data['cost_people'];
+      }
+      else {
+        $data['cost_total'] = $data['cost_adults'] + $data['cost_teenagers'] + $data['cost_kids'];
+      }
+    }
+
+    // Set number people if number_people is not required
+    // sum up number_adults, number_teenagers and number_kids
+    if ($event->has_number_people) {
+      $data['total_registrations'] = $data['number_people'];
+    }
+    else {
+      $data['total_registrations'] = $data['number_adults'] + $data['number_teenagers'] + $data['number_kids'];
     }
 
     // Add 'invoice' to $data
@@ -177,16 +193,20 @@ class EventController extends Controller
       $validationRules['location'] = 'required';
     }
 
+    if ($event->has_number_people) {
+      $validationRules['number_people'] = 'nullable|required_without_all:number_adults,number_teenagers,number_kids|integer|min:1';
+    }
+
     if ($event->has_number_adults) {
-      $validationRules['number_adults'] = 'nullable|required_without_all:number_teenagers,number_kids|integer|min:1';
+      $validationRules['number_adults'] = 'nullable|required_without_all:number_people,number_teenagers,number_kids|integer|min:1';
     }
 
     if ($event->has_number_teenagers) {
-      $validationRules['number_teenagers'] = 'nullable|required_without_all:number_adults,number_kids|integer|min:1';
+      $validationRules['number_teenagers'] = 'nullable|required_without_all:number_people,number_adults,number_kids|integer|min:1';
     }
 
     if ($event->has_number_kids) {
-      $validationRules['number_kids'] = 'nullable|required_without_all:number_adults,number_teenagers|integer|min:1';
+      $validationRules['number_kids'] = 'nullable|required_without_all:number_people,number_adults,number_teenagers|integer|min:1';
     }
 
     if ($event->has_remarks && $event->requires_remarks) {
@@ -194,7 +214,7 @@ class EventController extends Controller
     }
 
     // always required
-    $validationRules['number_people'] = 'required|integer|min:1';
+    // $validationRules['number_people'] = 'required|integer|min:1';
     $validationRules['privacy'] = 'accepted';
 
     // Set validation messages
@@ -209,7 +229,7 @@ class EventController extends Controller
       'street.required' => 'Strasse ist erforderlich',
       'zip.required' => 'PLZ ist erforderlich',
       'location.required' => 'Ort ist erforderlich',
-      'number_people.required' => 'Anzahl Personen ist erforderlich',
+      'number_people.required_without_all' => 'Anzahl Personen ist erforderlich',
       'number_people.integer' => 'Anzahl Personen muss eine Zahl sein',
       'number_people.min' => 'Anzahl Personen muss mindestens 1 sein',
       'number_adults.required_without_all' => 'Anzahl Erwachsene, Jugendliche oder Kinder ist erforderlich',
@@ -236,9 +256,9 @@ class EventController extends Controller
     $registrations = Entry::query()
       ->where('collection', 'event_registrations')
       ->where('event_id', $event->id)
-      ->whereNotIn('state', ['waitinglist', 'cancelled'])
+      ->whereNotIn('state', ['cancelled'])
       ->get();
-    $openSeats = $event->number_open_seats - $registrations->sum('number_people');
+    $openSeats = $event->number_open_seats - $registrations->sum('total_registrations');
     return $openSeats > 0 ? true : false;
   }
 }

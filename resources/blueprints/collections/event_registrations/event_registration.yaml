@@ -114,6 +114,12 @@ tabs:
               type: select
               display: Status
               clearable: true
+          -
+            handle: total_registrations
+            field:
+              type: text
+              display: 'Total Anmeldungen'
+              instructions: 'Summe der Anmeldungen (Personen oder Erwachsene, Jugendliche und Kinder)'
   sidebar:
     display: Sidebar
     sections:

@@ -103,37 +103,51 @@
         aria-label="Ort"
       />
     </form-group>
-    <form-group v-if="hasNumberAdults">
-      <form-text-field
-        v-model="form.number_adults"
-        :error="errors.number_adults"
-        @update:error="errors.number_adults = $event"
-        :placeholder="errors.number_adults ? errors.number_adults : 'Anzahl Erwachsene *'"
-        label="Anzahl Erwachsene"
-        aria-label="Anzahl Erwachsene"
-      />
-    </form-group>
-    <form-group v-if="hasNumberTeenagers">
-      <form-text-field 
-        type="text"
-        v-model="form.number_teenagers" 
-        :error="errors.number_teenagers"
-        @update:error="errors.number_teenagers = $event"
-        :placeholder="errors.number_teenagers ? errors.number_teenagers : 'Anzahl Jugendliche *'"
-        label="Anzahl Jugendliche"
-        aria-label="Anzahl Jugendliche"
-      />
-    </form-group>
-    <form-group v-if="hasNumberKids">
-      <form-text-field
-        v-model="form.number_kids"
-        :error="errors.number_kids"
-        @update:error="errors.number_kids = $event"
-        :placeholder="errors.number_kids ? errors.number_kids : 'Anzahl Kinder *'"
-        label="Anzahl Kinder"
-        aria-label="Anzahl Kinder"
-      />
-    </form-group>
+    <template v-if="hasNumberPeople">
+      <form-group>
+        <form-text-field
+          v-model="form.number_people"
+          :error="errors.number_people"
+          @update:error="errors.number_people = $event"
+          :placeholder="errors.number_people ? errors.number_people : 'Anzahl Personen *'"
+          label="Anzahl Personen"
+          aria-label="Anzahl Personen"
+        />
+      </form-group>
+    </template>
+    <template v-else>
+      <form-group v-if="hasNumberAdults">
+        <form-text-field
+          v-model="form.number_adults"
+          :error="errors.number_adults"
+          @update:error="errors.number_adults = $event"
+          :placeholder="errors.number_adults ? errors.number_adults : 'Anzahl Erwachsene *'"
+          label="Anzahl Erwachsene"
+          aria-label="Anzahl Erwachsene"
+        />
+      </form-group>
+      <form-group v-if="hasNumberTeenagers">
+        <form-text-field 
+          type="text"
+          v-model="form.number_teenagers" 
+          :error="errors.number_teenagers"
+          @update:error="errors.number_teenagers = $event"
+          :placeholder="errors.number_teenagers ? errors.number_teenagers : 'Anzahl Jugendliche *'"
+          label="Anzahl Jugendliche"
+          aria-label="Anzahl Jugendliche"
+        />
+      </form-group>
+      <form-group v-if="hasNumberKids">
+        <form-text-field
+          v-model="form.number_kids"
+          :error="errors.number_kids"
+          @update:error="errors.number_kids = $event"
+          :placeholder="errors.number_kids ? errors.number_kids : 'Anzahl Kinder *'"
+          label="Anzahl Kinder"
+          aria-label="Anzahl Kinder"
+        />
+      </form-group>
+    </template>
 
     <form-group v-if="hasRemarks">
       <form-textarea-field
@@ -216,6 +230,7 @@ const hasLocation = ref(false);
 const requiresLocation = ref(false);
 const hasRemarks = ref(false);
 const requiresRemarks = ref(false);
+const hasNumberPeople = ref(false);
 const hasNumberAdults = ref(false);
 const hasNumberTeenagers = ref(false);
 const hasNumberKids = ref(false);
@@ -258,6 +273,13 @@ const errors = ref({
 });
 
 // Watch for non-numeric values
+watch(() => form.value.number_people, (newValue) => {
+  if (newValue === null || newValue === '') return;
+  if (isNaN(newValue) || newValue == 0) {
+    form.value.number_people = '1';
+  }
+});
+
 watch(() => form.value.number_adults, (newValue) => {
   if (newValue === null || newValue === '') return;
   if (isNaN(newValue) || newValue == 0) {
@@ -309,6 +331,7 @@ onMounted(async () => {
     hasRemarks.value = response.data.has_remarks;
     requiresRemarks.value = response.data.requires_remarks;
     hasNumberAdults.value = response.data.has_number_adults;
+    hasNumberPeople.value = response.data.has_number_people;
     hasNumberTeenagers.value = response.data.has_number_teenagers;
     hasNumberKids.value = response.data.has_number_kids;
   } 
@@ -321,7 +344,6 @@ async function submitForm() {
   isSubmitting.value = true;
   formSuccess.value = false;
   formError.value = false;
-  form.value.number_people = Number(form.value.number_adults || 0) + Number(form.value.number_teenagers || 0) + Number(form.value.number_kids || 0);
   try {
     const response = await axios.post('/api/event/register', {
       ...form.value
@@ -344,6 +366,7 @@ function handleSuccess() {
     zip: null,
     location: null,
     remarks: null,
+    number_people: null,
     number_adults: null,
     number_teenagers: null,
     number_kids: null,
@@ -361,6 +384,7 @@ function handleSuccess() {
     zip: '',
     location: '',
     remarks: '',
+    number_people: '',
     number_adults: '',
     number_teenagers: '',
     number_kids: '',

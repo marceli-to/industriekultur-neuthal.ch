@@ -66,6 +66,13 @@
     </div>
     <br>
   @endif
+  @if ($data['number_people'])
+    <div class="text-base">
+      <strong>Anzahl Personen</strong><br>
+      {{ $data['number_people'] }}
+    </div>
+    <br>
+  @endif
   @if ($data['number_adults'])
     <div class="text-base">
       <strong>Anzahl Erwachsene</strong><br>
