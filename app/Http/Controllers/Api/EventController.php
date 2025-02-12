@@ -59,7 +59,7 @@ class EventController extends Controller
     $data = [
       'title' => $event->title,
       'event_id' => $event->id,
-      'date' => $event->event_date->format('d.m.Y'),
+      'event_date' => $event->event_date->format('d.m.Y'),
       'salutation' => $request->input('salutation') ?? null,
       'name' => $request->input('name') ?? null,
       'firstname' => $request->input('firstname') ?? null,
@@ -236,6 +236,7 @@ class EventController extends Controller
     $registrations = Entry::query()
       ->where('collection', 'event_registrations')
       ->where('event_id', $event->id)
+      ->whereNotIn('state', ['waitinglist', 'cancelled'])
       ->get();
     $openSeats = $event->number_open_seats - $registrations->sum('number_people');
     return $openSeats > 0 ? true : false;

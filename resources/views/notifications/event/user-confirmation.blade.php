@@ -14,7 +14,7 @@
   <br>
   <div class="text-base">
     <strong>Datum</strong><br>
-    {{ $data['date'] }}
+    {{ $data['event_date'] }}
   </div>
   <br>
   @if ($data['firstname'])
@@ -91,6 +91,13 @@
     <div class="text-base">
       <strong>Kosten</strong><br>
       CHF {{ number_format($data['cost_total'], 2, '.', '') }}
+    </div>
+    <br>
+  @endif
+  @if (isset($data['state']) && $data['state'] === 'waitinglist')
+    <div class="text-base">
+      <strong>Status</strong><br>
+      Sie sind zur Zeit auf der Warteliste.
     </div>
     <br>
   @endif

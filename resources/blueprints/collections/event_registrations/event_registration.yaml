@@ -11,6 +11,13 @@ tabs:
               required: true
               validate:
                 - required
+              visibility: read_only
+          -
+            handle: event_date
+            field:
+              type: date
+              display: Datum
+              visibility: read_only
           -
             handle: salutation
             field:

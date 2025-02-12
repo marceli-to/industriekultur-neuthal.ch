@@ -1,5 +1,5 @@
 <template>
-  <div class="font-calibre-semi font-semibold text-forest text-sm my-10 lg:my-20">
+  <div class="font-calibre-semi font-semibold bg-forest text-white text-sm p-10 pb-7 leading-none fixed top-10 left-10 z-[200]">
     <slot></slot>
   </div>
 </template>
