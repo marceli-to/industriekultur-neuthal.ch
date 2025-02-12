@@ -2,7 +2,7 @@
   {{ partial:layout/inner }}
 
     {{ partial:components/headings/h2 class="!text-base lg:!text-md mb-10 lg:mb-15"  }}
-      {{ event_date iso_format="dddd, Do MMMM YYYY" }}, {{ time_start | format="H.s" }}{{ if time_end }} – {{ time_end | format="H.s" }}{{ /if }} Uhr
+      {{ event_date iso_format="dddd, Do MMMM YYYY" }}, {{ time_start | format="H.i" }}{{ if time_end }} – {{ time_end | format="H.i" }}{{ /if }} Uhr
     {{ /partial:components/headings/h2 }}
 
     {{ partial:components/headings/h1 class="mb-5 md:mb-15"  }}

@@ -10,7 +10,7 @@
       title="{{ title }}"
       class="!no-underline">
       <span class="block mb-2 lg:mb-5">
-        {{ time_start | format="H.s" }}{{ if time_end }} – {{ time_end | format="H.s" }}{{ /if }} Uhr
+        {{ time_start | format="H.i" }}{{ if time_end }} – {{ time_end | format="H.i" }}{{ /if }} Uhr
       </span>
       {{ partial:components/headings/h3 class="lg:mb-5 !text-ember text-base lg:text-md" }}
         {{ title }}
