@@ -256,7 +256,7 @@ class EventController extends Controller
     $registrations = Entry::query()
       ->where('collection', 'event_registrations')
       ->where('event_id', $event->id)
-      ->whereNotIn('state', ['cancelled'])
+      ->whereNotIn('state', ['cancelled', 'partially-cancelled'])
       ->get();
     $openSeats = $event->number_open_seats - $registrations->sum('total_registrations');
     return $openSeats > 0 ? true : false;

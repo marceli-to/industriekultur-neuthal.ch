@@ -19,6 +19,12 @@ tabs:
               display: Datum
               visibility: read_only
           -
+            handle: number_open_seats
+            field:
+              type: text
+              visibility: read_only
+              display: 'Anzahl Plätze'
+          -
             handle: salutation
             field:
               type: text
@@ -111,6 +117,9 @@ tabs:
                 -
                   key: cancelled
                   value: Storniert
+                -
+                  key: partially-cancelled
+                  value: Teilstorniert
               type: select
               display: Status
               clearable: true
