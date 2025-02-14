@@ -104,6 +104,9 @@
       />
     </form-group>
     <template v-if="hasNumberPeople">
+      <div v-if="availableSeatsError" class="text-crimson font-calibre-semi font-semibold">
+        Es sind aktuell nur noch {{ availableSeats }} Plätze verfügbar. Bitte korrigieren Sie die Anzahl der Personen.
+      </div>
       <form-group>
         <form-text-field
           v-model="form.number_people"
@@ -116,6 +119,9 @@
       </form-group>
     </template>
     <template v-else>
+      <div v-if="availableSeatsError" class="text-crimson font-calibre-semi font-semibold">
+        Es {{ availableSeats === 1 ? 'ist' : 'sind' }} aktuell nur noch {{ availableSeats }} {{ availableSeats === 1 ? 'Platz' : 'Plätze' }} verfügbar. Bitte korrigieren Sie die Anzahl der Personen.
+      </div>
       <form-group v-if="hasNumberAdults">
         <form-text-field
           v-model="form.number_adults"
@@ -234,6 +240,8 @@ const hasNumberPeople = ref(false);
 const hasNumberAdults = ref(false);
 const hasNumberTeenagers = ref(false);
 const hasNumberKids = ref(false);
+const availableSeats = ref(0);
+const availableSeatsError = ref(false);
 
 const form = ref({
   event_id: props.eventId,
@@ -274,6 +282,7 @@ const errors = ref({
 
 // Watch for non-numeric values
 watch(() => form.value.number_people, (newValue) => {
+  availableSeatsError.value = false;
   if (newValue === null || newValue === '') return;
   if (isNaN(newValue) || newValue == 0) {
     form.value.number_people = '1';
@@ -281,6 +290,7 @@ watch(() => form.value.number_people, (newValue) => {
 });
 
 watch(() => form.value.number_adults, (newValue) => {
+  availableSeatsError.value = false;
   if (newValue === null || newValue === '') return;
   if (isNaN(newValue) || newValue == 0) {
     form.value.number_adults = '1';
@@ -290,6 +300,7 @@ watch(() => form.value.number_adults, (newValue) => {
 });
 
 watch(() => form.value.number_teenagers, (newValue) => {
+  availableSeatsError.value = false;
   if (newValue === null || newValue === '') return;
   if (isNaN(newValue) || newValue == 0) {
     form.value.number_teenagers = '1';
@@ -299,6 +310,7 @@ watch(() => form.value.number_teenagers, (newValue) => {
 });
 
 watch(() => form.value.number_kids, (newValue) => {
+  availableSeatsError.value = false;
   if (newValue === null || newValue === '') return;
   if (isNaN(newValue) || newValue == 0) {
     form.value.number_kids = '1';
@@ -334,6 +346,7 @@ onMounted(async () => {
     hasNumberPeople.value = response.data.has_number_people;
     hasNumberTeenagers.value = response.data.has_number_teenagers;
     hasNumberKids.value = response.data.has_number_kids;
+    availableSeats.value = response.data.available_seats;
   } 
   catch (error) {
     console.error(error);
@@ -344,6 +357,13 @@ async function submitForm() {
   isSubmitting.value = true;
   formSuccess.value = false;
   formError.value = false;
+
+  if (!verifyAvailability()) {
+    isSubmitting.value = false;
+    availableSeatsError.value = true;
+    return;
+  };
+
   try {
     const response = await axios.post('/api/event/register', {
       ...form.value
@@ -352,6 +372,30 @@ async function submitForm() {
   } catch (error) {
     handleError(error);
   }
+}
+
+function verifyAvailability() {
+
+  // if no seats are available, the registration is immediately successful
+  // because they will be on the waiting list either way
+  // we only need to make sure we don't exceed the available seats
+  if (availableSeats.value == 0) {
+    return true;
+  }
+
+  if (hasNumberPeople.value) {
+    if (form.value.number_people > availableSeats.value) {
+      return false;
+    }
+  }
+  else {
+    // sum number_adults, number_teenagers, number_kids
+    const sum = Number(form.value.number_adults) + Number(form.value.number_teenagers) + Number(form.value.number_kids);
+    if (sum > availableSeats.value) {
+      return false;
+    }
+  }
+  return true;
 }
 
 function handleSuccess() {

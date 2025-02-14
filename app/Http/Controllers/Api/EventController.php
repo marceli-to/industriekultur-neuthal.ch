@@ -18,6 +18,7 @@ class EventController extends Controller
     return response()->json([
       'title' => $event->title,
       'has_open_seats' => $this->hasOpenSeats($event),
+      'available_seats' => $this->getOpenSeats($event),
       'has_salutation' => $event->has_salutation,
       'requires_salutation' => $event->requires_salutation,
       'has_name' => $event->has_name,
@@ -261,5 +262,16 @@ class EventController extends Controller
       ->get();
     $openSeats = $event->number_open_seats - $registrations->sum('total_registrations');
     return $openSeats > 0 ? true : false;
+  }
+
+  protected function getOpenSeats($event)
+  {
+    $registrations = Entry::query()
+      ->where('collection', 'event_registrations')
+      ->where('event_id', $event->id)
+      ->whereNotIn('state', ['cancelled', 'partially-cancelled'])
+      ->get();
+      
+    return $event->number_open_seats - $registrations->sum('total_registrations');
   }
 }
