@@ -59,6 +59,7 @@ class EventController extends Controller
     // build data
     $data = [
       'title' => $event->title,
+      'number_open_seats' => $event->number_open_seats,
       'event_id' => $event->id,
       'event_date' => $event->event_date->format('d.m.Y'),
       'salutation' => $request->input('salutation') ?? null,
