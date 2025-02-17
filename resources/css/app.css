@@ -117,7 +117,7 @@ h3 {
 }
 
 .line-position-top {
-  @apply top-[280px] xl:top-[360px] 2xl:top-[440px]
+  @apply top-[280px] xl:top-[360px] 2xl:top-[440px] 3xl:top-[520px] 4xl:top-[600px]
 }
 
 .line-position-center {
