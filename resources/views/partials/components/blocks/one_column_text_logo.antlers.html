@@ -23,11 +23,11 @@
                       class="md:col-span-1"
                       target="{{ link_logo | is_external_url ? '_blank' : '_self' }}"
                       title="{{ title_logo ?? '' }}">
-                      <img src="{{ image_logo }}" width="400" height="250" title="{{ title_logo ?? '' }}" />
+                      <img src="{{ image_logo }}" width="400" height="250" alt="{{ title_logo ?? '' }}" />
                     </a>
                   {{ else }}
                     <figure class="md:col-span-1">
-                      <img src="{{ image_logo }}" width="400" height="250" class="w-full h-auto aspect-[16/10]" title="{{ title_logo ?? '' }}" />
+                      <img src="{{ image_logo }}" width="400" height="250" class="w-full h-auto aspect-[16/10]" alt="{{ title_logo ?? '' }}" />
                     </figure>
                   {{ /if }}
                 {{ /logos }}
