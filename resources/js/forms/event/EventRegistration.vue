@@ -104,7 +104,7 @@
       />
     </form-group>
     <template v-if="hasNumberPeople">
-      <div v-if="availableSeatsError && !hasOpenSeats" class="text-crimson font-calibre-semi font-semibold">
+      <div v-if="availableSeatsError && hasOpenSeats" class="text-crimson font-calibre-semi font-semibold">
         Es sind aktuell nur noch {{ availableSeats }} Plätze verfügbar. Bitte korrigieren Sie die Anzahl der Personen.
       </div>
       <form-group>
@@ -119,7 +119,7 @@
       </form-group>
     </template>
     <template v-else>
-      <div v-if="availableSeatsError && !hasOpenSeats" class="text-crimson font-calibre-semi font-semibold">
+      <div v-if="availableSeatsError && hasOpenSeats" class="text-crimson font-calibre-semi font-semibold">
         Es {{ availableSeats === 1 ? 'ist' : 'sind' }} aktuell nur noch {{ availableSeats }} {{ availableSeats === 1 ? 'Platz' : 'Plätze' }} verfügbar. Bitte korrigieren Sie die Anzahl der Personen.
       </div>
       <form-group v-if="hasNumberAdults">
