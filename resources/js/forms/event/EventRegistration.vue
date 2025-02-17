@@ -1,5 +1,5 @@
 <template>
-  <template v-if="!hasOpenSeats">
+  <template v-if="!hasOpenSeats && isLoaded">
     <waiting-list-alert>
       Zur Zeit ist das Limit für diese Veranstaltung erreicht. Sie können sich aber dennoch auf die Warteliste setzen lassen.
     </waiting-list-alert>
