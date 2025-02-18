@@ -8,9 +8,11 @@
             {{ if contact_information:address }}
               <address class="not-italic">
                 {{ if contact_information:google_maps_url }}
-                  <a href="{{ contact_information:address }}" target="_blank" title="Auf Google Maps anzeigen">
+                  <a href="{{ contact_information:google_maps_url }}" target="_blank" title="Auf Google Maps anzeigen">
                     {{ contact_information:address | nl2br }}
                   </a>
+                {{ else }}
+                  {{ contact_information:address | nl2br }}
                 {{ /if }}
               </address>
             {{ /if }}
