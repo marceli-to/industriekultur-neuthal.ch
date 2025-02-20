@@ -41,7 +41,7 @@ main li {
 }
 
 main article iframe {
-  @apply w-full h-auto aspect-[16/10]
+  @apply w-full h-auto aspect-[4/3]
 }
 
 b, strong {
