@@ -16,7 +16,7 @@
   </template>
   <form 
     @submit.prevent="submitForm" 
-    class="space-y-10 lg:space-y-25"
+    class="space-y-10 lg:space-y-20"
     v-if="isLoaded">
     <form-group v-if="hasSalutation">
       <form-text-field 
@@ -122,12 +122,15 @@
       <div v-if="availableSeatsError" class="text-crimson font-calibre-semi font-semibold">
         Es {{ availableSeats === 1 ? 'ist' : 'sind' }} aktuell nur noch {{ availableSeats }} {{ availableSeats === 1 ? 'Platz' : 'Plätze' }} verfügbar. Bitte korrigieren Sie die Anzahl der Personen.
       </div>
+      <div class="font-calibre-semi font-semibold">
+        Bitte nur zutreffende Felder ausfüllen und die anderen leer lassen.
+      </div>
       <form-group v-if="hasNumberAdults">
         <form-text-field
           v-model="form.number_adults"
           :error="errors.number_adults"
           @update:error="errors.number_adults = $event"
-          :placeholder="errors.number_adults ? errors.number_adults : 'Anzahl Erwachsene *'"
+          :placeholder="errors.number_adults ? errors.number_adults : 'Anzahl Erwachsene'"
           label="Anzahl Erwachsene"
           aria-label="Anzahl Erwachsene"
         />
@@ -138,7 +141,7 @@
           v-model="form.number_teenagers" 
           :error="errors.number_teenagers"
           @update:error="errors.number_teenagers = $event"
-          :placeholder="errors.number_teenagers ? errors.number_teenagers : 'Anzahl Jugendliche *'"
+          :placeholder="errors.number_teenagers ? errors.number_teenagers : 'Anzahl Jugendliche'"
           label="Anzahl Jugendliche"
           aria-label="Anzahl Jugendliche"
         />
@@ -148,7 +151,7 @@
           v-model="form.number_kids"
           :error="errors.number_kids"
           @update:error="errors.number_kids = $event"
-          :placeholder="errors.number_kids ? errors.number_kids : 'Anzahl Kinder *'"
+          :placeholder="errors.number_kids ? errors.number_kids : 'Anzahl Kinder'"
           label="Anzahl Kinder"
           aria-label="Anzahl Kinder"
         />
