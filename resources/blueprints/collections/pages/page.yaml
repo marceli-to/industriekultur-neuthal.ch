@@ -190,6 +190,16 @@ tabs:
                       instructions: 'ZVV Fahrplan hinzufügen'
                       icon: addon-boxes-stack
                       fields: {  }
+                    code:
+                      display: Code
+                      instructions: 'Code hinzufügen'
+                      icon: addon-boxes-stack
+                      fields:
+                        -
+                          handle: code
+                          field:
+                            type: textarea
+                            display: Code
   grafic_elements:
     display: 'Grafische Elemente'
     sections:

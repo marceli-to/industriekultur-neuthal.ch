@@ -131,3 +131,12 @@ h3 {
 .line-position-bottom {
   @apply bottom-0
 }
+
+
+/* Privacy bee */
+.prx_wrapper * {
+  @apply !text-black !leading-[1.2];
+}
+.prx_list {
+  @apply !m-0 !mb-16 !p-0 !list-none;
+}
