@@ -104,6 +104,13 @@
     </div>
     <br>
   @endif
+  @if ($data['remarks'])
+    <div class="text-base">
+      <strong>Bemerkungen</strong><br>
+      {{ nl2br($data['remarks']) }}
+    </div>
+    <br>
+  @endif
   <footer>
     <br>Museum Neuthal<br>Textil- & Industriekultur<br>Im Neuthal 6<br>8344 Bäretswil
   </footer>

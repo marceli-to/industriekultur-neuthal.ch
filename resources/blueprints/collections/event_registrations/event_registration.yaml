@@ -85,6 +85,11 @@ tabs:
               type: text
               display: 'Anzahl Kinder'
           -
+            handle: remarks
+            field:
+              type: textarea
+              display: Bemerkungen
+          -
             handle: cost_adults
             field:
               type: text
@@ -129,6 +134,17 @@ tabs:
               type: text
               display: 'Total Anmeldungen'
               instructions: 'Summe der Anmeldungen (Personen oder Erwachsene, Jugendliche und Kinder)'
+  internal:
+    display: Intern
+    sections:
+      -
+        display: Intern
+        fields:
+          -
+            handle: notes
+            field:
+              type: textarea
+              display: Notizen
   sidebar:
     display: Sidebar
     sections:

@@ -108,4 +108,11 @@
     </div>
     <br>
   @endif
+  @if ($data['remarks'])
+    <div class="text-base">
+      <strong>Bemerkungen</strong><br>
+      {{ nl2br($data['remarks']) }}
+    </div>
+    <br>
+  @endif
 </x-mail::message>
