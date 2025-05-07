@@ -8,6 +8,7 @@
         {{ teaser_title }}
       {{ /partial:components/headings/h2 }}
     {{ /if }}
+
     {{ collection:events as="events" sort="event_date:asc" query_scope="upcoming_scope" limit="{{ limit ? 3 : null }}" }}
       {{ if events }}
         {{ events }}
