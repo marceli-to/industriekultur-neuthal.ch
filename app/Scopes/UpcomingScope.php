@@ -16,8 +16,9 @@ class UpcomingScope extends Scope
    */
   public function apply($query, $values)
   {
-    $todayFormatted = Carbon::today()->format('F jS, Y'); // e.g. "May 7th, 2025"
-    return $query->where('event_date', '>=', $todayFormatted);
+    // $todayFormatted = Carbon::today()->format('F jS, Y'); // e.g. "May 7th, 2025"
+    // return $query->where('event_date', '>=', $todayFormatted);
+    return $query->where('event_date', '>=', Carbon::today()->toDateString());
   }
 }
 
