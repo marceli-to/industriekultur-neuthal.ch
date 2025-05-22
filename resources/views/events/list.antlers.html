@@ -9,22 +9,26 @@
       {{ /partial:components/headings/h2 }}
     {{ /if }}
 
-    {{ collection:events as="events" sort="event_date:asc" event_date:is_after="{now modify_date='-1 day' format='Y-m-d'}" limit="{{ limit ? 3 : null }}" }}
-      {{ if events }}
-        {{ events }}
-          {{ partial:events/item }}
-        {{ /events }}
-      {{ /if }}
-    {{ /collection:events }}
-
-    {{ if limit }}
-      {{ collection:events as="all_upcoming_events" sort="event_date:asc" event_date:is_after="{now modify_date='-1 day' format='Y-m-d'}" }}
-        {{ if all_upcoming_events | count > 3 }}
-          <div class="flex justify-center mt-40">
-            {{ partial:components/buttons/secondary  label="Weitere Veranstaltungen anzeigen" url="/veranstaltungen" }}
-          </div>
+    {{ nocache }}
+      {{ collection:events as="events" sort="event_date:asc" event_date:is_after="{now modify_date='-1 day' format='Y-m-d'}" limit="{{ limit ? 3 : null }}" }}
+        {{ if events }}
+          {{ events }}
+            {{ partial:events/item }}
+          {{ /events }}
         {{ /if }}
       {{ /collection:events }}
+    {{ /nocache }}
+
+    {{ if limit }}
+      {{ nocache }}
+        {{ collection:events as="all_upcoming_events" sort="event_date:asc" event_date:is_after="{now modify_date='-1 day' format='Y-m-d'}" }}
+          {{ if all_upcoming_events | count > 3 }}
+            <div class="flex justify-center mt-40">
+              {{ partial:components/buttons/secondary  label="Weitere Veranstaltungen anzeigen" url="/veranstaltungen" }}
+            </div>
+          {{ /if }}
+        {{ /collection:events }}
+      {{ /nocache }}
     {{ /if }}
     
   {{ /partial:layout/inner }}
