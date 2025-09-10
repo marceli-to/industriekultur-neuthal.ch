@@ -1,0 +1,30 @@
+title: Textfarbselektor
+fields:
+  -
+    handle: hero_theme
+    field:
+      type: select
+      display: Textfarbe
+      options:
+        -
+          key: hero-theme-white
+          value: Weiss
+        -
+          key: hero-theme-sky
+          value: Hellblau
+        -
+          key: hero-theme-cloud
+          value: Blau
+        -
+          key: hero-theme-midnight
+          value: Dunkelblau
+        -
+          key: hero-theme-mint
+          value: Hellgrün
+        -
+          key: hero-theme-peach
+          value: Hellorange
+        -
+          key: hero-theme-blush
+          value: Rosa
+      clearable: true

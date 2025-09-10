@@ -1,15 +1,15 @@
 {{ partial:layout/outer  }}
   {{ partial:layout/inner }}
-    <div class="wavy-border theme-mint px-25 lg:px-45 pt-30 lg:pt-35 ">
+    <div class="wavy-border {{ hero_theme ?? 'hero-theme-mint' }} px-25 lg:px-45 pt-30 lg:pt-35 ">
       {{ partial:layout/grid }}
-        <div class="md:col-span-6 pb-20 lg:pb-35">
+        <div class="md:col-span-6 md:pb-20 lg:pb-35">
           {{ if teaser_title }}
-            {{ partial:components/headings/h2 class="!text-forest"}}
+            {{ partial:components/headings/h2 }}
               {{ teaser_title }}
             {{ /partial:components/headings/h2 }}
           {{ /if }}
           {{ if teaser_subtitle }}
-            {{ partial:components/headings/h3 class="!text-forest text-pretty mb-10 lg:mb-25"}}
+            {{ partial:components/headings/h3 class="text-pretty mb-10 lg:mb-25"}}
               {{ teaser_subtitle }}
             {{ /partial:components/headings/h3 }}
           {{ /if }}
@@ -24,9 +24,9 @@
           </div>
         </div>
         {{ if teaser_image }}
-        <div class="md:col-span-6 md:flex md:justify-end md:w-full">
-          {{ partial:media/image class="w-full h-auto" wrapperClass="max-w-[90%]" :image="teaser_image" }}
-        </div>
+          <div class="md:col-span-6 md:flex md:justify-end {{ image_alignment == 'top' ? 'md:items-start pb-25' : 'md:items-end' }} md:w-full">
+            {{ partial:media/image class="w-full h-auto" wrapperClass="max-w-[90%]" :image="teaser_image" }}
+          </div>
         {{ /if }}
       {{ /partial:layout/grid }}
     </div>

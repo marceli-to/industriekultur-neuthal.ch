@@ -3,6 +3,8 @@ fields:
   -
     import: theme_selector
   -
+    import: hero_theme_selector
+  -
     handle: teaser_title
     field:
       type: text
@@ -32,6 +34,19 @@ fields:
       container: assets
       type: assets
       display: Bild
+  -
+    handle: image_alignment
+    field:
+      options:
+        -
+          key: bottom
+          value: Unten
+        -
+          key: top
+          value: Oben
+      default: bottom
+      type: select
+      display: 'Ausrichtung Bild'
   -
     handle: teaser_url
     field:

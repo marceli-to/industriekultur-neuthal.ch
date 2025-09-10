@@ -31,12 +31,6 @@
   @apply bg-peach;
 }
 
-.theme-peach h1,
-.theme-peach h2,
-.theme-peach h3 {
-  @apply text-ember;
-}
-
 .theme-sky {
   @apply bg-sky;
 }
@@ -47,12 +41,17 @@
   @apply text-midnight;
 }
 
+.theme-peach h1,
+.theme-peach h2,
+.theme-peach h3 {
+  @apply text-ember;
+}
+
 .theme-cloud h1,
 .theme-cloud h2,
 .theme-cloud h3 {
   @apply text-midnight;
 }
-
 
 .theme-blush {
   @apply bg-blush;
@@ -109,3 +108,91 @@
 .theme-vanilla + .theme-vanilla,
 .theme-white + .theme-white { @apply !pt-0; }
 
+.hero-theme-white,
+.hero-theme-white h1,
+.hero-theme-white h2,
+.hero-theme-white h3 {
+  @apply text-black;
+}
+
+.hero-theme-mint {
+  @apply bg-mint;
+}
+
+.hero-theme-mint {
+  @apply !text-black;
+}
+
+.hero-theme-mint h1,
+.hero-theme-mint h2,
+.hero-theme-mint h3 {
+  @apply !text-forest;
+}
+
+.hero-theme-peach {
+  @apply bg-peach;
+}
+
+.hero-theme-peach {
+  @apply !text-black;
+}
+
+.hero-theme-peach h1,
+.hero-theme-peach h2,
+.hero-theme-peach h3 {
+  @apply !text-ember;
+}
+
+.hero-theme-vanilla {
+  @apply !bg-vanilla;
+}
+
+.hero-theme-vanilla,
+.hero-theme-vanilla h1,
+.hero-theme-vanilla h2,
+.hero-theme-vanilla h3 {
+  @apply !text-black;
+}
+
+.hero-theme-sky {
+  @apply !bg-sky;
+}
+
+.hero-theme-sky,
+.hero-theme-sky h1,
+.hero-theme-sky h2,
+.hero-theme-sky h3 {
+  @apply !text-midnight;
+}
+
+.hero-theme-cloud {
+  @apply bg-cloud;
+}
+
+.hero-theme-cloud,
+.hero-theme-cloud h1,
+.hero-theme-cloud h2,
+.hero-theme-cloud h3 {
+  @apply !text-midnight;
+}
+
+.hero-theme-midnight {
+  @apply !bg-midnight;
+}
+
+.hero-theme-midnight,
+.hero-theme-midnight h1,
+.hero-theme-midnight h2,
+.hero-theme-midnight h3 {
+  @apply !text-white;
+}
+
+.hero-theme-blush {
+  @apply !bg-blush;
+}
+
+.hero-theme-blush h1,
+.hero-theme-blush h2,
+.hero-theme-blush h3 {
+  @apply !text-black;
+}
