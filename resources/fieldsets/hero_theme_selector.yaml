@@ -4,7 +4,7 @@ fields:
     handle: hero_theme
     field:
       type: select
-      display: Textfarbe
+      display: Hintergrund-/Textfarbe
       options:
         -
           key: hero-theme-white
