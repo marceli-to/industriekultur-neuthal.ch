@@ -27,4 +27,7 @@ fields:
         -
           key: hero-theme-blush
           value: Rosa
+        -
+          key: hero-theme-vanilla
+          value: Gelb
       clearable: true
