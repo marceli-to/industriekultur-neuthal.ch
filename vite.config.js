@@ -4,6 +4,12 @@ import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 
 export default defineConfig({
+  server: {
+    cors: true,
+    hmr: {
+      host: 'localhost',
+    },
+  },
   resolve: {
     alias: {
       img: resolve('resources/img'),

@@ -81,6 +81,7 @@ class EventController extends Controller
       'cost_kids' => $request->input('number_kids') && $event->chargeable ? $event->cost_kids * $request->input('number_kids') : null,
       'remarks' => $request->input('remarks') ?? null,
       'state' => !$this->hasOpenSeats($event) ? 'waitinglist' : null,
+      'registration_date' => now()->format('Y-m-d'),
     ];
 
     // Set total cost if chargeable

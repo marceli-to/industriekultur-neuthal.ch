@@ -1,0 +1,26 @@
+{{ partial:layout/outer }}
+  {{ partial:layout/inner }}
+
+    {{ if anchor_name }}
+      {{ partial:components/blocks/anchor }}
+    {{ /if }}
+
+    {{ if title }}
+      {{ partial:components/headings/h2 class="mb-15 lg:mb-25"  }}
+        {{ title }}
+      {{ /partial:components/headings/h2 }}
+    {{ /if }}
+    {{ partial:layout/grid }}
+      {{ if iframe_left }}
+        <div class="md:col-span-full 2xl:col-span-6">
+          {{ iframe_left }}
+        </div>
+      {{ /if }}
+      {{ if iframe_right }}
+        <div class="md:col-span-full 2xl:col-span-6">
+          {{ iframe_right }}
+        </div>
+      {{ /if }}
+    {{ /partial:layout/grid }}
+  {{ /partial:layout/inner }}
+{{ /partial:layout/outer }}

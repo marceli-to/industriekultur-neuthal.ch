@@ -6,7 +6,7 @@
     class=" w-full pb-10 lg:pb-15 text-left"
     @click="selected !== {{ index }} ? selected = {{ index }} : selected = null;">
     <div class="flex items-center justify-between">
-      <div class="uppercase font-calibre-semi font-semibold text-sm lg:text-base leading-[1.1] !text-black">
+      <div class="uppercase font-calibre-semibold text-sm lg:text-base leading-[1.1] !text-black">
         {{ accordion_row_title }}
       </div>
       <template x-if="selected !== {{ index }}">

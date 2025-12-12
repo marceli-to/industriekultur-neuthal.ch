@@ -1,0 +1,25 @@
+title: Outdoormaps
+fields:
+  -
+    import: theme_selector
+  -
+    import: anchor
+  -
+    handle: title
+    field:
+      type: text
+      display: Titel
+  -
+    handle: iframe_left
+    field:
+      type: textarea
+      display: 'Iframe Code (links)'
+      instructions: 'Iframe-Code hier einfügen'
+      width: 50
+  -
+    handle: iframe_right
+    field:
+      type: textarea
+      display: 'Iframe Code (rechts)'
+      instructions: 'Iframe-Code hier einfügen'
+      width: 50

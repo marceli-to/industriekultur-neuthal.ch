@@ -99,6 +99,7 @@ class PatronController extends Controller
       'zip' => 'required',
       'location' => 'required',
       'email' => 'required|email|regex:/^[^\s@]+@[^\s@]+\.[^\s@]+$/',
+      'newsletter' => 'accepted',
       'privacy' => 'accepted',
     ];
 
@@ -112,6 +113,7 @@ class PatronController extends Controller
       'email.required' => 'E-Mail ist erforderlich',
       'email.email' => 'E-Mail muss gültig sein',
       'email.regex' => 'E-Mail muss gültig sein',
+      'newsletter.accepted' => 'Newsletter muss akzeptiert werden',
       'privacy.accepted' => 'Die Datenschutzbestimmungen müssen akzeptiert werden',
     ];
     

@@ -1,5 +1,5 @@
 <article class="border-t border-black pt-10 lg:pt-15 flex gap-x-20 lg:gap-x-30 mb-20 lg:mb-30 last-of-type:mb-0 relative before:content-[''] before:block before:absolute before:-top-2 before:left-0 before:h-3 before:w-80 before:lg:w-115 before:bg-black">
-  <div class="w-80 lg:w-115 mt-1 font-calibre-semi font-semiboldbold text-ember leading-[1.2] shrink-0">
+  <div class="w-80 lg:w-115 mt-1 font-calibre-semibold text-ember leading-[1.2] shrink-0">
     <span class="block lg:mb-3">{{ event_date iso_format="dddd" }}</span>
     <span class="block text-base lg:text-md">{{ event_date iso_format="DD MMM" }}.</span>
     <span class="block">{{ event_date iso_format="YYYY" }}</span>
@@ -12,10 +12,10 @@
       <span class="block mb-2 lg:mb-5">
         {{ time_start | format="H.i" }}{{ if time_end }} – {{ time_end | format="H.i" }}{{ /if }} Uhr
       </span>
-      <span class="font-calibre-semi font-semibold leading-[1.1] mb-5 !text-ember text-sm lg:text-md">
+      <span class="font-calibre-semibold leading-[1.1] mb-5 !text-ember text-sm lg:text-md">
         {{ title }}
       </span>
-      <p class="font-calibre-semi font-semibold text-pretty max-w-prose">
+      <p class="font-calibre-semibold text-pretty max-w-prose">
         {{ subtitle }}
       </p>
     </a>

@@ -45,7 +45,7 @@ main article iframe {
 }
 
 b, strong {
-  @apply font-calibre-bold font-bold
+  @apply font-calibre-bold
 }
 
 table td {
@@ -54,11 +54,11 @@ table td {
 
 /* Headings */
 h1, h2 {
-  @apply font-calibre-bold font-bold;
+  @apply font-calibre-bold;
 }
 
 h3 {
-  @apply font-calibre-semi font-semibold mb-5 text-sm lg:text-md;
+  @apply font-calibre-semibold mb-5 text-sm lg:text-md;
 }
 
 /* Helpers */

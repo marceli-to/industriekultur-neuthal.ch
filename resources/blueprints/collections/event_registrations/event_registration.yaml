@@ -13,6 +13,12 @@ tabs:
                 - required
               visibility: read_only
           -
+            handle: registration_date
+            field:
+              type: date
+              display: Anmeldedatum
+              visibility: read_only
+          -
             handle: event_date
             field:
               type: date

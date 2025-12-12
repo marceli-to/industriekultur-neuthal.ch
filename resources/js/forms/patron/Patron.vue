@@ -90,9 +90,11 @@
     <form-group class="gap-y-10 flex flex-col">
       <form-checkbox
         v-model="form.newsletter"
+        :error="errors.newsletter"
+        @update:error="errors.newsletter = $event"
         id="newsletter-patron"
         name="newsletter"
-        label="Ja, ich möchte mich für den Newsletter anmelden."
+        label="Ich freue mich auf den Newsletter und Gönner-Newsletter, um informiert zu sein.*"
       />
       <form-checkbox
         v-model="form.privacy"

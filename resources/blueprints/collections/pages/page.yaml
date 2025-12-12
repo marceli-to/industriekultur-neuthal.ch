@@ -143,6 +143,13 @@ tabs:
                       fields:
                         -
                           import: video
+                    outdoormaps:
+                      display: Outdoormaps
+                      instructions: 'Outdoormaps hinzufügen'
+                      icon: map-pin
+                      fields:
+                        -
+                          import: outdoormaps
                     special_teaser:
                       display: Spezialteaser
                       instructions: 'Spezialteaser (z.b. Sonderausstellung) hinzufügen'

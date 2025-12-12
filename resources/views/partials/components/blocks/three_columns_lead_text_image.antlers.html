@@ -13,7 +13,7 @@
       {{ if lead || editor }}
         <div class="md:col-span-6 lg:col-span-8 md:grid md:grid-cols-subgrid md:gap-x-20 {{ mirrored ? 'md:order-2' : ''}}">
           {{ if lead }}
-            <article class="text-pretty font-calibre-bold font-bold md:col-span-6 lg:col-span-4 {{ mirrored ? 'md:order-2' : ''}}">
+            <article class="text-pretty font-calibre-bold md:col-span-6 lg:col-span-4 {{ mirrored ? 'md:order-2' : ''}}">
               {{ lead | nl2br }}
             </article>
           {{ /if }}
