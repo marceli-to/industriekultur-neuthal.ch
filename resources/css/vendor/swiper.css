@@ -3,5 +3,5 @@
 }
 
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
-  @apply !bg-lemon !opacity-100;
+  @apply !bg-vanilla !opacity-100;
 }

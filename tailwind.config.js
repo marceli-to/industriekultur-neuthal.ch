@@ -25,22 +25,17 @@ export default {
       },
 
       colors: {
-        'midnight': '#002257',
-        'forest': '#003D04',
-        'mint': '#C3E0BC',
-        'ember': '#ED6200',
-        'peach': '#FDE3C1',
-        'sky': '#C3E7F9',
-        'cloud': '#cfd0df',
-        'blush': '#F4DFD9',
-        'crimson': '#BB012E',
-        'lemon': '#DFE896',
-        'pine': '#00514A',
-        'mist': '#D5E2E1',
-        'pink': '#F5AFBF',
-        'apricot': '#F5AB8E',
-        'vanilla': '#FFF6A9',
-      },      
+        'ember': '#ee6300', // Orange
+        'peach': '#fee4c2', // Hellorange
+        'midnight': '#00355f', // Dunkelblau
+        'sky': '#ccd4e3', // Linablau
+        'forest': '#003D04', // Dunkelgrün
+        'mint': '#c4e1bd', // Hellgrün
+        'blush': '#fcded2', // Hellrosé
+        'mist': '#d5e2e1', // Hellpetrol
+        'cloud': '#ccd4e3', // Wasserkraftblau
+        'vanilla': '#fff0b8', // Hellgelb
+      },
 
       fontFamily: {
         'calibre-bold': ['Calibre-Bold', ...defaultTheme.fontFamily.sans],

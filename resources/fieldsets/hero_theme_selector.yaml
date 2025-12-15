@@ -11,10 +11,10 @@ fields:
           value: Weiss
         -
           key: hero-theme-sky
-          value: Hellblau
+          value: Linablau
         -
           key: hero-theme-cloud
-          value: Blau
+          value: Wasserkraftblau
         -
           key: hero-theme-midnight
           value: Dunkelblau
@@ -26,8 +26,8 @@ fields:
           value: Hellorange
         -
           key: hero-theme-blush
-          value: Rosa
+          value: Hellrosé
         -
           key: hero-theme-vanilla
-          value: Gelb
+          value: Hellgelb
       clearable: true

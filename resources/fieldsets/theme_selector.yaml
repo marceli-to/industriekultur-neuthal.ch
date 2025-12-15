@@ -10,45 +10,24 @@ fields:
           key: theme-white
           value: Weiss
         -
+          key: theme-peach
+          value: Hellorange
+        -
           key: theme-sky
-          value: Hellblau
+          value: Linablau
         -
           key: theme-cloud
-          value: Blau
-        -
-          key: theme-midnight
-          value: Dunkelblau
+          value: Wasserkraftblau
         -
           key: theme-mint
           value: Hellgrün
         -
-          key: theme-forest
-          value: Dunkelgrün
-        -
-          key: theme-pine
-          value: Grünblau
-        -
-          key: theme-mist
-          value: Grüngrau
-        -
-          key: theme-apricot
-          value: Orange
-        -
-          key: theme-peach
-          value: Hellorange
-        -
-          key: theme-ember
-          value: Dunkelorange
-        -
-          key: theme-crimson
-          value: Rot
-        -
-          key: theme-blush
-          value: Rosa
-        -
-          key: theme-lemon
+          key: theme-vanilla
           value: Hellgelb
         -
-          key: theme-vanilla
-          value: Gelb
+          key: theme-blush
+          value: Hellrosé
+        -
+          key: theme-mist
+          value: Hellpetrol
       clearable: true

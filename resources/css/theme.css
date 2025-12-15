@@ -1,14 +1,3 @@
-.theme-midnight {
-  @apply bg-midnight;
-}
-
-.theme-forest {
-  @apply bg-forest;
-}
-
-.theme-cloud {
-  @apply bg-cloud;
-}
 
 .theme-mint {
   @apply bg-mint;
@@ -21,10 +10,6 @@
 
 .theme-mint h3 {
   @apply text-forest;
-}
-
-.theme-ember {
-  @apply bg-ember;
 }
 
 .theme-peach {
@@ -41,6 +26,12 @@
   @apply text-midnight;
 }
 
+.theme-cloud h1,
+.theme-cloud h2,
+.theme-cloud h3 {
+  @apply text-midnight;
+}
+
 .theme-peach h1,
 .theme-peach h2,
 .theme-peach h3 {
@@ -53,28 +44,18 @@
   @apply text-midnight;
 }
 
+.theme-vanilla h1,
+.theme-vanilla h2,
+.theme-vanilla h3 {
+  @apply text-black;
+}
+
 .theme-blush {
   @apply bg-blush;
 }
 
-.theme-crimson {
-  @apply bg-crimson;
-}
-
-.theme-lemon {
-  @apply bg-lemon;
-}
-
-.theme-pine {
-  @apply bg-pine;
-}
-
 .theme-mist {
   @apply bg-mist;
-}
-
-.theme-apricot {
-  @apply bg-apricot;
 }
 
 .theme-vanilla {
@@ -93,18 +74,13 @@
   @apply text-ember;
 }
 
-.theme-midnight + .theme-midnight,
-.theme-forest + .theme-forest,
 .theme-mint + .theme-mint,
 .theme-ember + .theme-ember,
 .theme-peach + .theme-peach,
 .theme-sky + .theme-sky,
+.theme-cloud + .theme-cloud,
 .theme-blush + .theme-blush,
-.theme-crimson + .theme-crimson,
-.theme-lemon + .theme-lemon,
-.theme-pine + .theme-pine,
 .theme-mist + .theme-mist,
-.theme-apricot + .theme-apricot,
 .theme-vanilla + .theme-vanilla,
 .theme-white + .theme-white { @apply !pt-0; }
 
@@ -162,6 +138,17 @@
 .hero-theme-sky h1,
 .hero-theme-sky h2,
 .hero-theme-sky h3 {
+  @apply !text-midnight;
+}
+
+.hero-theme-cloud {
+  @apply !bg-sky;
+}
+
+.hero-theme-cloud,
+.hero-theme-cloud h1,
+.hero-theme-cloud h2,
+.hero-theme-cloud h3 {
   @apply !text-midnight;
 }
 
