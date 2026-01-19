@@ -33,7 +33,7 @@ export default {
         'mint': '#c4e1bd', // Hellgrün
         'blush': '#fcded2', // Hellrosé
         'mist': '#d5e2e1', // Hellpetrol
-        'cloud': '#ccd4e3', // Wasserkraftblau
+        'cloud': '#c3e7f9', // Wasserkraftblau
         'vanilla': '#fff0b8', // Hellgelb
       },
 
