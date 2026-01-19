@@ -26,6 +26,10 @@
   @apply text-midnight;
 }
 
+.theme-cloud {
+  @apply bg-cloud;
+}
+
 .theme-cloud h1,
 .theme-cloud h2,
 .theme-cloud h3 {
