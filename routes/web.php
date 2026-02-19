@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Redirects
+Route::redirect('/outdoor365', '/entdecken/outdoor365', 301);
+Route::redirect('/baumwollexpress', '/besuchen/rund-ums-neuthal#baumwollexpress', 301);
+
 Route::statamic('/work/kategorie/{category?}', 'work.index', [
   'layout' => 'layout.default',
   'title' => 'Work',
