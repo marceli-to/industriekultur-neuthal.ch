@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d3386867de52c7709cd31bced8728b8",
+    "content-hash": "afc254a645760a3981bc4022450e852d",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -2852,6 +2852,54 @@
                 }
             ],
             "time": "2025-12-10T09:58:31+00:00"
+        },
+        {
+            "name": "marceli-to/statamic-sync",
+            "version": "v0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marceli-to/statamic-sync.git",
+                "reference": "c9c4a3be16d5b559d679572bc1433defc975e41a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marceli-to/statamic-sync/zipball/c9c4a3be16d5b559d679572bc1433defc975e41a",
+                "reference": "c9c4a3be16d5b559d679572bc1433defc975e41a",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^10.0|^11.0|^12.0",
+                "php": "^8.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MarceliTo\\StatamicSync\\StatamicSyncServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MarceliTo\\StatamicSync\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "marceli-to",
+                    "email": "m@marceli.to"
+                }
+            ],
+            "description": "Sync Statamic content and assets from remote environments to local.",
+            "support": {
+                "issues": "https://github.com/marceli-to/statamic-sync/issues",
+                "source": "https://github.com/marceli-to/statamic-sync/tree/v0.5.0"
+            },
+            "time": "2026-02-19T08:42:13+00:00"
         },
         {
             "name": "markbaker/complex",
