@@ -146,18 +146,7 @@
 }
 
 .hero-theme-cloud {
-  @apply !bg-sky;
-}
-
-.hero-theme-cloud,
-.hero-theme-cloud h1,
-.hero-theme-cloud h2,
-.hero-theme-cloud h3 {
-  @apply !text-midnight;
-}
-
-.hero-theme-cloud {
-  @apply bg-cloud;
+  @apply !bg-cloud;
 }
 
 .hero-theme-cloud,
